@@ -1,41 +1,43 @@
-"use client"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import { useContactModal } from "@/hooks/use-contact-modal"
+"use client";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import { useContactModal } from "@/hooks/use-contact-modal";
 
 const navLinks = [
   { name: "Pricing", href: "#pricing" },
   { name: "Features", href: "#features" },
   { name: "Enterprise", href: "#enterprise" },
   { name: "Blog", href: "#blog" },
-  { name: "Docs", href: "#docs" },
-  { name: "Careers", href: "#careers" },
-]
+];
 
 export default function FloatingNav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { open: openContactModal } = useContactModal()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen]);
 
   return (
     <>
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl">
-        <div className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-4 sm:px-6">
+        <div className="bg-black/80 backdrop-blur-xl rounded-2xl px-4 sm:px-6">
           <div className="flex items-center justify-between h-14">
             {/* Logo on the left */}
             <div className="flex items-center gap-8">
-              <Link href="#" aria-label="Homepage" className="flex items-center gap-2">
+              <Link
+                href="#"
+                aria-label="Homepage"
+                className="flex items-center gap-2"
+              >
                 <Image
                   src="/logo.png"
                   alt="Resilient Brands Logo"
@@ -43,16 +45,18 @@ export default function FloatingNav() {
                   height={38}
                   className=""
                 />
-                <span className="text-white font-semibold text-lg hidden sm:block">Resilient Brands</span>
+                <span className="text-white font-semibold text-lg hidden sm:block">
+                  Resilient Brands
+                </span>
               </Link>
             </div>
 
             {/* Center navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.name} 
-                  href={link.href} 
+                <Link
+                  key={link.name}
+                  href={link.href}
                   className="text-white/80 hover:text-white text-sm font-medium transition-colors"
                 >
                   {link.name}
@@ -62,17 +66,17 @@ export default function FloatingNav() {
 
             {/* Right side actions */}
             <div className="flex items-center gap-4">
-              <Link 
-                href="#signin" 
+              <Link
+                href="#signin"
                 className="hidden md:block text-white/80 hover:text-white text-sm font-medium transition-colors"
               >
-                Sign in
+                Log in
               </Link>
               <Button
                 className="hidden md:inline-flex bg-white text-black hover:bg-white/90 text-sm font-medium px-4 py-2 h-9"
                 onClick={openContactModal}
               >
-                Download
+                Sign Up
               </Button>
 
               {/* Mobile menu button */}
@@ -83,7 +87,11 @@ export default function FloatingNav() {
                 className="lg:hidden text-white hover:bg-white/10"
                 aria-label="Toggle menu"
               >
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {isMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </Button>
             </div>
           </div>
@@ -123,17 +131,17 @@ export default function FloatingNav() {
                     className="text-center text-white/80 hover:text-white transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Sign in
+                    Log in
                   </Link>
                   <Button
                     size="lg"
                     className="w-full bg-white text-black hover:bg-white/90"
                     onClick={() => {
-                      setIsMenuOpen(false)
-                      openContactModal()
+                      setIsMenuOpen(false);
+                      openContactModal();
                     }}
                   >
-                    Download
+                    Sign Up
                   </Button>
                 </div>
               </nav>
@@ -142,5 +150,5 @@ export default function FloatingNav() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

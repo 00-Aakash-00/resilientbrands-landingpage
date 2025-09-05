@@ -4,20 +4,34 @@ import DecryptedText from "@/components/ui/decrypted-text";
 
 export default function HeroSection() {
   return (
-    <header className="relative">
+    <header className="relative bg-black">
       <section
-        className="relative h-screen min-h-[700px] w-full text-white overflow-hidden"
+        className="relative h-screen min-h-[700px] w-full text-white overflow-hidden bg-black"
         aria-label="Hero"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-navy to-navy-light" />
+        {/* Container for the centered background effect - like Cursor */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-[95%] max-w-full h-[87%] mt-10 rounded-3xl overflow-hidden">
+            {/* Background image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: "url(/hero-background.jpg)" }}
+            />
 
-        <div className="relative z-5 max-w-7xl mx-auto px-4 sm:px-6 h-full">
+            {/* Subtle overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 h-full">
           <div className="flex h-full">
             {/* Left Content */}
             <div className="flex items-center justify-center w-full lg:w-[60%] xl:w-[65%]">
               <div className="">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6">
-                  <span className="block">
+                  <span className="block" style={{ 
+                    textShadow: '0 0 10px rgba(0, 230, 251, 0.3), 0 0 20px rgba(0, 230, 251, 0.2)' 
+                  }}>
                     <DecryptedText
                       text="Manage Your Brand"
                       animateOn="view"
@@ -27,7 +41,9 @@ export default function HeroSection() {
                       encryptedClassName="text-cyan/50"
                     />
                   </span>
-                  <span className="block">
+                  <span className="block" style={{ 
+                    textShadow: '0 0 10px rgba(0, 230, 251, 0.3), 0 0 20px rgba(0, 230, 251, 0.2)' 
+                  }}>
                     <DecryptedText
                       text="Before Others Define It"
                       animateOn="view"
