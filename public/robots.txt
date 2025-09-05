@@ -1,0 +1,17 @@
+# Robots.txt for Resilient Brands
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://www.resilientbrands.ai/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0

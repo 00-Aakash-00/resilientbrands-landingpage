@@ -1,0 +1,4 @@
+Contact: mailto:dev@resilientbrands.ai
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://www.resilientbrands.ai/.well-known/security.txt

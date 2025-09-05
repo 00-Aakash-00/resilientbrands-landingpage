@@ -1,0 +1,20 @@
+/* TEAM */
+Founder: Chris
+Contact: chris@resilientbrands.ai
+Twitter: @resilientbrands_ai
+Location: USA
+
+/* THANKS */
+AI Models: OpenAI GPT-4, Anthropic Claude, Google Gemini
+Framework: Next.js Team
+UI Components: Radix UI, shadcn/ui
+
+/* SITE */
+Last update: 2024/01/01
+Standards: HTML5, CSS3, ES6+
+Components: Next.js, React, TypeScript, Tailwind CSS
+Software: VS Code, GitHub, Vercel
+
+/* MISSION */
+Empowering entrepreneurs with AI-powered market research
+to validate ideas and build successful startups.
