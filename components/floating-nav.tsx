@@ -28,36 +28,33 @@ export default function FloatingNav() {
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl">
-        <div className="bg-black/80 backdrop-blur-xl rounded-2xl px-4 sm:px-6">
-          <div className="flex items-center justify-between h-14">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[95%]">
+        <div className="bg-black/80 backdrop-blur-xl rounded-2xl px-8 lg:px-10">
+          <div className="grid grid-cols-3 items-center h-20">
             {/* Logo on the left */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center">
               <Link
                 href="#"
                 aria-label="Homepage"
-                className="flex items-center gap-2"
+                className="flex items-center gap-3"
               >
                 <Image
                   src="/logo.png"
                   alt="Resilient Brands Logo"
-                  width={38}
-                  height={38}
-                  className=""
+                  width={80}
+                  height={80}
+                  className="w-20 h-20"
                 />
-                <span className="text-white font-semibold text-lg hidden sm:block">
-                  Resilient Brands
-                </span>
               </Link>
             </div>
 
             {/* Center navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center justify-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                  className="text-white/80 hover:text-white text-base font-medium transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -65,15 +62,15 @@ export default function FloatingNav() {
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-end gap-6">
               <Link
                 href="#signin"
-                className="hidden md:block text-white/80 hover:text-white text-sm font-medium transition-colors"
+                className="hidden md:block text-white/80 hover:text-white text-base font-medium transition-colors"
               >
                 Log in
               </Link>
               <Button
-                className="hidden md:inline-flex bg-white text-black hover:bg-white/90 text-sm font-medium px-4 py-2 h-9"
+                className="hidden md:inline-flex bg-white text-black hover:bg-white/90 text-base font-semibold px-6 py-3 h-11"
                 onClick={openContactModal}
               >
                 Sign Up

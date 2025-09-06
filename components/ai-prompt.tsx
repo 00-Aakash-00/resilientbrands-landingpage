@@ -1,54 +1,172 @@
-"use client"
-import { ArrowRight } from "lucide-react"
-import type React from "react"
-import { useState } from "react"
-import { cn } from "@/lib/utils"
-import { useContactModal } from "@/hooks/use-contact-modal"
+"use client";
+import { ArrowRight, Bot, Check, ChevronDown, Paperclip } from "lucide-react";
+import type React from "react";
+
+import { useState } from "react";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
+import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { motion, AnimatePresence } from "framer-motion";
+import { OpenAIIcon, GeminiIcon, AnthropicIcon } from "@/components/ui/icons";
+import { useContactModal } from "@/hooks/use-contact-modal";
+
+export const AI_MODELS = [
+  "GPT-4-1 Mini",
+  "GPT-4-1",
+  "o3-mini",
+  "Gemini 2.5 Flash",
+  "Claude 3.5 Sonnet",
+];
+
+export const MODEL_ICONS: Record<string, React.ReactNode> = {
+  "o3-mini": <OpenAIIcon />,
+  "Gemini 2.5 Flash": <GeminiIcon />,
+  "Claude 3.5 Sonnet": <AnthropicIcon />,
+  "GPT-4-1 Mini": <OpenAIIcon />,
+  "GPT-4-1": <OpenAIIcon />,
+};
 
 export default function AIPrompt() {
-  const [value, setValue] = useState("")
-  const { open: openContactModal } = useContactModal()
+  const [value, setValue] = useState("");
+  const { textareaRef, adjustHeight } = useAutoResizeTextarea({
+    minHeight: 72,
+    maxHeight: 300,
+  });
+  const [selectedModel, setSelectedModel] = useState("GPT-4-1 Mini");
+  const { open: openContactModal } = useContactModal();
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault()
-      handleSubmit()
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit();
     }
-  }
+  };
 
   const handleSubmit = () => {
     if (value.trim()) {
-      openContactModal()
-      setValue("")
+      openContactModal();
+      setValue("");
+      adjustHeight(true);
     }
-  }
+  };
 
   return (
     <div className="w-full max-w-3xl">
-      <div className="relative bg-white rounded-2xl shadow-2xl border border-white/20">
-        <input
-          type="text"
-          value={value}
-          placeholder="Describe your needs and business - Be as detailed as you'd like."
-          className="w-full px-6 py-5 pr-14 bg-transparent text-gray-800 placeholder:text-gray-500 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan/50"
-          onKeyDown={handleKeyDown}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button
-          type="button"
-          className={cn(
-            "absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-xl",
-            "bg-black hover:bg-gray-800 transition-all duration-200",
-            "focus:outline-none focus:ring-2 focus:ring-cyan/50",
-            !value.trim() && "opacity-30 cursor-not-allowed"
-          )}
-          aria-label="Send message"
-          disabled={!value.trim()}
-          onClick={handleSubmit}
-        >
-          <ArrowRight className="w-5 h-5 text-white" />
-        </button>
+      <div className="bg-white dark:bg-neutral-900 rounded-2xl p-1.5 shadow-2xl border border-black/5 dark:border-white/5">
+        <div className="relative">
+          <div className="relative flex flex-col">
+            <Textarea
+              id="ai-input-15"
+              value={value}
+              placeholder="Describe your needs and business - Be as detailed as you'd like."
+              className={cn(
+                "w-full rounded-xl rounded-b-none px-4 py-3 bg-white dark:bg-neutral-900 border-none text-black dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                "min-h-[72px]"
+              )}
+              ref={textareaRef}
+              onKeyDown={handleKeyDown}
+              onChange={(e) => {
+                setValue(e.target.value);
+                adjustHeight();
+              }}
+            />
+            <div className="h-14 bg-white dark:bg-neutral-900 rounded-b-xl flex items-center">
+              <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between w-[calc(100%-24px)]">
+                <div className="flex items-center gap-2">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                      >
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={selectedModel}
+                            initial={{ opacity: 0, y: -5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 5 }}
+                            transition={{ duration: 0.15 }}
+                            className="flex items-center gap-1"
+                          >
+                            <div className="w-4 h-4 flex items-center justify-center text-black dark:text-white">
+                              {MODEL_ICONS[selectedModel]}
+                            </div>
+                            {selectedModel}
+                            <ChevronDown className="w-3 h-3 opacity-50" />
+                          </motion.div>
+                        </AnimatePresence>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      className={cn(
+                        "min-w-[10rem]",
+                        "border-black/10 dark:border-white/10",
+                        "bg-gradient-to-b from-white via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
+                      )}
+                    >
+                      {AI_MODELS.map((model) => (
+                        <DropdownMenuItem
+                          key={model}
+                          onSelect={() => setSelectedModel(model)}
+                          className="flex items-center justify-between gap-2"
+                        >
+                          <div className="flex items-center gap-2">
+                            <div className="w-4 h-4 flex items-center justify-center">
+                              {MODEL_ICONS[model] || (
+                                <Bot className="w-4 h-4 opacity-50" />
+                              )}
+                            </div>
+                            <span>{model}</span>
+                          </div>
+                          {selectedModel === model && (
+                            <Check className="w-4 h-4 text-blue-500" />
+                          )}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                  <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700 mx-0.5" />
+                  <label
+                    className={cn(
+                      "rounded-lg p-2 cursor-pointer",
+                      "hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
+                      "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                    )}
+                    aria-label="Attach file"
+                  >
+                    <input type="file" className="hidden" />
+                    <Paperclip className="w-4 h-4 transition-colors" />
+                  </label>
+                </div>
+                <button
+                  type="button"
+                  className={cn(
+                    "rounded-lg p-2",
+                    "hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                  )}
+                  aria-label="Send message"
+                  disabled={!value.trim()}
+                  onClick={handleSubmit}
+                >
+                  <ArrowRight
+                    className={cn(
+                      "w-4 h-4 text-black dark:text-white transition-opacity duration-200",
+                      value.trim() ? "opacity-100" : "opacity-30"
+                    )}
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,12 +1,14 @@
 import FloatingNav from "@/components/floating-nav"
-import ComparisonSection from "@/components/sections/comparison-section"
-import TestimonialSection from "@/components/sections/testimonial-section"
-import FeaturesSection from "@/components/sections/features-section"
-import ServicesSection from "@/components/sections/services-section"
-import PricingSection from "@/components/sections/pricing-section"
-import CtaSection from "@/components/sections/cta-section"
 import Footer from "@/components/footer"
 import HeroSection from "@/components/sections/hero-section"
+import TechSolutionsGrid from "@/components/sections/tech-solutions-grid"
+import BrandManagement from "@/components/sections/brand-management"
+import AIPoweredServices from "@/components/sections/ai-powered-services"
+import HowItWorks from "@/components/sections/how-it-works"
+import PopularServices from "@/components/sections/popular-services"
+import IndustryTrends from "@/components/sections/industry-trends"
+import OpenForBusiness from "@/components/sections/open-for-business"
+import TrustedBy from "@/components/sections/trusted-by"
 
 export default function ResilientBrandsLandingPage() {
   return (
@@ -14,12 +16,14 @@ export default function ResilientBrandsLandingPage() {
       <FloatingNav />
       <main>
         <HeroSection />
-        <ServicesSection />
-        <ComparisonSection />
-        <TestimonialSection />
-        <FeaturesSection />
-        <PricingSection />
-        <CtaSection />
+        <TechSolutionsGrid />
+        <BrandManagement />
+        <AIPoweredServices />
+        <HowItWorks />
+        <PopularServices />
+        <IndustryTrends />
+        <OpenForBusiness />
+        <TrustedBy />
       </main>
       <Footer />
     </div>

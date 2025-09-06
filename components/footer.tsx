@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-16 pt-8 text-center">
           <p className="text-sm text-background/50">
-            &copy; {new Date().getFullYear()} Resilient Brands. All rights reserved.
+            © 2025 Resilient Brands · Reviews expire at 12 months · Badges require platform engagement & verified reviews.
           </p>
         </div>
       </div>
