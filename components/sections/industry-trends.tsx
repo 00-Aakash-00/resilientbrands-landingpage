@@ -39,13 +39,13 @@ export default function IndustryTrends() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]">
             Lead industry trends with the
-            <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent mt-1">
               latest and greatest
             </span>
           </h2>
-          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto font-normal leading-relaxed">
             Resilient brands leverage technology for the competitive edge it can provide, join the top brands that are the first to deploy the most advanced tools tested by the industry experts that manage them.
           </p>
         </motion.div>

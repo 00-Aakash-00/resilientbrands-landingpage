@@ -445,8 +445,8 @@ const features = [
             <path d="M8 8 L12 12 M12 8 L8 12" stroke="#9000FF" strokeWidth="0.2" opacity="0.25" />
           </pattern>
           <pattern id="risk-binary" x="0" y="0" width="12" height="8" patternUnits="userSpaceOnUse">
-            <text x="2" y="6" font-family="monospace" font-size="3" fill="#BB00FF" opacity="0.2">01</text>
-            <text x="8" y="6" font-family="monospace" font-size="3" fill="#9000FF" opacity="0.15">10</text>
+            <text x="2" y="6" fontFamily="monospace" fontSize="3" fill="#BB00FF" opacity="0.2">01</text>
+            <text x="8" y="6" fontFamily="monospace" fontSize="3" fill="#9000FF" opacity="0.15">10</text>
           </pattern>
         </defs>
         
@@ -575,7 +575,7 @@ export default function BrandManagement() {
             className="relative"
           >
             <motion.h2 
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-12 leading-[0.9]"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -583,7 +583,7 @@ export default function BrandManagement() {
             >
               Control your
               <motion.span 
-                className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mt-2"
+                className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mt-1"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -594,12 +594,11 @@ export default function BrandManagement() {
             </motion.h2>
             
             <motion.p 
-              className="text-lg md:text-xl text-neutral-400 mb-14 leading-relaxed max-w-xl font-normal"
+              className="text-base md:text-lg text-neutral-500 mb-14 leading-relaxed max-w-xl font-normal"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              style={{ lineHeight: '1.7' }}
             >
               Transform how you manage your brand with intelligent automation and real-time insights that drive measurable results.
             </motion.p>
@@ -649,7 +648,7 @@ export default function BrandManagement() {
                         scale: 1.05,
                         transition: { duration: 0.3, ease: "easeOut" }
                       }}
-                      className="group relative h-20 rounded-xl bg-gradient-to-br from-slate-800/30 to-slate-900/30 border border-slate-700/30 overflow-hidden hover:border-slate-600/50 transition-all duration-300"
+                      className="group relative h-20 rounded-xl bg-slate-950/90 border border-slate-800/50 overflow-hidden hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300"
                     >
                       {/* SVG Display */}
                       <div className="absolute inset-0 opacity-70 group-hover:opacity-85 transition-opacity duration-300">
@@ -693,7 +692,7 @@ export default function BrandManagement() {
           >
             {/* Main dashboard card */}
             <motion.div 
-              className="group relative p-8 lg:p-10 bg-gradient-to-b from-slate-800/40 to-slate-900/60 rounded-3xl border border-slate-700/50 shadow-2xl overflow-hidden hover:border-slate-600/60 transition-all duration-500"
+              className="group relative p-8 lg:p-10 bg-slate-950/90 rounded-xl border border-slate-800/50 shadow-2xl overflow-hidden hover:border-slate-700/80 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300"
               whileHover={{ 
                 scale: 1.01,
                 transition: { duration: 0.3, ease: "easeOut" }
@@ -851,7 +850,7 @@ export default function BrandManagement() {
                       y: -2,
                       transition: { duration: 0.2, ease: "easeOut" }
                     }}
-                    className="group relative p-4 bg-gradient-to-br from-slate-700/30 to-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-600/30 hover:border-slate-500/40 overflow-hidden transition-colors duration-300"
+                    className="group relative p-4 bg-slate-950/90 rounded-xl border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden transition-all duration-300"
                   >
                     
                     {/* Mini chart background */}
@@ -901,7 +900,7 @@ export default function BrandManagement() {
               {/* Chart visualization */}
               <div className="relative">
                 <div 
-                  className="h-32 bg-gradient-to-r from-slate-700/30 to-slate-800/30 backdrop-blur-sm rounded-2xl border border-slate-600/30 overflow-hidden"
+                  className="h-32 bg-slate-950/90 rounded-xl border border-slate-800/50 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] hover:border-slate-700/80 transition-all duration-300 overflow-hidden"
                 >
                   {/* Grid background */}
                   <svg className="absolute inset-0 w-full h-full opacity-10">

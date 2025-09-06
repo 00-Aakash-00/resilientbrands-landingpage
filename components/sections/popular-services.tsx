@@ -76,7 +76,7 @@ export default function PopularServices() {
           </motion.div>
           
           <motion.h2 
-            className="text-6xl md:text-7xl font-medium tracking-tight text-white mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -94,7 +94,7 @@ export default function PopularServices() {
             </motion.span>
           </motion.h2>
           <motion.p 
-            className="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -226,7 +226,7 @@ export default function PopularServices() {
                   }}
                   className="group relative"
                 >
-                  <div className="relative p-4 rounded-2xl bg-gradient-to-br from-slate-700/30 to-slate-800/50 backdrop-blur-sm border border-slate-600/30 hover:border-slate-500/50 transition-all duration-300 overflow-hidden">
+                  <div className="relative p-4 rounded-xl bg-slate-950/90 border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300 overflow-hidden">
                     
                     {/* Hover glow effect */}
                     <div 

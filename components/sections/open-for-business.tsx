@@ -55,7 +55,7 @@ export default function OpenForBusiness() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
               style={{ textShadow: "0 2px 20px rgba(0,230,251,0.3)" }}
             >
               Open For Business?
@@ -66,7 +66,7 @@ export default function OpenForBusiness() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-xl md:text-2xl text-cyan-100/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-base md:text-lg text-neutral-500 mb-12 max-w-2xl mx-auto font-normal leading-relaxed"
               style={{ textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
             >
               Apply to become a provider today and align your expertise and offer to those that need it!

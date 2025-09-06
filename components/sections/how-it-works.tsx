@@ -65,7 +65,7 @@ export default function HowItWorks() {
           </motion.div>
           
           <motion.h2 
-            className="text-6xl md:text-7xl font-medium tracking-tight text-white mb-8"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -83,7 +83,7 @@ export default function HowItWorks() {
             </motion.span>
           </motion.h2>
           <motion.p 
-            className="text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto font-normal leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
