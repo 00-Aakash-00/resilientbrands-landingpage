@@ -55,3 +55,11 @@ This is a Next.js 15 landing page for Resilient Brands, a platform providing too
 The project uses a `.env` file with the following variables:
 
 - `RESEND_API_KEY` - API key for Resend email service (linked to resilientbrands.ai domain)
+- <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]">
+            Bridge critical gaps in your
+            <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent py-1">
+              organizational readiness
+            </span>
+          </h2> 
+
+here you add mt-1, and I replaced it with py-1 which is better since the text doesn't get cutoff that way
