@@ -13,9 +13,12 @@ This is a Next.js 15 landing page for Resilient Brands, a platform providing too
 - `pnpm start` - Start the production server
 - `pnpm lint` - Run Next.js linting
 
+> Note: DO NOT RUN THE DEV SERVER UNLESS SPECIFIED
+
 ## Architecture
 
 ### Tech Stack
+
 - Next.js 15.2.4 with App Router
 - React 19
 - TypeScript
@@ -26,6 +29,7 @@ This is a Next.js 15 landing page for Resilient Brands, a platform providing too
 - Geist font family
 
 ### Project Structure
+
 - `/app` - Next.js app directory with layout and main page
 - `/components` - Reusable components organized by type:
   - `/sections` - Main page sections (hero, features, pricing, etc.)
@@ -35,6 +39,7 @@ This is a Next.js 15 landing page for Resilient Brands, a platform providing too
 - `/public` - Static assets (images, logos)
 
 ### Key Design Patterns
+
 - Component composition with shadcn/ui patterns
 - Custom Tailwind color theme inspired by SENTHREX:
   - Primary: Deep blue (#0A1124)
@@ -48,4 +53,5 @@ This is a Next.js 15 landing page for Resilient Brands, a platform providing too
 ## Environment Variables
 
 The project uses a `.env` file with the following variables:
+
 - `RESEND_API_KEY` - API key for Resend email service (linked to resilientbrands.ai domain)
