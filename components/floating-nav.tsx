@@ -43,7 +43,7 @@ export default function FloatingNav() {
                   alt="Resilient Brands Logo"
                   width={80}
                   height={80}
-                  className="w-20 h-20"
+                  className="h-14 w-auto"
                 />
               </Link>
             </div>

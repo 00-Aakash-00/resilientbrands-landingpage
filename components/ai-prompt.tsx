@@ -59,7 +59,7 @@ export default function AIPrompt() {
 
   return (
     <div className="w-full max-w-3xl">
-      <div className="bg-white dark:bg-neutral-900 rounded-2xl p-1.5 shadow-2xl border border-black/5 dark:border-white/5">
+      <div className="bg-white rounded-2xl p-1.5 shadow-2xl border border-black/5">
         <div className="relative">
           <div className="relative flex flex-col">
             <Textarea
@@ -67,7 +67,7 @@ export default function AIPrompt() {
               value={value}
               placeholder="Describe your needs and business - Be as detailed as you'd like."
               className={cn(
-                "w-full rounded-xl rounded-b-none px-4 py-3 bg-white dark:bg-neutral-900 border-none text-black dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
+                "w-full rounded-xl rounded-b-none px-4 py-3 bg-white border-none text-black placeholder:text-neutral-500 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
                 "min-h-[72px]"
               )}
               ref={textareaRef}
@@ -77,14 +77,14 @@ export default function AIPrompt() {
                 adjustHeight();
               }}
             />
-            <div className="h-14 bg-white dark:bg-neutral-900 rounded-b-xl flex items-center">
+            <div className="h-14 bg-white rounded-b-xl flex items-center">
               <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between w-[calc(100%-24px)]">
                 <div className="flex items-center gap-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-neutral-600 hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
                       >
                         <AnimatePresence mode="wait">
                           <motion.div
@@ -95,7 +95,7 @@ export default function AIPrompt() {
                             transition={{ duration: 0.15 }}
                             className="flex items-center gap-1"
                           >
-                            <div className="w-4 h-4 flex items-center justify-center text-black dark:text-white">
+                            <div className="w-4 h-4 flex items-center justify-center text-black">
                               {MODEL_ICONS[selectedModel]}
                             </div>
                             {selectedModel}
@@ -107,8 +107,8 @@ export default function AIPrompt() {
                     <DropdownMenuContent
                       className={cn(
                         "min-w-[10rem]",
-                        "border-black/10 dark:border-white/10",
-                        "bg-gradient-to-b from-white via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
+                        "border-black/10",
+                        "bg-gradient-to-b from-white via-white to-neutral-100"
                       )}
                     >
                       {AI_MODELS.map((model) => (
@@ -132,12 +132,12 @@ export default function AIPrompt() {
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700 mx-0.5" />
+                  <div className="h-4 w-px bg-neutral-200 mx-0.5" />
                   <label
                     className={cn(
                       "rounded-lg p-2 cursor-pointer",
-                      "hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
-                      "text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white"
+                      "hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
+                      "text-neutral-500 hover:text-black"
                     )}
                     aria-label="Attach file"
                   >
@@ -149,7 +149,7 @@ export default function AIPrompt() {
                   type="button"
                   className={cn(
                     "rounded-lg p-2",
-                    "hover:bg-neutral-100 dark:hover:bg-neutral-800 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                    "hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
                   )}
                   aria-label="Send message"
                   disabled={!value.trim()}
@@ -157,7 +157,7 @@ export default function AIPrompt() {
                 >
                   <ArrowRight
                     className={cn(
-                      "w-4 h-4 text-black dark:text-white transition-opacity duration-200",
+                      "w-4 h-4 text-black transition-opacity duration-200",
                       value.trim() ? "opacity-100" : "opacity-30"
                     )}
                   />

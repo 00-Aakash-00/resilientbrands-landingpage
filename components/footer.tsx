@@ -1,6 +1,9 @@
+"use client"
+
+import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
-import { Twitter, Linkedin, Github } from "lucide-react"
+import { Twitter, Linkedin, Github, ArrowUp } from "lucide-react"
 
 const footerLinks = {
   product: [
@@ -27,109 +30,133 @@ const socialLinks = [
 ]
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
-      <div
-        className="absolute inset-x-0 top-0 -z-0 -translate-y-1/2 transform-gpu overflow-hidden opacity-20 blur-3xl"
-        aria-hidden="true"
+    <footer className="relative bg-black text-white overflow-hidden border-t border-slate-800/50">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-black to-black" />
+      
+      {/* Floating back to top button */}
+      <motion.button
+        onClick={scrollToTop}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        viewport={{ once: true }}
+        className="absolute top-8 right-8 w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-full flex items-center justify-center hover:bg-cyan-500/10 transition-colors"
+        aria-label="Back to top"
       >
-        <div
-          className="relative left-1/2 -translate-x-1/2 aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary to-accent"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
-      <div className="container mx-auto px-4 pt-20 pb-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Column 1: Large Logo and Socials */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <Link href="#" className="flex flex-col items-center lg:items-start gap-4 mb-6 text-left">
-              <Image
-                src="/logo.png"
-                alt="Resilient Brands Logo"
-                width={150}
-                height={150}
-                className="invert brightness-0"
-              />
-              
+        <ArrowUp className="w-5 h-5 text-cyan-400" />
+      </motion.button>
+      
+      <div className="relative max-w-7xl mx-auto px-4 pt-20 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
+          {/* Brand section */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left"
+          >
+            <Link href="/" className="mb-6 group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image
+                  src="/logo.png"
+                  alt="Resilient Brands Logo"
+                  width={80}
+                  height={80}
+                  className="brightness-0 invert group-hover:brightness-200 transition-all duration-300"
+                />
+              </motion.div>
             </Link>
-            <p className="text-sm text-background/60 max-w-xs mb-6">
+            <p className="text-neutral-400 max-w-xs mb-8 leading-relaxed">
               AI-powered research to validate your idea so you can build with confidence.
             </p>
             <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <Link
+              {socialLinks.map((social, index) => (
+                <motion.div
                   key={social.name}
-                  href={social.href}
-                  aria-label={social.name}
-                  className="text-background/60 hover:text-background transition-colors"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  {social.icon}
-                </Link>
+                  <Link
+                    href={social.href}
+                    aria-label={social.name}
+                    className="w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700/50 flex items-center justify-center text-neutral-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all duration-300"
+                  >
+                    {social.icon}
+                  </Link>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Spacer */}
           <div className="lg:col-span-1"></div>
 
-          {/* Link Columns */}
-          <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-semibold text-background/90 mb-4">Product</h3>
-              <ul className="space-y-3">
-                {footerLinks.product.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-background/60 hover:text-background transition-colors"
+          {/* Links grid */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="font-medium text-white mb-4 capitalize">
+                  {category}
+                </h3>
+                <ul className="space-y-3">
+                  {links.map((link, linkIndex) => (
+                    <motion.li
+                      key={link.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (linkIndex * 0.05) }}
+                      viewport={{ once: true }}
                     >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-background/90 mb-4">Company</h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-background/60 hover:text-background transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-background/90 mb-4">Legal</h3>
-              <ul className="space-y-3">
-                {footerLinks.legal.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-background/60 hover:text-background transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                      <Link
+                        href={link.href}
+                        className="text-neutral-400 hover:text-cyan-400 transition-colors duration-200 text-sm"
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-16 pt-8 text-center">
-          <p className="text-sm text-background/50">
-            © 2025 Resilient Brands · Reviews expire at 12 months · Badges require platform engagement & verified reviews.
-          </p>
-        </div>
+        {/* Bottom section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="border-t border-slate-800/50 pt-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-neutral-500 text-center md:text-left">
+              © 2025 Resilient Brands. All rights reserved.
+            </p>
+            <p className="text-xs text-neutral-600 text-center md:text-right max-w-lg">
+              Reviews expire at 12 months · Badges require platform engagement & verified reviews.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </footer>
   )

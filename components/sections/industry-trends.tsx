@@ -1,58 +1,98 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+"use client"
+
+import { motion } from "framer-motion"
 import { TrendingUp, Users, Zap } from "lucide-react"
 
 const trends = [
   {
-    number: "1",
+    number: "01",
     title: "Become a top performing brand",
     description: "Eliminate the headache of finding the best tools and services to meet your need with solutions led by the professionals that manage the top performing brands.",
-    icon: TrendingUp
+    icon: TrendingUp,
+    color: "#06B6D4"
   },
   {
-    number: "2",
+    number: "02",
     title: "Become a Solution",
     description: "Shorten your solution maturity time by collaborating with service providers that manage the problems you solve and advance the market as a team.",
-    icon: Zap
+    icon: Zap,
+    color: "#3B82F6"
   },
   {
-    number: "3",
+    number: "03",
     title: "Become a provider",
     description: "You are an expert in your craft and want to serve, join our community and get matched to ideal partners and problems you know you can tackle.",
-    icon: Users
+    icon: Users,
+    color: "#10B981"
   }
 ]
 
 export default function IndustryTrends() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-secondary/10 to-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-            Lead industry trends with the latest and greatest!
+    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+      
+      <div className="relative max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
+            Lead industry trends with the
+            <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              latest and greatest
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             Resilient brands leverage technology for the competitive edge it can provide, join the top brands that are the first to deploy the most advanced tools tested by the industry experts that manage them.
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid md:grid-cols-3 gap-8">
           {trends.map((trend, index) => {
             const Icon = trend.icon
             return (
-              <Card key={index} className="bg-card/50 backdrop-blur border-primary/20 hover:border-accent/50 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="text-3xl font-bold text-accent/50">{trend.number}</span>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="group relative"
+              >
+                <div className="relative h-full p-8 bg-gradient-to-b from-slate-800/30 to-slate-900/30 backdrop-blur-sm rounded-3xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300">
+                  {/* Number overlay */}
+                  <div className="absolute top-8 right-8 text-6xl font-bold opacity-10" style={{ color: trend.color }}>
+                    {trend.number}
                   </div>
-                  <CardTitle className="text-xl text-white">{trend.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{trend.description}</p>
-                </CardContent>
-              </Card>
+                  
+                  {/* Icon with glow */}
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="relative mb-6"
+                  >
+                    <div 
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                      style={{
+                        background: `linear-gradient(135deg, ${trend.color}20, ${trend.color}10)`,
+                        boxShadow: `0 0 30px ${trend.color}20`
+                      }}
+                    >
+                      <Icon className="w-7 h-7" style={{ color: trend.color }} />
+                    </div>
+                  </motion.div>
+                  
+                  <h3 className="text-2xl font-medium text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                    {trend.title}
+                  </h3>
+                  <p className="text-neutral-400 leading-relaxed">
+                    {trend.description}
+                  </p>
+                </div>
+              </motion.div>
             )
           })}
         </div>
