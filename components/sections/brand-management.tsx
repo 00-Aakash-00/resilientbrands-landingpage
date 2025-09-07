@@ -2128,7 +2128,6 @@ export default function BrandManagement() {
                 <h3 className="text-2xl font-bold text-white tracking-tight">
                   Brand Analytics
                 </h3>
-                <Sparkles className="w-8 h-8 text-cyan-400" />
               </div>
 
               {/* Animated metrics grid */}
