@@ -4,6 +4,7 @@ import AI_Prompt from "@/components/ai-prompt";
 import DecryptedText from "@/components/ui/decrypted-text";
 import Aurora from "@/components/Aurora";
 import { WordRotate } from "@/components/magicui/word-rotate";
+import { instrumentSerif } from "@/lib/fonts";
 
 export default function HeroSection() {
   return (
@@ -38,7 +39,9 @@ export default function HeroSection() {
           <div className="flex flex-col items-center justify-center h-full">
             {/* Centered Content - positioned higher */}
             <div className="text-center mt-20">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-none mb-6">
+              <h1
+                className={`${instrumentSerif.className} text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-none mb-6`}
+              >
                 <span
                   className="block mb-2"
                   style={{

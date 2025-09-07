@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FileCheck, Zap, Lock, CheckCircle } from "lucide-react";
+import { instrumentSerif } from "@/lib/fonts";
 
 const categories = [
   {
@@ -470,7 +471,7 @@ export default function AIPoweredServices() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]">
+          <h2 className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 leading-[1.1]`}>
             Bridge critical gaps in your
             <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent py-1">
               organizational readiness

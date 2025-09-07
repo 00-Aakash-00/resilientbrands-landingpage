@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useContactModal } from "@/hooks/use-contact-modal"
+import { instrumentSerif } from "@/lib/fonts"
 
 export default function CtaSection() {
   const { open: openContactModal } = useContactModal()
@@ -11,7 +12,7 @@ export default function CtaSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
       <div className="relative z-10 container mx-auto text-center text-white">
         <h2
-          className="text-4xl md:text-5xl font-extrabold tracking-tight"
+          className={`${instrumentSerif.className} text-4xl md:text-5xl font-normal tracking-tight`}
           style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}
         >
           Ready to Validate Your Big Idea?
