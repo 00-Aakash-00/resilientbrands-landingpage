@@ -133,12 +133,8 @@ export default function HowItWorks() {
                         <span className="text-5xl font-bold text-slate-700">
                           {step.number}
                         </span>
-                        <div
-                          className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.gradient} p-0.5`}
-                        >
-                          <div className="w-full h-full rounded-lg bg-black flex items-center justify-center">
-                            <Icon className="w-6 h-6 text-white" />
-                          </div>
+                        <div className="w-12 h-12 rounded-lg bg-transparent border border-white/50 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-white" />
                         </div>
                       </div>
                     </div>

@@ -1645,16 +1645,8 @@ export default function BrandManagement() {
                       className="relative flex items-start gap-4"
                     >
                       {/* Icon container */}
-                      <div
-                        className="p-2 rounded-md bg-gradient-to-br flex-shrink-0 transition-transform duration-300 hover:scale-110"
-                        style={{
-                          background: `linear-gradient(135deg, ${feature.color}25, ${feature.accentColor}15)`,
-                        }}
-                      >
-                        <feature.icon
-                          className="w-4 h-4 transition-all duration-300"
-                          style={{ color: feature.color }}
-                        />
+                      <div className="p-2 rounded-md bg-transparent border border-white/50 flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                        <feature.icon className="w-4 h-4 text-white transition-all duration-300" />
                       </div>
 
                       {/* Content */}
