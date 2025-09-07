@@ -8,7 +8,6 @@ import HowItWorks from "@/components/sections/how-it-works"
 import PopularServices from "@/components/sections/popular-services"
 import IndustryTrends from "@/components/sections/industry-trends"
 import OpenForBusiness from "@/components/sections/open-for-business"
-import TrustedBy from "@/components/sections/trusted-by"
 
 export default function ResilientBrandsLandingPage() {
   return (
@@ -23,7 +22,6 @@ export default function ResilientBrandsLandingPage() {
         <PopularServices />
         <IndustryTrends />
         <OpenForBusiness />
-        <TrustedBy />
       </main>
       <Footer />
     </div>

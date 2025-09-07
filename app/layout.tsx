@@ -1,14 +1,7 @@
 import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/components/providers'
-
-const dmSans = DM_Sans({ 
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '600', '700'],
-})
+import { dmSans, instrumentSerif } from '@/lib/fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.resilientbrands.ai'),
@@ -98,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={`${dmSans.variable} ${instrumentSerif.variable}`}>
       <head>
         {/* Favicon and logo */}
         <link rel="icon" href="/logo.png" type="image/png" sizes="any" />

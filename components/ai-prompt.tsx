@@ -84,7 +84,7 @@ export default function AIPrompt() {
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-neutral-600 hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-black hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
                       >
                         <AnimatePresence mode="wait">
                           <motion.div
@@ -99,7 +99,7 @@ export default function AIPrompt() {
                               {MODEL_ICONS[selectedModel]}
                             </div>
                             {selectedModel}
-                            <ChevronDown className="w-3 h-3 opacity-50" />
+                            <ChevronDown className="w-3 h-3 text-black opacity-70" />
                           </motion.div>
                         </AnimatePresence>
                       </Button>
