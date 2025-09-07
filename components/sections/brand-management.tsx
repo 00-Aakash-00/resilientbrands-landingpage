@@ -11,7 +11,8 @@ import {
   Lock,
   Users,
 } from "lucide-react";
-import { useState } from "react";
+import { instrumentSerif } from "@/lib/fonts";
+import { Button } from "../ui/button";
 
 const features = [
   {
@@ -1586,7 +1587,7 @@ const metrics = [
 
 export default function BrandManagement() {
   return (
-    <section className="relative py-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className="relative pt-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Enhanced left content */}
@@ -1598,7 +1599,7 @@ export default function BrandManagement() {
             className="relative"
           >
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
+              className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -1693,22 +1694,13 @@ export default function BrandManagement() {
               })}
             </div>
 
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 25px 50px rgba(0, 217, 255, 0.4)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative flex items-center gap-3 px-12 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 shadow-xl"
+            <Button
+              size="lg"
+              className="bg-white hover:bg-white/90 text-black font-semibold text-lg px-10 py-6 h-auto transform hover:scale-105 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative z-10 tracking-wide">Get Started</span>
-              <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </motion.button>
+              Get Started
+              <ArrowRight className="ml-3 h-6 w-6" />
+            </Button>
           </motion.div>
 
           {/* Enhanced right visual with 3D perspective */}

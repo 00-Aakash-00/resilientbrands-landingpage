@@ -353,21 +353,10 @@ const categories = [
           </g>
 
           {/* Main circle */}
-          <circle 
-            cx="0" 
-            cy="0" 
-            r="100" 
-            fill="url(#priv-grad-1)"
-          />
+          <circle cx="0" cy="0" r="100" fill="url(#priv-grad-1)" />
 
           {/* Inner gradient circle */}
-          <circle 
-            cx="0" 
-            cy="0" 
-            r="70" 
-            fill="url(#priv-grad-2)" 
-            opacity="0.8"
-          />
+          <circle cx="0" cy="0" r="70" fill="url(#priv-grad-2)" opacity="0.8" />
 
           {/* Lock icon */}
           <g transform="scale(2)">
@@ -387,25 +376,14 @@ const categories = [
               fill="none"
               opacity="0.9"
             />
-            <circle 
-              cx="0" 
-              cy="3" 
-              r="3" 
-              fill="#7C3AED"
-            />
+            <circle cx="0" cy="3" r="3" fill="#7C3AED" />
           </g>
 
           {/* Orbiting elements */}
           <g>
             {[0, 72, 144, 216, 288].map((angle, i) => (
               <g key={i} transform={`rotate(${angle})`}>
-                <circle 
-                  cx="130" 
-                  cy="0" 
-                  r="6" 
-                  fill="white"
-                  opacity="0.7"
-                >
+                <circle cx="130" cy="0" r="6" fill="white" opacity="0.7">
                   <animate
                     attributeName="opacity"
                     values="0.7;1;0.7"
@@ -461,7 +439,7 @@ const categories = [
 
 export default function AIPoweredServices() {
   return (
-    <section className="relative py-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className="relative pt-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -471,7 +449,9 @@ export default function AIPoweredServices() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 leading-[1.1]`}>
+          <h2
+            className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 leading-[1.1]`}
+          >
             Bridge critical gaps in your
             <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent py-1">
               organizational readiness

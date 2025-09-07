@@ -1,24 +1,27 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Zap, Shield, Rocket, ChevronRight } from "lucide-react"
-import { instrumentSerif } from "@/lib/fonts"
+import { motion } from "framer-motion";
+import { ArrowRight, Zap, Shield, Rocket, ChevronRight } from "lucide-react";
+import { instrumentSerif } from "@/lib/fonts";
 
 const steps = [
   {
     number: "01",
     title: "Connect",
     description: "Seamlessly integrate your infrastructure in under 60 seconds",
-    details: "Our intelligent connectors work with 500+ platforms, automatically detecting your setup.",
+    details:
+      "Our intelligent connectors work with 500+ platforms, automatically detecting your setup.",
     icon: Zap,
     metrics: ["< 60s setup", "500+ integrations", "Zero downtime"],
     gradient: "from-cyan-500 to-blue-500",
   },
   {
-    number: "02", 
+    number: "02",
     title: "Analyze",
-    description: "AI-powered insights process millions of data points in real-time",
-    details: "Advanced machine learning algorithms provide actionable insights and predictive analytics.",
+    description:
+      "AI-powered insights process millions of data points in real-time",
+    details:
+      "Advanced machine learning algorithms provide actionable insights and predictive analytics.",
     icon: Shield,
     metrics: ["99.3% accuracy", "Real-time processing", "1M+ data points"],
     gradient: "from-blue-500 to-indigo-500",
@@ -27,22 +30,35 @@ const steps = [
     number: "03",
     title: "Optimize",
     description: "Deploy automated improvements with one-click implementation",
-    details: "Transform insights into action with our intelligent automation engine.",
+    details:
+      "Transform insights into action with our intelligent automation engine.",
     icon: Rocket,
     metrics: ["247% efficiency", "100% automated", "850% ROI"],
     gradient: "from-indigo-500 to-purple-500",
-  }
-]
+  },
+];
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className="relative pt-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       {/* Minimal geometric pattern */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 right-0 w-96 h-96">
           <svg viewBox="0 0 400 400" className="w-full h-full opacity-5">
-            <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1"/>
+            <pattern
+              id="grid"
+              x="0"
+              y="0"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="white"
+                strokeWidth="1"
+              />
             </pattern>
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
@@ -66,7 +82,9 @@ export default function HowItWorks() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-6"
           >
             <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">How it works</span>
+            <span className="text-sm font-medium text-cyan-400">
+              How it works
+            </span>
           </motion.div>
 
           <motion.h2
@@ -89,14 +107,15 @@ export default function HowItWorks() {
             viewport={{ once: true }}
             className="text-lg text-neutral-400 max-w-2xl mx-auto"
           >
-            Get started in minutes, not months. Our streamlined process transforms your workflow.
+            Get started in minutes, not months. Our streamlined process
+            transforms your workflow.
           </motion.p>
         </motion.div>
 
         {/* Steps Container */}
         <div className="space-y-8">
           {steps.map((step, index) => {
-            const Icon = step.icon
+            const Icon = step.icon;
             return (
               <motion.div
                 key={index}
@@ -114,7 +133,9 @@ export default function HowItWorks() {
                         <span className="text-5xl font-bold text-slate-700">
                           {step.number}
                         </span>
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.gradient} p-0.5`}>
+                        <div
+                          className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.gradient} p-0.5`}
+                        >
                           <div className="w-full h-full rounded-lg bg-black flex items-center justify-center">
                             <Icon className="w-6 h-6 text-white" />
                           </div>
@@ -130,9 +151,7 @@ export default function HowItWorks() {
                       <p className="text-neutral-300 mb-3">
                         {step.description}
                       </p>
-                      <p className="text-sm text-neutral-500">
-                        {step.details}
-                      </p>
+                      <p className="text-sm text-neutral-500">{step.details}</p>
                     </div>
 
                     {/* Metrics */}
@@ -157,13 +176,17 @@ export default function HowItWorks() {
                       className={`h-full bg-gradient-to-r ${step.gradient}`}
                       initial={{ width: "0%" }}
                       whileInView={{ width: "100%" }}
-                      transition={{ duration: 1.5, delay: 0.5 + index * 0.2, ease: "easeOut" }}
+                      transition={{
+                        duration: 1.5,
+                        delay: 0.5 + index * 0.2,
+                        ease: "easeOut",
+                      }}
                       viewport={{ once: true }}
                     />
                   </div>
                 </div>
               </motion.div>
-            )
+            );
           })}
         </div>
 
@@ -184,5 +207,5 @@ export default function HowItWorks() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
