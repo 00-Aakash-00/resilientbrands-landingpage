@@ -1,17 +1,25 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight, Sparkles, User, Mail, Building, Phone, MessageSquare, Rocket, Briefcase, Lightbulb, HelpCircle } from "lucide-react"
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { motion, AnimatePresence } from "framer-motion";
 import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog"
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
+  ArrowRight,
+  TrendingUp,
+  User,
+  Mail,
+  Building,
+  Phone,
+  MessageSquare,
+  Rocket,
+  Briefcase,
+  Lightbulb,
+  HelpCircle,
+} from "lucide-react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
   Form,
   FormControl,
@@ -19,13 +27,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
-import { cn } from "@/lib/utils"
-import { instrumentSerif } from "@/lib/fonts"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+import { instrumentSerif } from "@/lib/fonts";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -38,17 +46,17 @@ const formSchema = z.object({
   phone: z.string().optional(),
   projectType: z.enum(["startup", "existing", "idea", "other"]),
   message: z.string().optional(),
-})
+});
 
 interface ContactModalProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 export function ContactModal({ open, onOpenChange }: ContactModalProps) {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [currentStep, setCurrentStep] = React.useState(0)
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [currentStep, setCurrentStep] = React.useState(0);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,49 +68,71 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
       projectType: "startup",
       message: "",
     },
-  })
+  });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true)
-    
+    setIsSubmitting(true);
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
-      })
-      
+      });
+
       if (!response.ok) {
-        throw new Error('Failed to send message')
+        throw new Error("Failed to send message");
       }
-      
+
       toast({
         title: "Welcome aboard! 🚀",
-        description: "Our team will craft your personalized AI report within 24 hours.",
-      })
-      
-      form.reset()
-      setCurrentStep(0)
-      onOpenChange(false)
+        description:
+          "Our team will craft your personalized AI report within 24 hours.",
+      });
+
+      form.reset();
+      setCurrentStep(0);
+      onOpenChange(false);
     } catch (error) {
       toast({
         title: "Something went wrong",
-        description: "Please try again or contact us directly at hello@resilientbrands.ai",
+        description:
+          "Please try again or contact us directly at hello@resilientbrands.ai",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
   const projectTypes = [
-    { value: "startup", label: "New Startup", icon: Rocket, description: "Building from zero" },
-    { value: "existing", label: "Existing Business", icon: Briefcase, description: "Ready to scale" },
-    { value: "idea", label: "Idea Stage", icon: Lightbulb, description: "Exploring possibilities" },
-    { value: "other", label: "Other", icon: HelpCircle, description: "Something unique" },
-  ]
+    {
+      value: "startup",
+      label: "New Startup",
+      icon: Rocket,
+      description: "Building from zero",
+    },
+    {
+      value: "existing",
+      label: "Existing Business",
+      icon: Briefcase,
+      description: "Ready to scale",
+    },
+    {
+      value: "idea",
+      label: "Idea Stage",
+      icon: Lightbulb,
+      description: "Exploring possibilities",
+    },
+    {
+      value: "other",
+      label: "Other",
+      icon: HelpCircle,
+      description: "Something unique",
+    },
+  ];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -124,7 +154,14 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
           <div className="absolute inset-0 opacity-5">
             <div className="absolute top-0 right-0 w-64 h-64">
               <svg viewBox="0 0 400 400" className="w-full h-full">
-                <pattern id="contact-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <pattern
+                  id="contact-grid"
+                  x="0"
+                  y="0"
+                  width="40"
+                  height="40"
+                  patternUnits="userSpaceOnUse"
+                >
                   <circle cx="2" cy="2" r="1" fill="white" />
                 </pattern>
                 <rect width="100%" height="100%" fill="url(#contact-grid)" />
@@ -140,12 +177,9 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
               transition={{ duration: 0.4 }}
               className="text-center mb-10"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-6">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
-                <span className="text-sm font-medium text-cyan-400">Get Started</span>
-              </div>
-              
-              <h2 className={`${instrumentSerif.className} text-4xl sm:text-5xl font-normal text-white mb-3`}>
+              <h2
+                className={`${instrumentSerif.className} text-4xl sm:text-5xl font-normal text-white mb-3`}
+              >
                 Start Your{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                   Journey
@@ -158,7 +192,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
             {/* Form */}
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 {/* Personal Info Section */}
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -173,10 +210,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                           <FormControl>
                             <div className="relative">
                               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-600" />
-                              <Input 
-                                placeholder="John Doe" 
+                              <Input
+                                placeholder="John Doe"
                                 className="h-12 pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all"
-                                {...field} 
+                                {...field}
                               />
                             </div>
                           </FormControl>
@@ -196,11 +233,11 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                           <FormControl>
                             <div className="relative">
                               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-600" />
-                              <Input 
-                                placeholder="john@example.com" 
+                              <Input
+                                placeholder="john@example.com"
                                 type="email"
                                 className="h-12 pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all"
-                                {...field} 
+                                {...field}
                               />
                             </div>
                           </FormControl>
@@ -217,15 +254,18 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-xs font-medium text-neutral-400 uppercase tracking-wider">
-                            Company <span className="text-neutral-600 normal-case">(optional)</span>
+                            Company{" "}
+                            <span className="text-neutral-600 normal-case">
+                              (optional)
+                            </span>
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
                               <Building className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-600" />
-                              <Input 
-                                placeholder="Acme Inc." 
+                              <Input
+                                placeholder="Acme Inc."
                                 className="h-12 pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all"
-                                {...field} 
+                                {...field}
                               />
                             </div>
                           </FormControl>
@@ -239,16 +279,19 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-xs font-medium text-neutral-400 uppercase tracking-wider">
-                            Phone <span className="text-neutral-600 normal-case">(optional)</span>
+                            Phone{" "}
+                            <span className="text-neutral-600 normal-case">
+                              (optional)
+                            </span>
                           </FormLabel>
                           <FormControl>
                             <div className="relative">
                               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-600" />
-                              <Input 
-                                placeholder="+1 (555) 000-0000" 
+                              <Input
+                                placeholder="+1 (555) 000-0000"
                                 type="tel"
                                 className="h-12 pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all"
-                                {...field} 
+                                {...field}
                               />
                             </div>
                           </FormControl>
@@ -269,8 +312,8 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                       </FormLabel>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {projectTypes.map((type) => {
-                          const Icon = type.icon
-                          const isSelected = field.value === type.value
+                          const Icon = type.icon;
+                          const isSelected = field.value === type.value;
                           return (
                             <motion.label
                               key={type.value}
@@ -290,14 +333,20 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                 onChange={() => field.onChange(type.value)}
                                 className="sr-only"
                               />
-                              <Icon className={cn(
-                                "w-6 h-6 mb-2",
-                                isSelected ? "text-cyan-400" : "text-neutral-500"
-                              )} />
-                              <span className={cn(
-                                "text-xs font-medium",
-                                isSelected ? "text-white" : "text-neutral-400"
-                              )}>
+                              <Icon
+                                className={cn(
+                                  "w-6 h-6 mb-2",
+                                  isSelected
+                                    ? "text-cyan-400"
+                                    : "text-neutral-500"
+                                )}
+                              />
+                              <span
+                                className={cn(
+                                  "text-xs font-medium",
+                                  isSelected ? "text-white" : "text-neutral-400"
+                                )}
+                              >
                                 {type.label}
                               </span>
                               <span className="text-[10px] text-neutral-600 mt-1">
@@ -311,7 +360,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                                 />
                               )}
                             </motion.label>
-                          )
+                          );
                         })}
                       </div>
                       <FormMessage className="text-xs mt-2 text-red-400" />
@@ -326,7 +375,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-xs font-medium text-neutral-400 uppercase tracking-wider">
-                        Tell us about your vision <span className="text-neutral-600 normal-case">(optional)</span>
+                        Tell us about your vision{" "}
+                        <span className="text-neutral-600 normal-case">
+                          (optional)
+                        </span>
                       </FormLabel>
                       <FormControl>
                         <div className="relative">
@@ -352,7 +404,11 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                     {isSubmitting ? (
                       <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                         className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full"
                       />
                     ) : (
@@ -384,5 +440,5 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
         </motion.div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
