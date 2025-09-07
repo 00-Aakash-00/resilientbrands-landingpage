@@ -18,8 +18,8 @@ import { OpenAIIcon, GeminiIcon, AnthropicIcon } from "@/components/ui/icons";
 import { useContactModal } from "@/hooks/use-contact-modal";
 
 export const AI_MODELS = [
-  "GPT-4-1 Mini",
-  "GPT-4-1",
+  "GPT-4.1 Mini",
+  "GPT-4.1",
   "o3-mini",
   "Gemini 2.5 Flash",
   "Claude 3.5 Sonnet",
@@ -29,8 +29,8 @@ export const MODEL_ICONS: Record<string, React.ReactNode> = {
   "o3-mini": <OpenAIIcon />,
   "Gemini 2.5 Flash": <GeminiIcon />,
   "Claude 3.5 Sonnet": <AnthropicIcon />,
-  "GPT-4-1 Mini": <OpenAIIcon />,
-  "GPT-4-1": <OpenAIIcon />,
+  "GPT-4.1 Mini": <OpenAIIcon />,
+  "GPT-4.1": <OpenAIIcon />,
 };
 
 export default function AIPrompt() {
@@ -39,7 +39,7 @@ export default function AIPrompt() {
     minHeight: 72,
     maxHeight: 300,
   });
-  const [selectedModel, setSelectedModel] = useState("GPT-4-1 Mini");
+  const [selectedModel, setSelectedModel] = useState("GPT-4.1 Mini");
   const { open: openContactModal } = useContactModal();
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -95,7 +95,7 @@ export default function AIPrompt() {
                             transition={{ duration: 0.15 }}
                             className="flex items-center gap-1"
                           >
-                            <div className="w-4 h-4 flex items-center justify-center text-black">
+                            <div className="w-4 h-4 flex items-center justify-center">
                               {MODEL_ICONS[selectedModel]}
                             </div>
                             {selectedModel}
@@ -108,7 +108,7 @@ export default function AIPrompt() {
                       className={cn(
                         "min-w-[10rem]",
                         "border-black/10",
-                        "bg-gradient-to-b from-white via-white to-neutral-100"
+                        "text-black bg-white"
                       )}
                     >
                       {AI_MODELS.map((model) => (

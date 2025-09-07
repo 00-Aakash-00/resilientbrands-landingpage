@@ -1,6 +1,6 @@
 "use client";
 
-import AI_Prompt from "@/components/ai-prompt";
+import AIPrompt from "@/components/ai-prompt";
 import DecryptedText from "@/components/ui/decrypted-text";
 import Aurora from "@/components/Aurora";
 import { WordRotate } from "@/components/magicui/word-rotate";
@@ -95,7 +95,7 @@ export default function HeroSection() {
               </div>
 
               <div className="w-full max-w-3xl mx-auto mt-6 pointer-events-auto">
-                <AI_Prompt />
+                <AIPrompt />
               </div>
             </div>
           </div>
