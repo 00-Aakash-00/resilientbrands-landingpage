@@ -90,6 +90,13 @@ const categories = [
                 dur={`${2 + i * 0.3}s`}
                 repeatCount="indefinite"
               />
+              <animateTransform
+                attributeName="transform"
+                type="scale"
+                values="1;1.5;1"
+                dur={`${2 + i * 0.3}s`}
+                repeatCount="indefinite"
+              />
             </circle>
           ))}
         </g>
@@ -111,6 +118,14 @@ const categories = [
             height="60"
             fill="#10B981"
             transform="rotate(45 300 300)"
+          />
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 200 200"
+            to="360 200 200"
+            dur="60s"
+            repeatCount="indefinite"
           />
         </g>
       </svg>
@@ -251,6 +266,12 @@ const categories = [
                   dur={`${1.5 + i * 0.2}s`}
                   repeatCount="indefinite"
                 />
+                <animate
+                  attributeName="opacity"
+                  values="0.3;0.1;0.3"
+                  dur={`${1.5 + i * 0.2}s`}
+                  repeatCount="indefinite"
+                />
               </circle>
             </g>
           ))}
@@ -260,6 +281,14 @@ const categories = [
         <g opacity="0.1">
           <circle cx="100" cy="100" r="50" fill="#F59E0B" />
           <circle cx="300" cy="300" r="40" fill="#EF4444" />
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 200 200"
+            to="360 200 200"
+            dur="20s"
+            repeatCount="indefinite"
+          />
         </g>
       </svg>
     ),
@@ -323,10 +352,21 @@ const categories = [
           </g>
 
           {/* Main circle */}
-          <circle cx="0" cy="0" r="100" fill="url(#priv-grad-1)" />
+          <circle 
+            cx="0" 
+            cy="0" 
+            r="100" 
+            fill="url(#priv-grad-1)"
+          />
 
           {/* Inner gradient circle */}
-          <circle cx="0" cy="0" r="70" fill="url(#priv-grad-2)" opacity="0.8" />
+          <circle 
+            cx="0" 
+            cy="0" 
+            r="70" 
+            fill="url(#priv-grad-2)" 
+            opacity="0.8"
+          />
 
           {/* Lock icon */}
           <g transform="scale(2)">
@@ -346,22 +386,43 @@ const categories = [
               fill="none"
               opacity="0.9"
             />
-            <circle cx="0" cy="3" r="3" fill="#7C3AED" />
+            <circle 
+              cx="0" 
+              cy="3" 
+              r="3" 
+              fill="#7C3AED"
+            />
           </g>
 
           {/* Orbiting elements */}
-          {[0, 72, 144, 216, 288].map((angle, i) => (
-            <g key={i} transform={`rotate(${angle})`}>
-              <circle cx="130" cy="0" r="6" fill="white" opacity="0.7">
-                <animate
-                  attributeName="opacity"
-                  values="0.7;1;0.7"
-                  dur={`${2 + i * 0.4}s`}
-                  repeatCount="indefinite"
-                />
-              </circle>
-            </g>
-          ))}
+          <g>
+            {[0, 72, 144, 216, 288].map((angle, i) => (
+              <g key={i} transform={`rotate(${angle})`}>
+                <circle 
+                  cx="130" 
+                  cy="0" 
+                  r="6" 
+                  fill="white"
+                  opacity="0.7"
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.7;1;0.7"
+                    dur={`${2 + i * 0.4}s`}
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              </g>
+            ))}
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 0 0"
+              to="360 0 0"
+              dur="20s"
+              repeatCount="indefinite"
+            />
+          </g>
         </g>
 
         {/* Privacy badge */}
@@ -425,7 +486,6 @@ export default function AIPoweredServices() {
         {/* 3 Cards Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {categories.map((category, index) => {
-            const Icon = category.icon;
             return (
               <motion.div
                 key={index}
