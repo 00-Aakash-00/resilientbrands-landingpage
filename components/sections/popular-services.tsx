@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { ArrowRight, Sparkles, Shield, FileCheck, TrendingUp, Zap, Star } from "lucide-react"
+import { ArrowRight, Sparkles, Shield, FileCheck, ChevronRight } from "lucide-react"
+import { instrumentSerif } from "@/lib/fonts"
 
 const servicesData = {
   "Brand Performance": {
     icon: Sparkles,
     color: "#06B6D4",
+    gradient: "from-cyan-500 to-blue-500",
     services: [
       "Leads Enrichment",
       "Search Engine Optimization Audit",
@@ -24,6 +26,7 @@ const servicesData = {
   "Security & IT": {
     icon: Shield,
     color: "#3B82F6",
+    gradient: "from-blue-500 to-indigo-500",
     services: [
       "Penetration Testing",
       "Adversarial Tool assessment",
@@ -39,6 +42,7 @@ const servicesData = {
   "Compliance": {
     icon: FileCheck,
     color: "#10B981",
+    gradient: "from-emerald-500 to-green-500",
     services: [
       "Compliance Audit Ready Assessment",
       "Compliance Policy Generation",
@@ -54,248 +58,225 @@ export default function PopularServices() {
   const [activeTab, setActiveTab] = useState("Brand Performance")
   
   return (
-    <section className="relative py-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+      {/* Simple geometric background pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-96 h-96">
+          <svg viewBox="0 0 400 400" className="w-full h-full opacity-5">
+            <rect x="0" y="0" width="100" height="100" fill="white" />
+            <rect x="200" y="0" width="100" height="100" fill="white" />
+            <rect x="100" y="100" width="100" height="100" fill="white" />
+            <rect x="300" y="100" width="100" height="100" fill="white" />
+            <rect x="0" y="200" width="100" height="100" fill="white" />
+            <rect x="200" y="200" width="100" height="100" fill="white" />
+            <rect x="100" y="300" width="100" height="100" fill="white" />
+            <rect x="300" y="300" width="100" height="100" fill="white" />
+          </svg>
+        </div>
+      </div>
       
       <div className="relative max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 backdrop-blur-sm rounded-full border border-cyan-500/20 mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-6"
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
-            <span className="text-cyan-400 font-medium">Popular Services</span>
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm font-medium text-cyan-400">Popular Services</span>
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]"
+            className={`${instrumentSerif.className} text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 tracking-tight`}
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Services that
-            <motion.span 
-              className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              deliver results
-            </motion.span>
-          </motion.h2>
-          <motion.p 
-            className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto font-normal leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Comprehensive solutions tailored for every aspect of your business, from performance optimization to security enhancement.
-          </motion.p>
-        </motion.div>
-        
-        {/* Enhanced Tab Navigation */}
-        <div className="flex justify-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex p-2 bg-gradient-to-r from-slate-800/60 to-slate-900/80 backdrop-blur-xl rounded-3xl border border-slate-700/50 shadow-2xl"
           >
+            Services that{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              deliver results
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg text-neutral-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Comprehensive solutions tailored for every aspect of your business growth
+          </motion.p>
+        </motion.div>
+        
+        {/* Tab Navigation */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-12"
+        >
+          <div className="inline-flex p-1 bg-slate-900 rounded-lg border border-slate-800">
             {Object.entries(servicesData).map(([category, data]) => {
               const Icon = data.icon
               const isActive = activeTab === category
               
               return (
-                <motion.button
+                <button
                   key={category}
                   onClick={() => setActiveTab(category)}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="relative px-8 py-4 rounded-2xl font-medium transition-all duration-300 group"
+                  className={`
+                    relative px-6 py-3 rounded-md font-medium transition-all duration-200
+                    ${isActive 
+                      ? 'bg-slate-800 text-white' 
+                      : 'text-neutral-400 hover:text-white'
+                    }
+                  `}
                 >
-                  {/* Active background */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-emerald-500/30 rounded-2xl border border-cyan-500/40 shadow-lg"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      style={{
-                        boxShadow: `0 0 30px ${data.color}25`
-                      }}
-                    />
-                  )}
-                  
-                  {/* Hover background */}
-                  <motion.div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: `linear-gradient(135deg, ${data.color}10, transparent)`
-                    }}
-                  />
-                  
-                  {/* Content */}
-                  <span className={`relative flex items-center gap-3 transition-all duration-300 ${
-                    isActive ? 'text-white' : 'text-neutral-400 group-hover:text-neutral-200'
-                  }`}>
-                    <motion.div
-                      whileHover={{ rotate: 180, scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Icon 
-                        className="w-5 h-5" 
-                        style={{ color: isActive ? data.color : undefined }} 
-                      />
-                    </motion.div>
+                  <span className="flex items-center gap-2">
+                    <Icon className="w-4 h-4" />
                     {category}
                   </span>
-                </motion.button>
+                </button>
               )
             })}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
         
-        {/* Enhanced Tab Content */}
+        {/* Tab Content */}
         <motion.div
           key={activeTab}
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="relative p-8 lg:p-12 bg-gradient-to-b from-slate-800/60 to-slate-900/80 backdrop-blur-2xl rounded-3xl border border-slate-700/50 shadow-2xl overflow-hidden">
-            
-            {/* Dynamic background pattern */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 25% 25%, ${servicesData[activeTab].color}15 0%, transparent 50%)`
-              }} />
+          <div className="relative">
+            {/* Category Header Card - More prominent and aesthetic */}
+            <div className="mb-12 relative">
+              <div className="relative p-10 bg-slate-900/30 rounded-2xl border border-slate-800 overflow-hidden">
+                {/* Accent gradient line */}
+                <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${servicesData[activeTab].gradient}`} />
+                
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute -right-10 -top-10 w-40 h-40">
+                    {(() => {
+                      const Icon = servicesData[activeTab].icon
+                      return <Icon className="w-full h-full" />
+                    })()}
+                  </div>
+                </div>
+                
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-6">
+                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${servicesData[activeTab].gradient} p-0.5`}>
+                      <div className="w-full h-full rounded-xl bg-black flex items-center justify-center">
+                        {(() => {
+                          const Icon = servicesData[activeTab].icon
+                          return <Icon className="w-8 h-8 text-white" />
+                        })()}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-3xl font-bold text-white mb-1">{activeTab}</h3>
+                      <p className="text-neutral-400">
+                        <span className="text-2xl font-bold text-white">{servicesData[activeTab].services.length}</span> 
+                        <span className="ml-2">specialized services</span>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Stats badge */}
+                  <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${servicesData[activeTab].gradient} animate-pulse`} />
+                    <span className="text-sm font-medium text-neutral-300">Available Now</span>
+                  </div>
+                </div>
+              </div>
             </div>
             
-            {/* Floating icon decoration */}
-            <motion.div 
-              className="absolute top-8 right-8"
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-            >
-              {(() => {
-                const Icon = servicesData[activeTab].icon
-                return (
-                  <div 
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${servicesData[activeTab].color}20, ${servicesData[activeTab].color}05)`,
-                      boxShadow: `0 0 30px ${servicesData[activeTab].color}20`
-                    }}
-                  >
-                    <Icon className="w-8 h-8" style={{ color: servicesData[activeTab].color }} />
-                  </div>
-                )
-              })()}
-            </motion.div>
-            
-            {/* Services Grid with enhanced animations */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 relative z-10">
+            {/* Services Grid - More aesthetic cards */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               {servicesData[activeTab].services.map((service, index) => (
                 <motion.div
                   key={service}
-                  initial={{ opacity: 0, x: -30, y: 20 }}
-                  animate={{ opacity: 1, x: 0, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
-                  whileHover={{ 
-                    scale: 1.03, 
-                    x: 8,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="group relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.03 }}
+                  className="group"
                 >
-                  <div className="relative p-4 rounded-xl bg-slate-950/90 border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300 overflow-hidden">
-                    
-                    {/* Hover glow effect */}
-                    <div 
-                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        background: `linear-gradient(135deg, ${servicesData[activeTab].color}08, transparent)`
-                      }}
-                    />
-                    
-                    <div className="relative flex items-center gap-3">
-                      {/* Enhanced service indicator */}
-                      <motion.div 
-                        className="flex-shrink-0 w-3 h-3 rounded-full"
-                        style={{ 
-                          background: `linear-gradient(45deg, ${servicesData[activeTab].color}, ${servicesData[activeTab].color}80)`,
-                          boxShadow: `0 0 12px ${servicesData[activeTab].color}40`
-                        }}
-                        whileHover={{ scale: 1.3 }}
-                        transition={{ duration: 0.2 }}
-                      />
-                      
-                      <span className="text-neutral-300 group-hover:text-white transition-colors font-medium">
-                        {service}
-                      </span>
-                      
-                      {/* Premium indicator for first few services */}
-                      {index < 3 && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.5 + index * 0.1 }}
-                          className="ml-auto"
-                        >
-                          <Star className="w-4 h-4 text-amber-400" />
-                        </motion.div>
-                      )}
+                  <div className="relative h-full p-6 bg-slate-900/30 rounded-xl border border-slate-800 hover:border-slate-700 transition-all duration-300 hover:bg-slate-900/50">
+                    {/* Service number */}
+                    <div className="absolute top-6 right-6 text-3xl font-bold text-slate-800 group-hover:text-slate-700 transition-colors">
+                      {String(index + 1).padStart(2, '0')}
                     </div>
+                    
+                    <div className="flex items-start gap-4">
+                      {/* Icon container */}
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${servicesData[activeTab].gradient} p-0.5 flex-shrink-0`}>
+                        <div className="w-full h-full rounded-lg bg-black/50 flex items-center justify-center">
+                          <ChevronRight className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Service content */}
+                      <div className="flex-1">
+                        <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                          {service}
+                        </h4>
+                        <p className="text-sm text-neutral-500">
+                          Professional implementation with proven results
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Hover accent */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${servicesData[activeTab].gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`} />
                   </div>
                 </motion.div>
               ))}
             </div>
             
-            {/* Enhanced CTA Section */}
-            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  Ready to get started?
-                </h3>
-                <p className="text-neutral-400">
-                  Map your brand's {activeTab.toLowerCase()} journey with our expert team.
-                </p>
+            {/* CTA Section - More aesthetic */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden"
+            >
+              <div className="relative p-10 bg-gradient-to-br from-slate-900/50 to-slate-900/30 rounded-2xl border border-slate-800">
+                {/* Background accent */}
+                <div className={`absolute -right-20 -bottom-20 w-80 h-80 bg-gradient-to-br ${servicesData[activeTab].gradient} opacity-5 blur-3xl`} />
+                
+                <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div>
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      Ready to transform your {activeTab.toLowerCase()}?
+                    </h3>
+                    <p className="text-lg text-neutral-400">
+                      Get started with our expert team and cutting-edge solutions
+                    </p>
+                  </div>
+                  
+                  <button className="group flex items-center gap-3 px-10 py-5 bg-white text-black font-bold text-lg rounded-xl hover:bg-white/90 transition-all duration-200 shadow-2xl">
+                    <span>Map my brand</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </div>
-              
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: `0 20px 40px ${servicesData[activeTab].color}30`
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-white to-neutral-100 text-black font-semibold rounded-full overflow-hidden transition-all duration-300"
-                style={{
-                  background: `linear-gradient(135deg, ${servicesData[activeTab].color}, ${servicesData[activeTab].color}CC)`
-                }}
-              >
-                <div className="absolute inset-0 bg-white opacity-90 group-hover:opacity-100 transition-opacity" />
-                <span className="relative z-10 text-black">Map my brand</span>
-                <ArrowRight className="relative z-10 w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
