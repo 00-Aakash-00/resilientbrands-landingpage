@@ -1,3 +1,5 @@
+import { useScreenSize } from "@/hooks/use-mobile"
+
 const features = [
   {
     num: "01",
@@ -32,10 +34,11 @@ const features = [
 ]
 
 export default function FeaturesSection() {
+  const { isMobile, isSmallMobile } = useScreenSize()
   return (
-    <section id="features" className="relative py-16 md:py-24 bg-secondary overflow-hidden">
+    <section id="features" className={`relative ${isMobile ? 'py-12' : 'py-16 md:py-24'} bg-secondary overflow-hidden`}>
       <div
-        className="absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden opacity-20 blur-3xl"
+        className={`absolute inset-x-0 top-1/2 -z-10 -translate-y-1/2 transform-gpu overflow-hidden ${isMobile ? 'opacity-10' : 'opacity-20'} blur-3xl`}
         aria-hidden="true"
       >
         <div
@@ -46,18 +49,18 @@ export default function FeaturesSection() {
           }}
         />
       </div>
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold">Investor-ready research in 10 minutes.</h2>
-          <p className="mt-4 text-lg text-muted-foreground">Every beautifully designed report includes:</p>
+      <div className={`container mx-auto ${isMobile ? 'px-4' : ''}`}>
+        <div className={`text-center ${isMobile ? 'mb-8' : 'mb-12'}`}>
+          <h2 className={`${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-3xl md:text-4xl'} font-bold`}>Investor-ready research in 10 minutes.</h2>
+          <p className={`${isMobile ? 'mt-3' : 'mt-4'} ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} text-muted-foreground`}>Every beautifully designed report includes:</p>
         </div>
-        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
+        <div className={`max-w-4xl mx-auto grid md:grid-cols-1 ${isMobile ? 'gap-8' : 'gap-12'}`}>
           {features.map((feature, index) => (
-            <div key={index} className="flex items-start gap-6">
-              <div className="text-4xl md:text-5xl font-bold text-primary opacity-40">{feature.num}</div>
+            <div key={index} className={`flex items-start ${isMobile ? 'gap-4' : 'gap-6'}`}>
+              <div className={`${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl'} font-bold text-primary opacity-40`}>{feature.num}</div>
               <div className="pt-1">
-                <h3 className="text-xl font-bold text-foreground">{feature.title}</h3>
-                <p className="mt-2 text-muted">{feature.description}</p>
+                <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-bold text-foreground`}>{feature.title}</h3>
+                <p className={`mt-2 text-muted ${isSmallMobile ? 'text-sm' : ''}`}>{feature.description}</p>
               </div>
             </div>
           ))}

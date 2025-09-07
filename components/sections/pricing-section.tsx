@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { CheckCircle2 } from "lucide-react"
 import { useContactModal } from "@/hooks/use-contact-modal"
+import { useScreenSize } from "@/hooks/use-mobile"
 
 const pricingPlans = [
   {
@@ -52,17 +53,18 @@ const pricingPlans = [
 
 export default function PricingSection() {
   const { open: openContactModal } = useContactModal()
+  const { isMobile, isSmallMobile } = useScreenSize()
   
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Simple, Transparent Pricing</h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section id="pricing" className={cn("bg-secondary", isMobile ? "py-8" : "py-16 md:py-24")}>
+      <div className={cn("container mx-auto", isMobile && "px-4")}>
+        <div className={cn("text-center", isMobile ? "mb-8" : "mb-12 md:mb-16")}>
+          <h2 className={cn("font-bold tracking-tight", isSmallMobile ? "text-2xl" : isMobile ? "text-3xl" : "text-3xl md:text-5xl")}>Simple, Transparent Pricing</h2>
+          <p className={cn("mt-4 text-muted-foreground max-w-2xl mx-auto", isMobile ? "text-base px-4" : "text-lg")}>
             Choose the plan that's right for you. No subscriptions, no hidden fees.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        <div className={cn("grid grid-cols-1 lg:grid-cols-3 items-stretch max-w-6xl mx-auto", isMobile ? "gap-4" : "gap-8")}>
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
@@ -84,21 +86,21 @@ export default function PricingSection() {
                     : "bg-card/60 backdrop-blur-md border border-white/10",
                 )}
               >
-                <CardHeader className="pt-10 text-center">
-                  <CardTitle className="text-2xl font-bold">{plan.title}</CardTitle>
+                <CardHeader className={cn("text-center", isMobile ? "pt-6" : "pt-10")}>
+                  <CardTitle className={cn("font-bold", isMobile ? "text-xl" : "text-2xl")}>{plan.title}</CardTitle>
                   <p className="text-muted h-12">{plan.description}</p>
                 </CardHeader>
-                <CardContent className="flex-grow flex flex-col p-6">
-                  <div className="text-center mb-6">
-                    <span className="text-5xl font-extrabold text-foreground">{plan.price}</span>
+                <CardContent className={cn("flex-grow flex flex-col", isMobile ? "p-4" : "p-6")}>
+                  <div className={cn("text-center", isMobile ? "mb-4" : "mb-6")}>
+                    <span className={cn("font-extrabold text-foreground", isMobile ? "text-3xl" : "text-5xl")}>{plan.price}</span>
                     {plan.billing && <span className="text-muted text-sm">{plan.billing}</span>}
                     {plan.value && <p className="text-sm text-muted mt-1">{plan.value}</p>}
                   </div>
-                  <ul className="space-y-3 text-left flex-grow mb-8">
+                  <ul className={cn("text-left flex-grow", isMobile ? "space-y-2 mb-6" : "space-y-3 mb-8")}>
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <CheckCircle2 className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                        <span className={cn(feature.startsWith("Everything in") && "italic text-muted")}>
+                        <CheckCircle2 className={cn("text-primary flex-shrink-0 mt-1", isMobile ? "h-4 w-4 mr-2" : "h-5 w-5 mr-3")} />
+                        <span className={cn(feature.startsWith("Everything in") && "italic text-muted", isMobile && "text-sm")}>
                           {feature}
                         </span>
                       </li>

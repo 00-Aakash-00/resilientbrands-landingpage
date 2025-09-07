@@ -4,13 +4,13 @@ import { Providers } from '@/components/providers'
 import { dmSans, instrumentSerif } from '@/lib/fonts'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.resilientbrands.ai'),
+  metadataBase: new URL('https://resilientbrands.com'),
   title: {
-    default: 'Resilient Brands - AI Market Research & Startup Validation Tool | Get Your Business Report',
+    default: 'Resilient Brands - AI-Powered Brand Management & Tech Solutions Platform',
     template: '%s | Resilient Brands'
   },
-  description: 'Resilient Brands helps entrepreneurs validate startup ideas with AI-powered market research reports. Get TAM/SAM/SOM analysis, competitor insights, SWOT analysis & business plans in minutes. Start free.',
-  keywords: 'Resilient Brands, ResilientBrands.ai, Resilient Brands AI, startup validation tool, AI market research, business idea validation, TAM SAM SOM calculator, competitor analysis tool, SWOT analysis generator, AI business plan creator, startup market research, entrepreneur tools, startup founder resources, AI startup tools, market size calculator, business validation software, startup idea analyzer, AI competitor research, automated market analysis',
+  description: 'Resilient Brands connects you to trusted providers and experts for brand management, tech solutions, security, and compliance. Transform your digital presence with AI-powered analysis and professional services. Get started today.',
+  keywords: 'Resilient Brands, ResilientBrands.com, brand management platform, digital transformation, tech solutions provider, AI-powered analysis, brand performance, compliance tracking, security solutions, professional services, digital presence, brand optimization, technology consulting, enterprise solutions, startup resources, business growth, brand positioning',
   authors: [{ name: 'Resilient Brands Team' }],
   creator: 'Resilient Brands',
   publisher: 'Resilient Brands',
@@ -43,20 +43,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.resilientbrands.ai',
+    url: 'https://resilientbrands.com',
     siteName: 'Resilient Brands',
-    title: 'Resilient Brands - AI-Powered Market Research for Startup Founders',
-    description: 'Validate your startup idea in minutes with AI. Get comprehensive market research reports including TAM/SAM/SOM, competitor analysis, SWOT, and business plans. Start free today.',
+    title: 'Resilient Brands - AI-Powered Brand Management & Tech Solutions Platform',
+    description: 'Connect with trusted providers and experts for comprehensive brand management, tech solutions, security, and compliance. AI-powered analysis meets professional services for digital transformation.',
     images: [
       {
-        url: 'https://www.resilientbrands.ai/og-image.png',
+        url: 'https://resilientbrands.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Resilient Brands - AI Market Research Platform',
         type: 'image/png',
       },
       {
-        url: 'https://www.resilientbrands.ai/logo.png',
+        url: 'https://resilientbrands.com/logo.png',
         width: 800,
         height: 800,
         alt: 'Resilient Brands Logo',
@@ -68,17 +68,17 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@resilientbrands_ai',
     creator: '@resilientbrands_ai',
-    title: 'Resilient Brands - AI Market Research for Startups',
-    description: 'Get instant AI-powered market research reports. TAM/SAM/SOM, competitors, SWOT analysis & more. Start validating your startup idea today.',
+    title: 'Resilient Brands - Brand Management & Tech Solutions',
+    description: 'Professional brand management and tech solutions. Connect with trusted providers for security, compliance, and digital transformation services.',
     images: {
-      url: 'https://www.resilientbrands.ai/twitter-image.png',
+      url: 'https://resilientbrands.com/twitter-image.png',
       alt: 'Resilient Brands Preview'
     },
   },
   alternates: {
-    canonical: 'https://www.resilientbrands.ai',
+    canonical: 'https://resilientbrands.com',
     languages: {
-      'en-US': 'https://www.resilientbrands.ai',
+      'en-US': 'https://resilientbrands.com',
     },
   },
   category: 'technology',
@@ -99,8 +99,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         
         {/* Additional SEO Tags */}
-        <link rel="canonical" href="https://www.resilientbrands.ai" />
-        <link rel="alternate" type="application/rss+xml" title="Resilient Brands RSS Feed" href="https://www.resilientbrands.ai/rss.xml" />
+        <link rel="canonical" href="https://resilientbrands.com" />
+        <link rel="alternate" type="application/rss+xml" title="Resilient Brands RSS Feed" href="https://resilientbrands.com/rss.xml" />
         <meta name="theme-color" content="#2E8A84" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
@@ -139,39 +139,45 @@ export default function RootLayout({
               "@type": "SoftwareApplication",
               "name": "Resilient Brands",
               "alternateName": ["ResilientBrands", "Resilient Brands AI", "ResilientBrands AI"],
-              "url": "https://www.resilientbrands.ai",
-              "description": "AI-powered market research and business validation platform for startup founders. Get instant TAM/SAM/SOM calculations, competitor analysis, SWOT reports, and business plans.",
+              "url": "https://resilientbrands.com",
+              "description": "AI-powered brand management and technology solutions platform connecting businesses with trusted providers and experts for digital transformation, security, compliance, and growth.",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
               "softwareVersion": "2.0",
               "offers": {
                 "@type": "AggregateOffer",
                 "priceCurrency": "USD",
-                "lowPrice": "95",
-                "highPrice": "499",
-                "offerCount": "3",
+                "lowPrice": "0",
+                "highPrice": "2000",
+                "offerCount": "4",
                 "offers": [
                   {
                     "@type": "Offer",
-                    "name": "Entrepreneur Plan",
-                    "price": "95",
+                    "name": "Free Consultation",
+                    "price": "0",
                     "priceCurrency": "USD",
-                    "description": "1 custom market research report with TAM/SAM/SOM"
-                  },
-                  {
-                    "@type": "Offer", 
-                    "name": "Serial Entrepreneur Plan",
-                    "price": "159",
-                    "priceCurrency": "USD",
-                    "priceValidUntil": "2024-12-31",
-                    "description": "Everything in Entrepreneur plus competitor analysis and business plan"
+                    "description": "Free initial consultation and brand assessment"
                   },
                   {
                     "@type": "Offer",
-                    "name": "Professional Plan",
-                    "price": "499",
+                    "name": "Basic Services",
+                    "price": "500",
                     "priceCurrency": "USD",
-                    "description": "Everything plus 1-hour consultation"
+                    "description": "Essential brand management and tech solutions"
+                  },
+                  {
+                    "@type": "Offer", 
+                    "name": "Professional Services",
+                    "price": "1200",
+                    "priceCurrency": "USD",
+                    "description": "Comprehensive brand management with security and compliance"
+                  },
+                  {
+                    "@type": "Offer",
+                    "name": "Enterprise Solutions",
+                    "price": "2000",
+                    "priceCurrency": "USD",
+                    "description": "Full-service digital transformation with dedicated support"
                   }
                 ]
               },
@@ -185,10 +191,10 @@ export default function RootLayout({
               "publisher": {
                 "@type": "Organization",
                 "name": "Resilient Brands",
-                "url": "https://www.resilientbrands.ai",
+                "url": "https://resilientbrands.com",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://www.resilientbrands.ai/logo.png",
+                  "url": "https://resilientbrands.com/logo.png",
                   "width": "512",
                   "height": "512"
                 },
@@ -196,7 +202,7 @@ export default function RootLayout({
                   "@type": "ContactPoint",
                   "telephone": "+1-555-000-0000",
                   "contactType": "customer service",
-                  "email": "chris@resilientbrands.ai",
+                  "email": "hello@resilientbrands.com",
                   "availableLanguage": "English"
                 },
                 "sameAs": [
@@ -206,15 +212,16 @@ export default function RootLayout({
                 ]
               },
               "featureList": [
-                "AI-Powered Market Research",
-                "TAM/SAM/SOM Calculations",
-                "Competitor Analysis",
-                "SWOT Analysis",
-                "Business Plan Generation",
-                "Brand Positioning",
-                "Market Size Analysis"
+                "AI-Powered Brand Analysis",
+                "Tech Solutions Marketplace",
+                "Security & Compliance Services",
+                "Brand Performance Monitoring",
+                "Digital Transformation Consulting",
+                "Expert Network Access",
+                "Real-time Analytics Dashboard",
+                "Professional Service Matching"
               ],
-              "screenshot": "https://www.resilientbrands.ai/screenshot.png"
+              "screenshot": "https://resilientbrands.com/screenshot.png"
             })
           }}
         />
@@ -228,15 +235,15 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Resilient Brands",
               "alternateName": "ResilientBrands",
-              "url": "https://www.resilientbrands.ai",
-              "logo": "https://www.resilientbrands.ai/logo.png",
-              "description": "AI-powered startup validation and market research platform",
+              "url": "https://resilientbrands.com",
+              "logo": "https://resilientbrands.com/logo.png",
+              "description": "AI-powered brand management and technology solutions platform connecting businesses with trusted providers and experts",
               "foundingDate": "2023",
               "founders": [
                 {
                   "@type": "Person",
-                  "name": "Chris",
-                  "email": "chris@resilientbrands.ai"
+                  "name": "Resilient Brands Team",
+                  "email": "hello@resilientbrands.com"
                 }
               ],
               "address": {
@@ -248,11 +255,12 @@ export default function RootLayout({
                 "https://linkedin.com/company/resilient-brands"
               ],
               "knowsAbout": [
-                "Startup Validation",
-                "Market Research", 
-                "Business Analysis",
+                "Brand Management",
+                "Digital Transformation", 
+                "Technology Solutions",
                 "AI Technology",
-                "Entrepreneurship"
+                "Security & Compliance",
+                "Professional Services"
               ]
             })
           }}
@@ -270,19 +278,19 @@ export default function RootLayout({
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Home",
-                  "item": "https://www.resilientbrands.ai"
+                  "item": "https://resilientbrands.com"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Features",
-                  "item": "https://www.resilientbrands.ai/#features"
+                  "item": "https://resilientbrands.com/#tech-solutions"
                 },
                 {
                   "@type": "ListItem", 
                   "position": 3,
-                  "name": "Pricing",
-                  "item": "https://www.resilientbrands.ai/#pricing"
+                  "name": "Services",
+                  "item": "https://resilientbrands.com/#popular-services"
                 }
               ]
             })
@@ -302,31 +310,31 @@ export default function RootLayout({
                   "name": "What is Resilient Brands?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Resilient Brands is an AI-powered market research platform that helps entrepreneurs validate startup ideas. It generates comprehensive reports including TAM/SAM/SOM calculations, competitor analysis, SWOT reports, and business plans in minutes."
+                    "text": "Resilient Brands is an AI-powered brand management and technology solutions platform that connects businesses with trusted providers and experts. We offer comprehensive services including brand performance monitoring, security solutions, compliance tracking, and digital transformation consulting."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How much does Resilient Brands cost?",
+                  "name": "What services does Resilient Brands offer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Resilient Brands offers three pricing plans: Entrepreneur Plan at $95 for a single report, Serial Entrepreneur Plan at $159/year with additional features, and Professional Plan at $499 which includes a 1-hour consultation with a business strategist."
+                    "text": "Resilient Brands offers brand performance optimization, security and IT solutions, compliance tracking, tech solutions marketplace, AI-powered analysis, and expert consultation services. We connect you with trusted providers in your specific tech stack and business needs."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "How fast can I get my market research report?",
+                  "name": "How does Resilient Brands help my business?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "With Resilient Brands, you can get your comprehensive market research report in under 10 minutes. The Serial Entrepreneur and Professional plans offer priority delivery for even faster results."
+                    "text": "We help you manage your brand before others define it by providing real-time monitoring, expert guidance, trusted provider connections, and AI-powered insights. Our platform ensures your digital presence is resilient and positions you for sustainable growth."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What's included in the market research report?",
+                  "name": "How do I get started with Resilient Brands?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Each report includes Total Addressable Market (TAM), Serviceable Addressable Market (SAM), and Serviceable Obtainable Market (SOM) calculations, top 5 competitor analysis, SWOT analysis, and depending on your plan, a one-page business plan and brand positioning recommendations."
+                    "text": "Getting started is easy! Simply describe your business needs through our AI prompt, and we'll connect you with the right experts and solutions. You can start with a free consultation to identify your brand maturity outcomes and next steps."
                   }
                 }
               ]

@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
 import { Button } from "../ui/button";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const features = [
   {
@@ -1586,10 +1587,12 @@ const metrics = [
 ];
 
 export default function BrandManagement() {
+  const { isMobile, isSmallMobile } = useScreenSize();
+
   return (
-    <section className="relative pt-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className={`relative ${isMobile ? 'pt-16' : 'pt-40'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className={`${isMobile ? 'flex flex-col gap-10' : 'grid lg:grid-cols-2 gap-20 items-center'}`}>
           {/* Enhanced left content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -1599,7 +1602,7 @@ export default function BrandManagement() {
             className="relative"
           >
             <motion.h2
-              className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]`}
+              className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-bold tracking-tight text-white ${isMobile ? 'mb-3' : 'mb-4'} leading-[1.1]`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -1618,7 +1621,7 @@ export default function BrandManagement() {
             </motion.h2>
 
             <motion.p
-              className="text-base md:text-lg text-neutral-500 mb-14 leading-relaxed max-w-xl font-normal"
+              className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'mb-8' : 'mb-14'} leading-relaxed ${isMobile ? 'max-w-sm' : 'max-w-xl'} font-normal`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -1628,12 +1631,12 @@ export default function BrandManagement() {
               and real-time insights that drive measurable results.
             </motion.p>
 
-            <div className="space-y-4 mb-14">
+            <div className={`${isMobile ? 'space-y-3 mb-8' : 'space-y-4 mb-14'}`}>
               {features.map((feature, index) => {
                 return (
                   <div
                     key={index}
-                    className="grid grid-cols-2 gap-6 items-center"
+                    className={`${isMobile ? 'flex flex-col gap-3' : 'grid grid-cols-2 gap-6 items-center'}`}
                   >
                     {/* Text Content on Left */}
                     <motion.div
@@ -1642,7 +1645,7 @@ export default function BrandManagement() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className="relative flex items-start gap-4"
+                      className={`relative flex items-start ${isMobile ? 'gap-3' : 'gap-4'}`}
                     >
                       {/* Icon container */}
                       <div className="p-2 rounded-md bg-transparent border border-white/50 flex-shrink-0 transition-transform duration-300 hover:scale-110">
@@ -1651,11 +1654,11 @@ export default function BrandManagement() {
 
                       {/* Content */}
                       <div className="flex-1">
-                        <h3 className="text-base font-semibold text-white tracking-tight leading-tight mb-1">
+                        <h3 className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base'} font-semibold text-white tracking-tight leading-tight mb-1`}>
                           {feature.title}
                         </h3>
                         <p
-                          className="text-xs leading-relaxed text-slate-400 font-normal"
+                          className={`${isSmallMobile ? 'text-[11px]' : 'text-xs'} leading-relaxed text-slate-400 font-normal`}
                           style={{ lineHeight: "1.6" }}
                         >
                           {feature.description}
@@ -1674,7 +1677,7 @@ export default function BrandManagement() {
                         scale: 1.05,
                         transition: { duration: 0.3, ease: "easeOut" },
                       }}
-                      className="group relative h-20 rounded-xl bg-slate-950/90 border border-slate-800/50 overflow-hidden hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300"
+                      className={`group relative ${isMobile ? 'h-16' : 'h-20'} ${isMobile ? 'rounded-lg' : 'rounded-xl'} bg-slate-950/90 border border-slate-800/50 overflow-hidden hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300`}
                     >
                       {/* SVG Display */}
                       <div className="absolute inset-0 opacity-70 group-hover:opacity-85 transition-opacity duration-300">
@@ -1687,11 +1690,11 @@ export default function BrandManagement() {
             </div>
 
             <Button
-              size="lg"
-              className="bg-white hover:bg-white/90 text-black font-semibold text-lg px-10 py-6 h-auto transform hover:scale-105 transition-all duration-300"
+              size={isMobile ? 'default' : 'lg'}
+              className={`bg-white hover:bg-white/90 text-black font-semibold ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} ${isMobile ? 'px-6 py-3' : 'px-10 py-6'} h-auto transform hover:scale-105 transition-all duration-300 ${isMobile ? 'w-full' : ''}`}
             >
               Get Started
-              <ArrowRight className="ml-3 h-6 w-6" />
+              <ArrowRight className={`ml-3 ${isMobile ? 'h-4 w-4' : 'h-6 w-6'}`} />
             </Button>
           </motion.div>
 
@@ -1709,7 +1712,7 @@ export default function BrandManagement() {
           >
             {/* Main dashboard card */}
             <motion.div
-              className="group relative p-8 lg:p-10 bg-slate-950/90 rounded-xl border border-slate-800/50 shadow-2xl overflow-hidden hover:border-slate-700/80 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300"
+              className={`group relative ${isMobile ? 'p-5' : 'p-8 lg:p-10'} bg-slate-950/90 ${isMobile ? 'rounded-lg' : 'rounded-xl'} border border-slate-800/50 shadow-2xl overflow-hidden hover:border-slate-700/80 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300`}
               whileHover={{
                 scale: 1.01,
                 transition: { duration: 0.3, ease: "easeOut" },
@@ -2108,14 +2111,14 @@ export default function BrandManagement() {
               </svg>
 
               {/* Header */}
-              <div className="flex items-center justify-between mb-10">
-                <h3 className="text-2xl font-bold text-white tracking-tight">
+              <div className={`flex items-center justify-between ${isMobile ? 'mb-6' : 'mb-10'}`}>
+                <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-2xl'} font-bold text-white tracking-tight`}>
                   Brand Analytics
                 </h3>
               </div>
 
               {/* Animated metrics grid */}
-              <div className="grid grid-cols-2 gap-5 mb-10">
+              <div className={`grid ${isMobile ? 'grid-cols-1 gap-3 mb-6' : 'grid-cols-2 gap-5 mb-10'}`}>
                 {metrics.map((metric, index) => (
                   <motion.div
                     key={metric.label}
@@ -2128,11 +2131,11 @@ export default function BrandManagement() {
                       y: -2,
                       transition: { duration: 0.2, ease: "easeOut" },
                     }}
-                    className="group relative p-4 bg-slate-950/90 rounded-xl border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden transition-all duration-300"
+                    className={`group relative ${isMobile ? 'p-3' : 'p-4'} bg-slate-950/90 ${isMobile ? 'rounded-lg' : 'rounded-xl'} border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden transition-all duration-300`}
                   >
                     {/* Mini chart background */}
                     <svg
-                      className="absolute bottom-0 right-0 w-24 h-12 opacity-30 group-hover:opacity-40 transition-opacity duration-300"
+                      className={`absolute bottom-0 right-0 ${isMobile ? 'w-16 h-8' : 'w-24 h-12'} opacity-30 group-hover:opacity-40 transition-opacity duration-300`}
                       viewBox="0 0 100 50"
                       fill="none"
                     >
@@ -2151,13 +2154,13 @@ export default function BrandManagement() {
 
                     <div className="relative">
                       <p
-                        className="text-neutral-500 text-xs font-medium mb-2 uppercase tracking-wider"
+                        className={`text-neutral-500 ${isSmallMobile ? 'text-[10px]' : 'text-xs'} font-medium ${isMobile ? 'mb-1.5' : 'mb-2'} uppercase tracking-wider`}
                         style={{ letterSpacing: "0.08em" }}
                       >
                         {metric.label}
                       </p>
                       <p
-                        className="text-3xl font-bold text-white mb-1 tracking-tight"
+                        className={`${isSmallMobile ? 'text-xl' : isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-white ${isMobile ? 'mb-0.5' : 'mb-1'} tracking-tight`}
                         style={{
                           textShadow: `0 0 25px ${metric.color}50`,
                           letterSpacing: "-0.02em",
@@ -2166,12 +2169,12 @@ export default function BrandManagement() {
                         {metric.value}
                       </p>
                       <p
-                        className="text-sm font-semibold flex items-center gap-1"
+                        className={`${isSmallMobile ? 'text-xs' : 'text-sm'} font-semibold flex items-center gap-1`}
                         style={{ color: metric.color }}
                       >
                         <svg
-                          width="12"
-                          height="12"
+                          width={isSmallMobile ? '10' : '12'}
+                          height={isSmallMobile ? '10' : '12'}
                           viewBox="0 0 12 12"
                           fill="none"
                         >
@@ -2191,7 +2194,7 @@ export default function BrandManagement() {
 
               {/* Chart visualization */}
               <div className="relative">
-                <div className="h-32 bg-slate-950/90 rounded-xl border border-slate-800/50 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] hover:border-slate-700/80 transition-all duration-300 overflow-hidden">
+                <div className={`${isMobile ? 'h-24' : 'h-32'} bg-slate-950/90 ${isMobile ? 'rounded-lg' : 'rounded-xl'} border border-slate-800/50 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] hover:border-slate-700/80 transition-all duration-300 overflow-hidden`}>
                   {/* Grid background */}
                   <svg className="absolute inset-0 w-full h-full opacity-10">
                     <defs>
@@ -2215,7 +2218,7 @@ export default function BrandManagement() {
                   </svg>
 
                   {/* Animated chart bars */}
-                  <div className="relative flex items-end justify-between h-full p-4 gap-2">
+                  <div className={`relative flex items-end justify-between h-full ${isMobile ? 'p-3 gap-1.5' : 'p-4 gap-2'}`}>
                     {[65, 78, 52, 84, 91, 67, 89, 76].map((height, index) => (
                       <motion.div
                         key={index}

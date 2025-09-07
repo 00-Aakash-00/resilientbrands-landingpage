@@ -16,6 +16,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { OpenAIIcon, GeminiIcon, AnthropicIcon } from "@/components/ui/icons";
 import { useContactModal } from "@/hooks/use-contact-modal";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 export const AI_MODELS = [
   "GPT-4.1 Mini",
@@ -35,9 +36,10 @@ export const MODEL_ICONS: Record<string, React.ReactNode> = {
 
 export default function AIPrompt() {
   const [value, setValue] = useState("");
+  const { isMobile, isSmallMobile } = useScreenSize();
   const { textareaRef, adjustHeight } = useAutoResizeTextarea({
-    minHeight: 72,
-    maxHeight: 300,
+    minHeight: isMobile ? 60 : 72,
+    maxHeight: isMobile ? 200 : 300,
   });
   const [selectedModel, setSelectedModel] = useState("GPT-4.1 Mini");
   const { open: openContactModal } = useContactModal();
@@ -58,17 +60,17 @@ export default function AIPrompt() {
   };
 
   return (
-    <div className="w-full max-w-3xl">
-      <div className="bg-white rounded-2xl p-1.5 shadow-2xl border border-black/5">
+    <div className={`w-full ${isMobile ? 'max-w-full' : 'max-w-3xl'}`}>
+      <div className={`bg-white ${isMobile ? 'rounded-lg p-0.5' : 'rounded-2xl p-1.5'} shadow-2xl border border-black/5`}>
         <div className="relative">
           <div className="relative flex flex-col">
             <Textarea
               id="ai-input-15"
               value={value}
-              placeholder="Describe your needs and business - Be as detailed as you'd like."
+              placeholder={isMobile ? "Describe your business needs..." : "Describe your needs and business - Be as detailed as you'd like."}
               className={cn(
-                "w-full rounded-xl rounded-b-none px-4 py-3 bg-white border-none text-black placeholder:text-neutral-500 resize-none focus-visible:ring-0 focus-visible:ring-offset-0",
-                "min-h-[72px]"
+                `w-full ${isMobile ? 'rounded-md' : 'rounded-xl'} rounded-b-none ${isMobile ? 'px-3 py-2' : 'px-4 py-3'} bg-white border-none text-black placeholder:text-neutral-500 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ${isSmallMobile ? 'text-sm' : 'text-base'}`,
+                isMobile ? "min-h-[50px]" : "min-h-[72px]"
               )}
               ref={textareaRef}
               onKeyDown={handleKeyDown}
@@ -77,14 +79,14 @@ export default function AIPrompt() {
                 adjustHeight();
               }}
             />
-            <div className="h-14 bg-white rounded-b-xl flex items-center">
-              <div className="absolute left-3 right-3 bottom-3 flex items-center justify-between w-[calc(100%-24px)]">
+            <div className={`${isMobile ? 'h-10' : 'h-14'} bg-white ${isMobile ? 'rounded-b-md' : 'rounded-b-xl'} flex items-center`}>
+              <div className={`absolute ${isMobile ? 'left-2 right-2 bottom-2' : 'left-3 right-3 bottom-3'} flex items-center justify-between ${isMobile ? 'w-[calc(100%-16px)]' : 'w-[calc(100%-24px)]'}`}>
                 <div className="flex items-center gap-2">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
                         variant="ghost"
-                        className="flex items-center gap-1 h-8 pl-1 pr-2 text-xs rounded-md text-black hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
+                        className={`flex items-center gap-1 ${isMobile ? 'h-7 pl-0.5 pr-1.5 text-[10px]' : 'h-8 pl-1 pr-2 text-xs'} rounded-md text-black hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500`}
                       >
                         <AnimatePresence mode="wait">
                           <motion.div
@@ -95,11 +97,11 @@ export default function AIPrompt() {
                             transition={{ duration: 0.15 }}
                             className="flex items-center gap-1"
                           >
-                            <div className="w-4 h-4 flex items-center justify-center">
+                            <div className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} flex items-center justify-center`}>
                               {MODEL_ICONS[selectedModel]}
                             </div>
-                            {selectedModel}
-                            <ChevronDown className="w-3 h-3 text-black opacity-70" />
+                            {isMobile ? selectedModel.split(' ')[0] : selectedModel}
+                            <ChevronDown className={`${isMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-black opacity-70`} />
                           </motion.div>
                         </AnimatePresence>
                       </Button>
@@ -117,38 +119,38 @@ export default function AIPrompt() {
                           onSelect={() => setSelectedModel(model)}
                           className="flex items-center justify-between gap-2"
                         >
-                          <div className="flex items-center gap-2">
-                            <div className="w-4 h-4 flex items-center justify-center">
+                          <div className={`flex items-center ${isMobile ? 'gap-1.5' : 'gap-2'}`}>
+                            <div className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} flex items-center justify-center`}>
                               {MODEL_ICONS[model] || (
-                                <Bot className="w-4 h-4 opacity-50" />
+                                <Bot className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} opacity-50`} />
                               )}
                             </div>
                             <span>{model}</span>
                           </div>
                           {selectedModel === model && (
-                            <Check className="w-4 h-4 text-blue-500" />
+                            <Check className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} text-blue-500`} />
                           )}
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  <div className="h-4 w-px bg-neutral-200 mx-0.5" />
+                  <div className={`${isMobile ? 'h-3' : 'h-4'} w-px bg-neutral-200 ${isMobile ? 'mx-0' : 'mx-0.5'}`} />
                   <label
                     className={cn(
-                      "rounded-lg p-2 cursor-pointer",
+                      `rounded-lg ${isMobile ? 'p-1.5' : 'p-2'} cursor-pointer`,
                       "hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500",
                       "text-neutral-500 hover:text-black"
                     )}
                     aria-label="Attach file"
                   >
                     <input type="file" className="hidden" />
-                    <Paperclip className="w-4 h-4 transition-colors" />
+                    <Paperclip className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} transition-colors`} />
                   </label>
                 </div>
                 <button
                   type="button"
                   className={cn(
-                    "rounded-lg p-2",
+                    `rounded-lg ${isMobile ? 'p-1.5' : 'p-2'}`,
                     "hover:bg-neutral-100 focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-blue-500"
                   )}
                   aria-label="Send message"
@@ -157,7 +159,7 @@ export default function AIPrompt() {
                 >
                   <ArrowRight
                     className={cn(
-                      "w-4 h-4 text-black transition-opacity duration-200",
+                      `${isMobile ? 'w-3 h-3' : 'w-4 h-4'} text-black transition-opacity duration-200`,
                       value.trim() ? "opacity-100" : "opacity-30"
                     )}
                   />

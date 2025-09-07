@@ -2,32 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.resilientbrands.ai/</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://resilientbrands.com/</loc>
+    <lastmod>2025-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.resilientbrands.ai/logo.png</image:loc>
-      <image:title>Resilient Brands Logo</image:title>
-      <image:caption>AI-powered tools for startup founders</image:caption>
+      <image:loc>https://resilientbrands.com/logo.png</image:loc>
+      <image:title>Resilient Brands - AI Market Research Platform</image:title>
+      <image:caption>AI-powered market research and brand management tools for startup founders</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://www.resilientbrands.ai/#features</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://resilientbrands.com/#tech-solutions</loc>
+    <lastmod>2025-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.resilientbrands.ai/#pricing</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://resilientbrands.com/#ai-services</loc>
+    <lastmod>2025-01-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.resilientbrands.ai/#how-it-works</loc>
-    <lastmod>2025-01-08</lastmod>
+    <loc>https://resilientbrands.com/#how-it-works</loc>
+    <lastmod>2025-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resilientbrands.com/#popular-services</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resilientbrands.com/#industry-trends</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resilientbrands.com/#brand-management</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://resilientbrands.com/privacy-policy</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://resilientbrands.com/terms-and-conditions</loc>
+    <lastmod>2025-01-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

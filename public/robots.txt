@@ -4,9 +4,11 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
 
 # Sitemaps
-Sitemap: https://www.resilientbrands.ai/sitemap.xml
+Sitemap: https://resilientbrands.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
@@ -15,3 +17,12 @@ Crawl-delay: 1
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+
+# Additional bot optimizations
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2

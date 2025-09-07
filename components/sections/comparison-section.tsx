@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Clock9, BrainCircuit, Layers, EyeOff, TrendingUp, ClipboardCheck, DatabaseZap, FileText } from "lucide-react"
+import { useScreenSize } from "@/hooks/use-mobile"
 
 const withResilientBrandsData = [
   {
@@ -58,11 +59,12 @@ const contentVariants = {
 
 export default function ComparisonSection() {
   const [useTool, setUseTool] = useState(true)
+  const { isMobile, isSmallMobile } = useScreenSize()
   return (
-    <section id="why-us" className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto">
+    <section id="why-us" className={`${isMobile ? 'py-12' : 'py-16 md:py-24'} bg-secondary`}>
+      <div className={`container mx-auto ${isMobile ? 'px-4' : ''}`}>
         <div className="w-full max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight flex flex-col items-center space-y-2">
+          <h2 className={`${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-3xl sm:text-4xl md:text-5xl'} font-bold text-foreground leading-tight flex flex-col items-center ${isMobile ? 'space-y-1' : 'space-y-2'}`}>
             <span>When you</span>
             <div className="flex items-center flex-wrap justify-center">
               <div className="inline-flex items-center align-middle h-16">
@@ -111,7 +113,7 @@ export default function ComparisonSection() {
             </div>
           </h2>
           <motion.div
-            className="mt-20 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className={`${isMobile ? 'mt-10' : 'mt-20'} grid grid-cols-1 ${isMobile ? 'gap-4' : 'sm:grid-cols-2 gap-6'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }}
           >
@@ -120,9 +122,9 @@ export default function ComparisonSection() {
               return (
                 <div
                   key={index}
-                  className={`bg-card p-6 rounded-2xl shadow-lg text-left overflow-hidden border-2 transition-all duration-300 ${
+                  className={`bg-card ${isMobile ? 'p-4' : 'p-6'} ${isMobile ? 'rounded-xl' : 'rounded-2xl'} shadow-lg text-left overflow-hidden border-2 transition-all duration-300 ${
                     useTool ? "border-primary/50" : "border-transparent"
-                  } hover:shadow-xl hover:-translate-y-1 h-56`}
+                  } hover:shadow-xl hover:-translate-y-1 ${isMobile ? 'h-auto min-h-[180px]' : 'h-56'}`}
                 >
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -133,11 +135,11 @@ export default function ComparisonSection() {
                       exit="exit"
                       className="flex flex-col items-start"
                     >
-                      <div className={`h-12 flex items-center ${useTool ? "text-primary" : "text-muted"}`}>
-                        {item.icon}
+                      <div className={`${isMobile ? 'h-10' : 'h-12'} flex items-center ${useTool ? "text-primary" : "text-muted"}`}>
+                        {React.cloneElement(item.icon, { className: isMobile ? 'w-7 h-7' : 'w-9 h-9' })}
                       </div>
-                      <h3 className="font-bold text-lg mt-4 text-foreground">{item.title}</h3>
-                      <p className="text-muted">{item.description}</p>
+                      <h3 className={`font-bold ${isMobile ? 'text-base' : 'text-lg'} ${isMobile ? 'mt-3' : 'mt-4'} text-foreground`}>{item.title}</h3>
+                      <p className={`text-muted ${isSmallMobile ? 'text-sm' : ''}`}>{item.description}</p>
                     </motion.div>
                   </AnimatePresence>
                 </div>

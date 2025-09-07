@@ -10,6 +10,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const servicesData = {
   "Brand Performance": {
@@ -62,9 +63,10 @@ const servicesData = {
 
 export default function PopularServices() {
   const [activeTab, setActiveTab] = useState("Brand Performance");
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className={`relative ${isMobile ? 'py-16' : 'py-32'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       {/* Simple geometric background pattern */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96">
@@ -88,23 +90,23 @@ export default function PopularServices() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className={`text-center ${isMobile ? 'mb-10' : 'mb-16'}`}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-6"
+            className={`inline-flex items-center gap-2 ${isMobile ? 'px-3 py-1.5' : 'px-4 py-2'} bg-white/5 rounded-full border border-white/10 ${isMobile ? 'mb-4' : 'mb-6'}`}
           >
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">
+            <TrendingUp className={`${isSmallMobile ? 'w-3 h-3' : 'w-4 h-4'} text-cyan-400`} />
+            <span className={`${isSmallMobile ? 'text-xs' : 'text-sm'} font-medium text-cyan-400`}>
               Popular Services
             </span>
           </motion.div>
 
           <motion.h2
-            className={`${instrumentSerif.className} text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 tracking-tight`}
+            className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-5xl md:text-6xl lg:text-7xl'} font-normal text-white ${isMobile ? 'mb-4' : 'mb-6'} tracking-tight`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -117,7 +119,7 @@ export default function PopularServices() {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-neutral-400 max-w-2xl mx-auto"
+            className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} text-neutral-400 ${isMobile ? 'max-w-sm px-2' : 'max-w-2xl'} mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -134,9 +136,9 @@ export default function PopularServices() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex justify-center mb-12"
+          className={`flex justify-center ${isMobile ? 'mb-8' : 'mb-12'}`}
         >
-          <div className="inline-flex p-1 bg-slate-900 rounded-lg border border-slate-800">
+          <div className={`${isMobile ? 'grid grid-cols-1 gap-2 w-full max-w-xs' : 'inline-flex'} ${!isMobile ? 'p-1' : 'p-0'} ${!isMobile ? 'bg-slate-900 rounded-lg border border-slate-800' : ''}`}>
             {Object.entries(servicesData).map(([category, data]) => {
               const Icon = data.icon;
               const isActive = activeTab === category;
@@ -146,7 +148,7 @@ export default function PopularServices() {
                   key={category}
                   onClick={() => setActiveTab(category)}
                   className={`
-                    relative px-6 py-3 rounded-md font-medium transition-all duration-200
+                    relative ${isMobile ? 'px-4 py-2 text-sm' : 'px-6 py-3'} ${isMobile ? 'w-full' : ''} rounded-md font-medium transition-all duration-200 ${isMobile ? 'border border-slate-800' : ''}
                     ${
                       isActive
                         ? "bg-slate-800 text-white"
@@ -155,7 +157,7 @@ export default function PopularServices() {
                   `}
                 >
                   <span className="flex items-center gap-2">
-                    <Icon className="w-4 h-4" />
+                    <Icon className={`${isSmallMobile ? 'w-3 h-3' : 'w-4 h-4'}`} />
                     {category}
                   </span>
                 </button>
@@ -173,8 +175,8 @@ export default function PopularServices() {
         >
           <div className="relative">
             {/* Category Header Card - More prominent and aesthetic */}
-            <div className="mb-12 relative">
-              <div className="relative p-10 bg-slate-900/30 rounded-2xl border border-slate-800 overflow-hidden">
+            <div className={`${isMobile ? 'mb-8' : 'mb-12'} relative`}>
+              <div className={`relative ${isMobile ? 'p-5' : 'p-10'} bg-slate-900/30 ${isMobile ? 'rounded-lg' : 'rounded-2xl'} border border-slate-800 overflow-hidden`}>
                 {/* Accent gradient line */}
                 <div
                   className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${servicesData[activeTab].gradient}`}
@@ -190,33 +192,33 @@ export default function PopularServices() {
                   </div>
                 </div>
 
-                <div className="relative flex items-center justify-between">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 rounded-xl bg-transparent border border-white/50 flex items-center justify-center">
+                <div className={`relative ${isMobile ? 'flex flex-col gap-4' : 'flex items-center justify-between'}`}>
+                  <div className={`flex items-center ${isMobile ? 'gap-3' : 'gap-6'}`}>
+                    <div className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} ${isMobile ? 'rounded-lg' : 'rounded-xl'} bg-transparent border border-white/50 flex items-center justify-center`}>
                       {(() => {
                         const Icon = servicesData[activeTab].icon;
-                        return <Icon className="w-8 h-8 text-white" />;
+                        return <Icon className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} text-white`} />;
                       })()}
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold text-white mb-1">
+                      <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-3xl'} font-bold text-white mb-1`}>
                         {activeTab}
                       </h3>
                       <p className="text-neutral-400">
-                        <span className="text-2xl font-bold text-white">
+                        <span className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-2xl'} font-bold text-white`}>
                           {servicesData[activeTab].services.length}
                         </span>
-                        <span className="ml-2">specialized services</span>
+                        <span className={`ml-2 ${isSmallMobile ? 'text-xs' : 'text-sm'}`}>specialized services</span>
                       </p>
                     </div>
                   </div>
 
                   {/* Stats badge */}
-                  <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
+                  <div className={`${isMobile ? 'flex' : 'hidden md:flex'} items-center gap-2 ${isMobile ? 'px-3 py-1.5' : 'px-4 py-2'} bg-white/5 rounded-full border border-white/10`}>
                     <div
                       className={`w-2 h-2 rounded-full bg-gradient-to-r ${servicesData[activeTab].gradient} animate-pulse`}
                     />
-                    <span className="text-sm font-medium text-neutral-300">
+                    <span className={`${isSmallMobile ? 'text-xs' : 'text-sm'} font-medium text-neutral-300`}>
                       Available Now
                     </span>
                   </div>
@@ -225,7 +227,7 @@ export default function PopularServices() {
             </div>
 
             {/* Services Grid - More aesthetic cards */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'md:grid-cols-2 gap-6'} ${isMobile ? 'mb-8' : 'mb-12'}`}>
               {servicesData[activeTab].services.map((service, index) => (
                 <motion.div
                   key={service}
@@ -234,24 +236,24 @@ export default function PopularServices() {
                   transition={{ duration: 0.4, delay: index * 0.03 }}
                   className="group"
                 >
-                  <div className="relative h-full p-6 bg-slate-900/30 rounded-xl border border-slate-800 hover:border-slate-700 transition-all duration-300 hover:bg-slate-900/50">
+                  <div className={`relative h-full ${isMobile ? 'p-4' : 'p-6'} bg-slate-900/30 ${isMobile ? 'rounded-lg' : 'rounded-xl'} border border-slate-800 hover:border-slate-700 transition-all duration-300 hover:bg-slate-900/50`}>
                     {/* Service number */}
-                    <div className="absolute top-6 right-6 text-3xl font-bold text-slate-800 group-hover:text-slate-700 transition-colors">
+                    <div className={`absolute ${isMobile ? 'top-4 right-4 text-xl' : 'top-6 right-6 text-3xl'} font-bold text-slate-800 group-hover:text-slate-700 transition-colors`}>
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
-                    <div className="flex items-start gap-4">
+                    <div className={`flex items-start ${isMobile ? 'gap-3' : 'gap-4'}`}>
                       {/* Icon container */}
-                      <div className="w-10 h-10 rounded-lg bg-transparent border border-white/50 flex-shrink-0 flex items-center justify-center">
-                        <ChevronRight className="w-5 h-5 text-white" />
+                      <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-lg bg-transparent border border-white/50 flex-shrink-0 flex items-center justify-center`}>
+                        <ChevronRight className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-white`} />
                       </div>
 
                       {/* Service content */}
                       <div className="flex-1">
-                        <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                        <h4 className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} font-semibold text-white mb-1 group-hover:text-cyan-400 transition-colors`}>
                           {service}
                         </h4>
-                        <p className="text-sm text-neutral-500">
+                        <p className={`${isSmallMobile ? 'text-xs' : 'text-sm'} text-neutral-500`}>
                           Professional implementation with proven results
                         </p>
                       </div>
@@ -274,26 +276,26 @@ export default function PopularServices() {
               viewport={{ once: true }}
               className="relative overflow-hidden"
             >
-              <div className="relative p-10 bg-gradient-to-br from-slate-900/50 to-slate-900/30 rounded-2xl border border-slate-800">
+              <div className={`relative ${isMobile ? 'p-5' : 'p-10'} bg-gradient-to-br from-slate-900/50 to-slate-900/30 ${isMobile ? 'rounded-lg' : 'rounded-2xl'} border border-slate-800`}>
                 {/* Background accent */}
                 <div
                   className={`absolute -right-20 -bottom-20 w-80 h-80 bg-gradient-to-br ${servicesData[activeTab].gradient} opacity-5 blur-3xl`}
                 />
 
-                <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className={`relative flex flex-col ${isMobile ? 'gap-4' : 'md:flex-row items-center justify-between gap-6'}`}>
                   <div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
+                    <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-3xl'} font-bold text-white ${isMobile ? 'mb-1.5' : 'mb-2'}`}>
                       Ready to transform your {activeTab.toLowerCase()}?
                     </h3>
-                    <p className="text-lg text-neutral-400">
+                    <p className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} text-neutral-400`}>
                       Get started with our expert team and cutting-edge
                       solutions
                     </p>
                   </div>
 
-                  <button className="group flex items-center gap-3 px-10 py-5 bg-white text-black font-bold text-lg rounded-xl hover:bg-white/90 transition-all duration-200 shadow-2xl">
+                  <button className={`group flex items-center gap-3 ${isMobile ? 'px-6 py-3 text-base' : 'px-10 py-5 text-lg'} bg-white text-black font-bold ${isMobile ? 'rounded-lg' : 'rounded-xl'} hover:bg-white/90 transition-all duration-200 shadow-2xl ${isMobile ? 'w-full justify-center' : ''}`}>
                     <span>Map my brand</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} group-hover:translate-x-1 transition-transform`} />
                   </button>
                 </div>
               </div>

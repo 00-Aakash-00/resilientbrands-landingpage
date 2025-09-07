@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 // Enhanced bento data with varied sizes and rich content
 const bentoItems = [
@@ -946,18 +947,21 @@ const bentoItems = [
 
 const AdvancedBentoGrid = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 auto-rows-[240px]">
+    <div className={`max-w-7xl mx-auto ${isMobile ? 'px-3' : 'px-4'}`}>
+      <div className={`grid ${isMobile ? 'grid-cols-1 gap-4 auto-rows-[200px]' : 'grid-cols-1 md:grid-cols-4 gap-5 auto-rows-[240px]'}`}>
         {bentoItems.map((item, index) => {
           const Icon = item.icon;
-          const gridSizeClass = {
-            large: "md:col-span-2 md:row-span-2",
-            wide: "md:col-span-2 md:row-span-1",
-            medium: "md:col-span-1 md:row-span-2",
-            small: "md:col-span-1 md:row-span-1",
-          }[item.size];
+          const gridSizeClass = isMobile 
+            ? "col-span-1 row-span-1" // All items single column on mobile
+            : {
+                large: "md:col-span-2 md:row-span-2",
+                wide: "md:col-span-2 md:row-span-1", 
+                medium: "md:col-span-1 md:row-span-2",
+                small: "md:col-span-1 md:row-span-1",
+              }[item.size];
 
           return (
             <motion.div
@@ -1031,18 +1035,18 @@ const AdvancedBentoGrid = () => {
               </AnimatePresence>
 
               {/* Content */}
-              <div className="relative h-full p-6 flex flex-col">
+              <div className={`relative h-full ${isMobile ? 'p-4' : 'p-6'} flex flex-col`}>
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-3">
                     <div className="p-2 rounded-md bg-transparent border border-white/50">
                       <Icon className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-base font-semibold text-white tracking-tight leading-tight mb-1">
+                      <h3 className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base'} font-semibold text-white tracking-tight leading-tight mb-1`}>
                         {item.title}
                       </h3>
                       <p
-                        className="text-xs font-medium text-slate-500 uppercase tracking-wider"
+                        className={`${isSmallMobile ? 'text-[10px]' : isMobile ? 'text-xs' : 'text-xs'} font-medium text-slate-500 uppercase tracking-wider`}
                         style={{ letterSpacing: "0.05em" }}
                       >
                         {item.subtitle}
@@ -1052,7 +1056,7 @@ const AdvancedBentoGrid = () => {
                 </div>
 
                 <p
-                  className="text-xs leading-relaxed text-slate-400 mb-auto font-normal"
+                  className={`${isSmallMobile ? 'text-[11px]' : isMobile ? 'text-xs' : 'text-xs'} leading-relaxed text-slate-400 mb-auto font-normal`}
                   style={{ lineHeight: "1.6" }}
                 >
                   {item.description}
@@ -1155,6 +1159,8 @@ const AdvancedBentoGrid = () => {
 };
 
 export default function TechSolutionsGrid() {
+  const { isMobile, isSmallMobile } = useScreenSize();
+  
   return (
     <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="relative max-w-7xl mx-auto">
@@ -1165,13 +1171,13 @@ export default function TechSolutionsGrid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 leading-[1.1]`}>
+          <h2 className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-normal tracking-tight text-white mb-4 leading-[1.1]`}>
             Technology that
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent py-1">
               scales infinitely
             </span>
           </h2>
-          <p className="text-base md:text-lg text-neutral-500 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'max-w-sm' : 'max-w-2xl'} mx-auto font-normal leading-relaxed`}>
             Enterprise-grade solutions engineered for modern businesses
           </p>
         </motion.div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Shield, Rocket, ChevronRight } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const steps = [
   {
@@ -39,8 +40,10 @@ const steps = [
 ];
 
 export default function HowItWorks() {
+  const { isMobile, isSmallMobile } = useScreenSize();
+
   return (
-    <section className="relative pt-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className={`relative ${isMobile ? 'pt-16' : 'pt-32'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       {/* Minimal geometric pattern */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 right-0 w-96 h-96">
@@ -72,17 +75,17 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className={`text-center ${isMobile ? 'mb-12' : 'mb-20'}`}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-6"
+            className={`inline-flex items-center gap-2 ${isMobile ? 'px-3 py-1.5' : 'px-4 py-2'} bg-white/5 rounded-full border border-white/10 ${isMobile ? 'mb-4' : 'mb-6'}`}
           >
             <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">
+            <span className={`${isSmallMobile ? 'text-xs' : 'text-sm'} font-medium text-cyan-400`}>
               How it works
             </span>
           </motion.div>
@@ -92,7 +95,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className={`${instrumentSerif.className} text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 tracking-tight`}
+            className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-5xl md:text-6xl lg:text-7xl'} font-normal text-white ${isMobile ? 'mb-4' : 'mb-6'} tracking-tight`}
           >
             Simple by{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
@@ -105,7 +108,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-lg text-neutral-400 max-w-2xl mx-auto"
+            className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} text-neutral-400 ${isMobile ? 'max-w-sm px-2' : 'max-w-2xl'} mx-auto`}
           >
             Get started in minutes, not months. Our streamlined process
             transforms your workflow.
@@ -113,7 +116,7 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* Steps Container */}
-        <div className="space-y-8">
+        <div className={`${isMobile ? 'space-y-5' : 'space-y-8'}`}>
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -125,40 +128,40 @@ export default function HowItWorks() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="relative p-8 bg-slate-900/50 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all duration-200">
-                  <div className="grid lg:grid-cols-12 gap-8 items-center">
+                <div className={`relative ${isMobile ? 'p-5' : 'p-8'} bg-slate-900/50 ${isMobile ? 'rounded-lg' : 'rounded-2xl'} border border-slate-800 hover:border-slate-700 transition-all duration-200`}>
+                  <div className={`${isMobile ? 'space-y-4' : 'grid lg:grid-cols-12 gap-8 items-center'}`}>
                     {/* Step Number & Icon */}
-                    <div className="lg:col-span-2">
-                      <div className="flex lg:flex-col items-center gap-4">
-                        <span className="text-5xl font-bold text-slate-700">
+                    <div className={isMobile ? '' : 'lg:col-span-2'}>
+                      <div className={`flex ${isMobile ? 'items-center' : 'lg:flex-col items-center'} gap-4`}>
+                        <span className={`${isSmallMobile ? 'text-3xl' : isMobile ? 'text-4xl' : 'text-5xl'} font-bold text-slate-700`}>
                           {step.number}
                         </span>
-                        <div className="w-12 h-12 rounded-lg bg-transparent border border-white/50 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-white" />
+                        <div className={`${isMobile ? 'w-10 h-10' : 'w-12 h-12'} rounded-lg bg-transparent border border-white/50 flex items-center justify-center`}>
+                          <Icon className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-white`} />
                         </div>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="lg:col-span-7">
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                    <div className={isMobile ? '' : 'lg:col-span-7'}>
+                      <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-2xl'} font-bold text-white ${isMobile ? 'mb-1.5' : 'mb-2'}`}>
                         {step.title}
                       </h3>
-                      <p className="text-neutral-300 mb-3">
+                      <p className={`text-neutral-300 ${isMobile ? 'mb-2' : 'mb-3'} ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base'}`}>
                         {step.description}
                       </p>
-                      <p className="text-sm text-neutral-500">{step.details}</p>
+                      <p className={`${isSmallMobile ? 'text-xs' : 'text-sm'} text-neutral-500`}>{step.details}</p>
                     </div>
 
                     {/* Metrics */}
-                    <div className="lg:col-span-3">
-                      <div className="flex lg:flex-col gap-3">
+                    <div className={isMobile ? '' : 'lg:col-span-3'}>
+                      <div className={`flex ${isMobile ? 'flex-wrap' : 'lg:flex-col'} gap-3`}>
                         {step.metrics.map((metric, i) => (
                           <div
                             key={i}
-                            className="flex items-center gap-2 text-sm"
+                            className={`flex items-center gap-2 ${isSmallMobile ? 'text-xs' : 'text-sm'}`}
                           >
-                            <ChevronRight className="w-3 h-3 text-cyan-400" />
+                            <ChevronRight className={`${isSmallMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} text-cyan-400`} />
                             <span className="text-neutral-400">{metric}</span>
                           </div>
                         ))}
@@ -192,12 +195,12 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className={`${isMobile ? 'mt-12' : 'mt-20'} text-center`}
         >
           <div className="inline-flex items-center gap-3">
-            <button className="group px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-all duration-200 flex items-center gap-2">
+            <button className={`group ${isMobile ? 'px-6 py-3' : 'px-8 py-4'} bg-white text-black font-semibold rounded-lg hover:bg-white/90 transition-all duration-200 flex items-center gap-2 ${isSmallMobile ? 'text-sm' : 'text-base'}`}>
               <span>Start your journey</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className={`${isSmallMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'} group-hover:translate-x-1 transition-transform`} />
             </button>
           </div>
         </motion.div>

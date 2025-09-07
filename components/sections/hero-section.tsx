@@ -5,17 +5,20 @@ import DecryptedText from "@/components/ui/decrypted-text";
 import Aurora from "@/components/Aurora";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 export default function HeroSection() {
+  const { isMobile, isSmallMobile, width } = useScreenSize();
+
   return (
     <header className="relative bg-black">
       <section
-        className="relative h-screen min-h-[700px] w-full text-white overflow-hidden bg-black"
+        className={`relative ${isMobile ? 'min-h-[75vh]' : 'h-screen min-h-[700px]'} w-full text-white overflow-hidden bg-black`}
         aria-label="Hero"
       >
         {/* Container for the centered background effect - like Cursor */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-[95%] max-w-full h-[87%] mt-20 rounded-3xl overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+          <div className={`relative ${isMobile ? 'w-[95%] h-[90%] mt-12' : 'w-[95%] h-[87%] mt-20'} max-w-full ${isMobile ? 'rounded-xl' : 'rounded-3xl'} overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900`}>
             {/* Aurora background */}
             <div className="absolute inset-0 z-0">
               <Aurora
@@ -35,12 +38,18 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 h-full pointer-events-none">
+        <div className={`relative z-20 max-w-7xl mx-auto ${isMobile ? 'px-4' : 'px-4 sm:px-6'} h-full pointer-events-none`}>
           <div className="flex flex-col items-center justify-center h-full">
             {/* Centered Content - positioned higher */}
-            <div className="text-center mt-20">
+            <div className={`text-center ${isMobile ? 'mt-4 px-2' : 'mt-20'}`}>
               <h1
-                className={`${instrumentSerif.className} text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-none mb-6`}
+                className={`${instrumentSerif.className} ${
+                  isSmallMobile 
+                    ? 'text-2xl leading-tight' 
+                    : isMobile 
+                      ? 'text-3xl leading-tight' 
+                      : 'text-5xl md:text-7xl lg:text-8xl'
+                } font-normal tracking-tight leading-none ${isMobile ? 'mb-3' : 'mb-6'}`}
               >
                 <span
                   className="block mb-2"
@@ -76,15 +85,27 @@ export default function HeroSection() {
                   />
                 </span>
               </h1>
-              <div className="mt-4 max-w-2xl mx-auto min-h-[4rem]">
+              <div className={`${isMobile ? 'mt-3 max-w-[90%] px-2' : 'mt-4 max-w-2xl'} mx-auto ${isMobile ? 'min-h-[3.5rem]' : 'min-h-[4rem]'}`}>
                 <WordRotate
                   words={[
-                    "Your reputation, security, and future should not be left to chance. Compare trusted providers and take control of your digital presence today.",
-                    "Resilient Brands connects you to experts in your tech stack so you get the right tools and providers to achieve your next goal without compromise.",
-                    "Start your search and identify your first brand maturity outcomes in minutes. Empower your brand with insights and solutions tailored for resilient growth.",
+                    isMobile 
+                      ? "Take control of your digital presence with trusted providers and expert guidance."
+                      : "Your reputation, security, and future should not be left to chance. Compare trusted providers and take control of your digital presence today.",
+                    isMobile
+                      ? "Connect with experts in your tech stack to achieve your goals without compromise."
+                      : "Resilient Brands connects you to experts in your tech stack so you get the right tools and providers to achieve your next goal without compromise.",
+                    isMobile
+                      ? "Identify brand maturity outcomes in minutes with tailored insights and solutions."
+                      : "Start your search and identify your first brand maturity outcomes in minutes. Empower your brand with insights and solutions tailored for resilient growth.",
                   ]}
                   duration={5000}
-                  className="text-base md:text-lg font-normal text-white/80 text-center"
+                  className={`${
+                    isSmallMobile 
+                      ? 'text-sm' 
+                      : isMobile 
+                        ? 'text-base' 
+                        : 'text-base md:text-lg'
+                  } font-normal text-white/80 text-center`}
                   motionProps={{
                     initial: { opacity: 0, y: 10 },
                     animate: { opacity: 1, y: 0 },
@@ -94,7 +115,7 @@ export default function HeroSection() {
                 />
               </div>
 
-              <div className="w-full max-w-3xl mx-auto mt-6 pointer-events-auto">
+              <div className={`w-full ${isMobile ? 'max-w-[90%] px-2' : 'max-w-3xl'} mx-auto ${isMobile ? 'mt-4' : 'mt-6'} pointer-events-auto`}>
                 <AIPrompt />
               </div>
             </div>

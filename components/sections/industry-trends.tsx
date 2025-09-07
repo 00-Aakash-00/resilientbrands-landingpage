@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Users, Zap, ArrowUpRight } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const trends = [
   {
@@ -35,8 +36,10 @@ const trends = [
 ];
 
 export default function IndustryTrends() {
+  const { isMobile, isSmallMobile } = useScreenSize();
+
   return (
-    <section className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className={`relative ${isMobile ? 'py-16' : 'py-32'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       {/* Minimal geometric accent */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-slate-800 to-transparent" />
@@ -49,23 +52,23 @@ export default function IndustryTrends() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className={`text-center ${isMobile ? 'mb-12' : 'mb-20'}`}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 mb-8"
+            className={`inline-flex items-center gap-2 ${isMobile ? 'px-3 py-1.5' : 'px-4 py-2'} bg-white/5 rounded-full border border-white/10 ${isMobile ? 'mb-5' : 'mb-8'}`}
           >
-            <TrendingUp className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">
+            <TrendingUp className={`${isSmallMobile ? 'w-3 h-3' : 'w-4 h-4'} text-cyan-400`} />
+            <span className={`${isSmallMobile ? 'text-xs' : 'text-sm'} font-medium text-cyan-400`}>
               Industry Leadership
             </span>
           </motion.div>
 
           <motion.h2
-            className={`${instrumentSerif.className} text-5xl md:text-6xl lg:text-7xl font-normal text-white mb-6 tracking-tight`}
+            className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-5xl md:text-6xl lg:text-7xl'} font-normal text-white ${isMobile ? 'mb-4' : 'mb-6'} tracking-tight`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -78,7 +81,7 @@ export default function IndustryTrends() {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-neutral-400 max-w-3xl mx-auto"
+            className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} text-neutral-400 ${isMobile ? 'max-w-sm px-2' : 'max-w-3xl'} mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -91,7 +94,7 @@ export default function IndustryTrends() {
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className={`grid ${isMobile ? 'grid-cols-1 gap-5' : 'md:grid-cols-3 gap-6'}`}>
           {trends.map((trend, index) => {
             const Icon = trend.icon;
             return (
@@ -105,44 +108,44 @@ export default function IndustryTrends() {
               >
                 <div className="relative h-full">
                   {/* Card */}
-                  <div className="relative h-full p-8 bg-slate-900/30 rounded-xl border border-slate-800 hover:border-slate-700 transition-all duration-200">
+                  <div className={`relative h-full ${isMobile ? 'p-5' : 'p-8'} bg-slate-900/30 ${isMobile ? 'rounded-lg' : 'rounded-xl'} border border-slate-800 hover:border-slate-700 transition-all duration-200`}>
                     {/* Top Section */}
-                    <div className="flex items-start justify-between mb-6">
+                    <div className={`flex items-start justify-between ${isMobile ? 'mb-4' : 'mb-6'}`}>
                       {/* Number */}
-                      <span className="text-5xl font-bold text-slate-700">
+                      <span className={`${isSmallMobile ? 'text-3xl' : isMobile ? 'text-4xl' : 'text-5xl'} font-bold text-slate-700`}>
                         {trend.number}
                       </span>
 
                       {/* Icon */}
                       <div
-                        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${trend.gradient} p-0.5`}
+                        className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-lg bg-gradient-to-br ${trend.gradient} p-0.5`}
                       >
                         <div className="w-full h-full rounded-lg bg-black flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-white" />
+                          <Icon className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-white`} />
                         </div>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-white mb-3 leading-tight">
+                    <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-xl'} font-bold text-white ${isMobile ? 'mb-2' : 'mb-3'} leading-tight`}>
                       {trend.title}
                     </h3>
 
-                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                    <p className={`${isSmallMobile ? 'text-xs' : 'text-sm'} text-neutral-400 leading-relaxed ${isMobile ? 'mb-4' : 'mb-6'}`}>
                       {trend.description}
                     </p>
 
                     {/* Bottom Section */}
                     <div className="flex items-center justify-between">
                       {/* Stats */}
-                      <span className="text-xs font-medium text-cyan-400">
+                      <span className={`${isSmallMobile ? 'text-[10px]' : 'text-xs'} font-medium text-cyan-400`}>
                         {trend.stats}
                       </span>
 
                       {/* Link */}
-                      <button className="group/btn flex items-center gap-1 text-xs text-neutral-500 hover:text-white transition-colors">
+                      <button className={`group/btn flex items-center gap-1 ${isSmallMobile ? 'text-[10px]' : 'text-xs'} text-neutral-500 hover:text-white transition-colors`}>
                         <span>Learn more</span>
-                        <ArrowUpRight className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className={`${isSmallMobile ? 'w-2.5 h-2.5' : 'w-3 h-3'} group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform`} />
                       </button>
                     </div>
 

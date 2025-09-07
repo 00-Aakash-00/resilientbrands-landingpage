@@ -1,0 +1,64 @@
+# Resilient Brands - AI-Powered Brand Management Platform
+
+## About Us
+Resilient Brands is an AI-powered brand management and technology solutions platform that connects businesses with trusted providers and experts for digital transformation, security, compliance, and growth.
+
+## Our Mission
+To help businesses manage their brand before others define it by providing trusted provider connections, expert guidance, and AI-powered insights that ensure sustainable, resilient growth.
+
+## Core Services
+- **Brand Performance**: AI-powered analysis, real-time monitoring, brand audit, sales audit, leads enrichment
+- **Security & IT**: Penetration testing, managed security/cloud/IT/OT, encryption management, network configuration
+- **Compliance**: Audit-ready assessments, policy generation, evidence mapping, controls automation, training
+- **Tech Solutions**: Expert network access, provider matching, solution evaluation, implementation support
+- **Digital Transformation**: Brand positioning, web design, marketing automation, growth optimization
+
+## Platform Features
+- AI-powered brand analysis and recommendations
+- Real-time brand performance monitoring
+- Trusted provider marketplace and matching
+- Expert consultation and guidance
+- Compliance tracking and automation
+- Security assessment and management
+- Professional service coordination
+- Digital transformation consulting
+
+## Target Audience
+- Startup founders and entrepreneurs
+- Small to medium businesses
+- Enterprise organizations seeking digital transformation
+- Companies requiring security and compliance solutions
+- Businesses looking to optimize their brand presence
+- Organizations seeking trusted technology providers
+
+## Technology Stack
+- Next.js 15.2.4 with App Router
+- React 19 with TypeScript
+- AI-powered matching and analysis algorithms
+- Real-time monitoring and analytics
+- Secure provider network integration
+- Advanced compliance tracking systems
+
+## Contact Information
+- Website: https://resilientbrands.com
+- Email: hello@resilientbrands.com
+- Platform: AI-powered brand management and tech solutions
+
+## Key Value Propositions
+1. **Proactive Brand Management**: Monitor and manage your brand reputation before issues arise
+2. **Trusted Provider Network**: Access to vetted, expert service providers in your tech stack
+3. **AI-Powered Insights**: Intelligent analysis and recommendations for brand optimization
+4. **Comprehensive Solutions**: From security to compliance to brand performance - all in one platform
+5. **Expert Guidance**: Connect with specialists who understand your industry and challenges
+6. **Scalable Growth**: Solutions that grow with your business needs and objectives
+
+## Use Cases
+- Brand audit and performance optimization
+- Security assessment and implementation
+- Compliance preparation and maintenance
+- Technology provider selection and management
+- Digital transformation planning and execution
+- Real-time brand monitoring and protection
+- Expert consultation and strategic guidance
+
+Last Updated: January 9, 2025

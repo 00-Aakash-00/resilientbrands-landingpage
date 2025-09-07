@@ -1,0 +1,313 @@
+{
+  "testDate": "2025-09-07T21:13:36.231Z",
+  "totalDevices": 5,
+  "totalIssues": 33,
+  "devices": [
+    {
+      "device": "iPhone 12",
+      "viewport": "390x844",
+      "issues": [
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 2 is too small for mobile (32x32px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 3 is too small for mobile (80x28px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 4 is too small for mobile (24x24px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 7 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 8 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Identify brand maturity outcomes in minutes with t...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Enterprise-grade solutions engineered for modern b...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (11px): \"Advanced threat detection and managed security...\""
+        }
+      ],
+      "screenshots": [
+        {
+          "type": "full-page",
+          "path": "./screenshots/iPhone-12-fullpage.png"
+        },
+        {
+          "type": "section",
+          "section": "hero",
+          "path": "./screenshots/iPhone-12-hero.png"
+        },
+        {
+          "type": "section",
+          "section": "navigation",
+          "path": "./screenshots/iPhone-12-navigation.png"
+        },
+        {
+          "type": "section",
+          "section": "tech-solutions",
+          "path": "./screenshots/iPhone-12-tech-solutions.png"
+        }
+      ]
+    },
+    {
+      "device": "iPhone SE",
+      "viewport": "375x667",
+      "issues": [
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 2 is too small for mobile (32x32px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 3 is too small for mobile (80x28px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 4 is too small for mobile (24x24px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 7 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 8 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Connect with experts in your tech stack to achieve...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Enterprise-grade solutions engineered for modern b...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (11px): \"Advanced threat detection and managed security...\""
+        }
+      ],
+      "screenshots": [
+        {
+          "type": "full-page",
+          "path": "./screenshots/iPhone-SE-fullpage.png"
+        },
+        {
+          "type": "section",
+          "section": "hero",
+          "path": "./screenshots/iPhone-SE-hero.png"
+        },
+        {
+          "type": "section",
+          "section": "navigation",
+          "path": "./screenshots/iPhone-SE-navigation.png"
+        },
+        {
+          "type": "section",
+          "section": "tech-solutions",
+          "path": "./screenshots/iPhone-SE-tech-solutions.png"
+        }
+      ]
+    },
+    {
+      "device": "Samsung Galaxy S20",
+      "viewport": "360x800",
+      "issues": [
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 2 is too small for mobile (32x32px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 3 is too small for mobile (80x28px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 4 is too small for mobile (24x24px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 7 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 8 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Identify brand maturity outcomes in minutes with t...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Enterprise-grade solutions engineered for modern b...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (11px): \"Advanced threat detection and managed security...\""
+        }
+      ],
+      "screenshots": [
+        {
+          "type": "full-page",
+          "path": "./screenshots/Samsung-Galaxy-S20-fullpage.png"
+        },
+        {
+          "type": "section",
+          "section": "hero",
+          "path": "./screenshots/Samsung-Galaxy-S20-hero.png"
+        },
+        {
+          "type": "section",
+          "section": "navigation",
+          "path": "./screenshots/Samsung-Galaxy-S20-navigation.png"
+        },
+        {
+          "type": "section",
+          "section": "tech-solutions",
+          "path": "./screenshots/Samsung-Galaxy-S20-tech-solutions.png"
+        }
+      ]
+    },
+    {
+      "device": "iPad",
+      "viewport": "768x1024",
+      "issues": [
+        {
+          "type": "hero-height",
+          "section": "hero",
+          "severity": "medium",
+          "message": "Hero section height (1024px) is too tall for viewport (1024px)"
+        }
+      ],
+      "screenshots": [
+        {
+          "type": "full-page",
+          "path": "./screenshots/iPad-fullpage.png"
+        },
+        {
+          "type": "section",
+          "section": "hero",
+          "path": "./screenshots/iPad-hero.png"
+        },
+        {
+          "type": "section",
+          "section": "navigation",
+          "path": "./screenshots/iPad-navigation.png"
+        },
+        {
+          "type": "section",
+          "section": "tech-solutions",
+          "path": "./screenshots/iPad-tech-solutions.png"
+        },
+        {
+          "type": "buttons",
+          "section": "ui-elements",
+          "path": "./screenshots/iPad-buttons.png"
+        }
+      ]
+    },
+    {
+      "device": "Pixel 5",
+      "viewport": "393x851",
+      "issues": [
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 2 is too small for mobile (32x32px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 3 is too small for mobile (80x28px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 4 is too small for mobile (24x24px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 7 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "button-size",
+          "severity": "medium",
+          "message": "Button 8 is too small for mobile (320x38px). Minimum recommended size is 44x44px"
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Identify brand maturity outcomes in minutes with t...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (14px): \"Enterprise-grade solutions engineered for modern b...\""
+        },
+        {
+          "type": "small-text",
+          "severity": "low",
+          "message": "Text may be too small on mobile (11px): \"Advanced threat detection and managed security...\""
+        }
+      ],
+      "screenshots": [
+        {
+          "type": "full-page",
+          "path": "./screenshots/Pixel-5-fullpage.png"
+        },
+        {
+          "type": "section",
+          "section": "hero",
+          "path": "./screenshots/Pixel-5-hero.png"
+        },
+        {
+          "type": "section",
+          "section": "navigation",
+          "path": "./screenshots/Pixel-5-navigation.png"
+        },
+        {
+          "type": "section",
+          "section": "tech-solutions",
+          "path": "./screenshots/Pixel-5-tech-solutions.png"
+        }
+      ]
+    }
+  ]
+}

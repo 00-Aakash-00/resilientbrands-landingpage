@@ -1,20 +1,61 @@
 /* TEAM */
-Founder: Chris
-Contact: chris@resilientbrands.ai
+Founder & CEO: Resilient Brands Team
+Contact: hello@resilientbrands.com
+Website: https://resilientbrands.com
 Twitter: @resilientbrands_ai
+LinkedIn: /company/resilient-brands
 Location: USA
 
 /* THANKS */
-AI Models: OpenAI GPT-4, Anthropic Claude, Google Gemini
-Framework: Next.js Team
-UI Components: Radix UI, shadcn/ui
+Framework: Next.js Team for the amazing React framework
+UI Library: Radix UI for accessible components
+Design System: shadcn/ui for beautiful component library
+Icons: Lucide React for crisp, beautiful icons
+Animation: Framer Motion for smooth interactions
+Fonts: Geist & Instrument Serif for typography
+Analytics: Microsoft Clarity for user insights
+Hosting: Vercel for seamless deployment
 
 /* SITE */
-Last update: 2024/01/01
-Standards: HTML5, CSS3, ES6+
-Components: Next.js, React, TypeScript, Tailwind CSS
-Software: VS Code, GitHub, Vercel
+Last update: 2025/01/09
+Domain: resilientbrands.com
+Standards: HTML5, CSS3, ES2024+, WCAG 2.1 AA Accessibility
+Architecture: Next.js 15 App Router, React 19, TypeScript 5.0+
+Styling: Tailwind CSS 3.0+ with custom design system
+State: React Query, Zustand for complex state management
+Forms: React Hook Form with Zod validation
+Testing: Jest, Playwright for E2E testing
+Deployment: Vercel with automatic CI/CD
+Performance: Core Web Vitals optimized, <100ms LCP
+Security: CSP headers, secure authentication, data encryption
+SEO: Complete meta tags, structured data, sitemap
 
 /* MISSION */
-Empowering entrepreneurs with AI-powered market research
-to validate ideas and build successful startups.
+Resilient Brands exists to help businesses manage their brand before others define it.
+
+We believe that your reputation, security, and future should not be left to chance.
+That's why we've built an AI-powered platform that connects you with trusted providers
+and experts who can help you build a resilient brand that stands the test of time.
+
+Our platform bridges the gap between having a great idea and finding the right people
+to help you execute it. Whether you need security expertise, compliance guidance,
+brand optimization, or technology solutions, we match you with the professionals
+who have real experience solving problems like yours.
+
+We're not just another marketplace - we're your strategic partner in building
+something that lasts. Every connection we make, every expert we vet, and every
+solution we recommend is designed to help you create a brand that's not just
+successful today, but resilient for tomorrow.
+
+Your next breakthrough is waiting. Let's build it together.
+
+/* ACCESSIBILITY */
+This site is built with accessibility in mind:
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support  
+- Color contrast WCAG AA compliant
+- Screen reader optimized
+- Focus indicators
+- Alternative text for images
+- Reduced motion preferences respected

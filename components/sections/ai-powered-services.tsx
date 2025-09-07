@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FileCheck, Zap, Lock, CheckCircle } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const categories = [
   {
@@ -438,8 +439,10 @@ const categories = [
 ];
 
 export default function AIPoweredServices() {
+  const { isMobile, isSmallMobile } = useScreenSize();
+
   return (
-    <section className="relative pt-40 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className={`relative ${isMobile ? 'pt-16' : 'pt-40'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -447,17 +450,17 @@ export default function AIPoweredServices() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className={`text-center ${isMobile ? 'mb-10' : 'mb-16'}`}
         >
           <h2
-            className={`${instrumentSerif.className} text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-white mb-4 leading-[1.1]`}
+            className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-normal tracking-tight text-white ${isMobile ? 'mb-3' : 'mb-4'} leading-[1.1]`}
           >
             Bridge critical gaps in your
             <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent py-1">
               organizational readiness
             </span>
           </h2>
-          <p className="text-base md:text-lg text-neutral-500 max-w-3xl mx-auto font-normal leading-relaxed">
+          <p className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'max-w-sm px-2' : 'max-w-3xl'} mx-auto font-normal leading-relaxed`}>
             Many organizations have regulatory and readiness gaps that force
             their brand to underperform. Our comprehensive approach identifies
             and addresses these critical areas.
@@ -465,7 +468,7 @@ export default function AIPoweredServices() {
         </motion.div>
 
         {/* 3 Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className={`grid ${isMobile ? 'grid-cols-1 gap-6' : 'md:grid-cols-3 gap-6'}`}>
           {categories.map((category, index) => {
             return (
               <motion.div
@@ -477,26 +480,26 @@ export default function AIPoweredServices() {
                 whileHover={{ y: -4, scale: 1.01 }}
                 className="group relative"
               >
-                <div className="relative h-full p-8 bg-slate-950/90 rounded-xl border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300 overflow-hidden">
+                <div className={`relative h-full ${isMobile ? 'p-5' : 'p-8'} bg-slate-950/90 rounded-xl border border-slate-800/50 hover:border-slate-700/80 shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] transition-all duration-300 overflow-hidden`}>
                   {/* SVG Graphic Container */}
-                  <div className="relative h-64 mb-8 rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 to-slate-950">
+                  <div className={`relative ${isMobile ? 'h-48' : 'h-64'} ${isMobile ? 'mb-5' : 'mb-8'} rounded-lg overflow-hidden bg-gradient-to-br from-slate-900 to-slate-950`}>
                     {category.svg}
                   </div>
 
                   {/* Content */}
-                  <div className="space-y-6">
+                  <div className={`${isMobile ? 'space-y-4' : 'space-y-6'}`}>
                     {/* Header */}
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-3">
+                      <h3 className={`${isSmallMobile ? 'text-lg' : isMobile ? 'text-xl' : 'text-2xl'} font-bold text-white ${isMobile ? 'mb-2' : 'mb-3'}`}>
                         {category.title}
                       </h3>
-                      <p className="text-neutral-400 text-sm leading-relaxed">
+                      <p className={`text-neutral-400 ${isSmallMobile ? 'text-xs' : isMobile ? 'text-sm' : 'text-sm'} leading-relaxed`}>
                         {category.description}
                       </p>
                     </div>
 
                     {/* Items List */}
-                    <div className="space-y-2">
+                    <div className={`${isMobile ? 'space-y-1.5' : 'space-y-2'}`}>
                       {category.items.map((item, itemIndex) => (
                         <motion.div
                           key={itemIndex}
@@ -507,9 +510,9 @@ export default function AIPoweredServices() {
                             delay: 0.5 + itemIndex * 0.05,
                           }}
                           viewport={{ once: true }}
-                          className="flex items-center gap-2 text-sm"
+                          className={`flex items-center gap-2 ${isSmallMobile ? 'text-xs' : isMobile ? 'text-sm' : 'text-sm'}`}
                         >
-                          <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                          <CheckCircle className={`${isSmallMobile ? 'w-3 h-3' : 'w-4 h-4'} text-emerald-400 flex-shrink-0`} />
                           <span className="text-neutral-300">{item}</span>
                         </motion.div>
                       ))}
