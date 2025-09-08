@@ -4,10 +4,9 @@ import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
-  TrendingUp,
   User,
   Mail,
   Building,
@@ -57,7 +56,7 @@ interface ContactModalProps {
 export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [currentStep, setCurrentStep] = React.useState(0);
+  const [, setCurrentStep] = React.useState(0);
   const { isMobile, isSmallMobile } = useScreenSize();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -97,7 +96,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
       form.reset();
       setCurrentStep(0);
       onOpenChange(false);
-    } catch (error) {
+    } catch {
       toast({
         title: "Something went wrong",
         description:

@@ -39,3 +39,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+
+# Claude
+CLAUDE.md
+.claude/
+
+# Logs
+logs/
+*.log
+
+# Package manager
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

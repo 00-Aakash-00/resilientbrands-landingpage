@@ -12,7 +12,16 @@ import {
 import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
 
-const servicesData = {
+type ServiceCategory = "Brand Performance" | "Security & IT" | "Compliance";
+
+type ServiceData = {
+  icon: React.ComponentType<any>;
+  color: string;
+  gradient: string;
+  services: string[];
+};
+
+const servicesData: Record<ServiceCategory, ServiceData> = {
   "Brand Performance": {
     icon: TrendingUp,
     color: "#06B6D4",
@@ -62,7 +71,7 @@ const servicesData = {
 };
 
 export default function PopularServices() {
-  const [activeTab, setActiveTab] = useState("Brand Performance");
+  const [activeTab, setActiveTab] = useState<ServiceCategory>("Brand Performance");
   const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
@@ -146,7 +155,7 @@ export default function PopularServices() {
               return (
                 <button
                   key={category}
-                  onClick={() => setActiveTab(category)}
+                  onClick={() => setActiveTab(category as ServiceCategory)}
                   className={`
                     relative ${isMobile ? 'px-4 py-2 text-sm' : 'px-6 py-3'} ${isMobile ? 'w-full' : ''} rounded-md font-medium transition-all duration-200 ${isMobile ? 'border border-slate-800' : ''}
                     ${
@@ -228,7 +237,7 @@ export default function PopularServices() {
 
             {/* Services Grid - More aesthetic cards */}
             <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'md:grid-cols-2 gap-6'} ${isMobile ? 'mb-8' : 'mb-12'}`}>
-              {servicesData[activeTab].services.map((service, index) => (
+              {servicesData[activeTab].services.map((service: string, index: number) => (
                 <motion.div
                   key={service}
                   initial={{ opacity: 0, y: 20 }}

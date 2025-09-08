@@ -1,15 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Sparkles,
   TrendingUp,
   Shield,
-  Zap,
   BarChart3,
   Lock,
-  Users,
 } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
 import { Button } from "../ui/button";
@@ -259,42 +256,37 @@ const features = [
           <polygon
             points="50,12 90,8 75,20 60,15"
             fill="#00D9FF"
-            opacity="0.12"
+            opacity="0.25"
             stroke="#00D9FF"
             strokeWidth="0.3"
-            opacity="0.25"
           />
           <polygon
             points="50,30 90,22 75,35 65,28"
             fill="#00D9FF"
-            opacity="0.18"
+            opacity="0.3"
             stroke="#00D9FF"
             strokeWidth="0.4"
-            opacity="0.3"
           />
           <polygon
             points="50,48 90,38 70,45 55,42"
             fill="#00D9FF"
-            opacity="0.12"
+            opacity="0.25"
             stroke="#00D9FF"
             strokeWidth="0.3"
-            opacity="0.25"
           />
           <polygon
             points="90,22 130,15 115,25 105,18"
             fill="#0095FF"
-            opacity="0.1"
+            opacity="0.2"
             stroke="#0095FF"
             strokeWidth="0.25"
-            opacity="0.2"
           />
           <polygon
             points="90,38 130,30 125,42 110,40"
             fill="#0095FF"
-            opacity="0.08"
+            opacity="0.15"
             stroke="#0095FF"
             strokeWidth="0.2"
-            opacity="0.15"
           />
 
           {/* Advanced processing clusters with premium finish */}
@@ -502,10 +494,9 @@ const features = [
                 <polygon
                   points={`${x},20 ${x + 8},25 ${x + 4},35 ${x - 4},35 ${x - 8},25`}
                   fill="#00FF88"
-                  opacity="0.15"
+                  opacity="0.25"
                   stroke="#00FF88"
                   strokeWidth="0.3"
-                  opacity="0.25"
                 />
                 <polygon
                   points={`${x},25 ${x + 5},28 ${x + 2},33 ${x - 2},33 ${x - 5},28`}
@@ -513,7 +504,6 @@ const features = [
                   opacity="0.2"
                   stroke="#00CC6A"
                   strokeWidth="0.2"
-                  opacity="0.2"
                 />
                 <line
                   x1={x}
@@ -797,10 +787,9 @@ const features = [
             <polygon
               points="12,6 16,8 16,12 12,14 8,12 8,8"
               fill="#00B4FF"
-              opacity="0.1"
+              opacity="0.2"
               stroke="#00B4FF"
               strokeWidth="0.15"
-              opacity="0.2"
             />
             <circle cx="12" cy="10" r="1.5" fill="#00B4FF" opacity="0.3" />
           </pattern>
@@ -1002,7 +991,7 @@ const features = [
                     <g
                       key={`node-${i}-${j}`}
                       transform={`rotate(${angle + i * 15})`}
-                      transformOrigin="100 30"
+                      style={{ transformOrigin: "100 30" }}
                     >
                       <circle
                         cx={100 + r * 0.8}
@@ -1146,10 +1135,9 @@ const features = [
               width="8"
               height="8"
               fill="#BB00FF"
-              opacity="0.1"
+              opacity="0.15"
               stroke="#BB00FF"
               strokeWidth="0.1"
-              opacity="0.15"
               rx="1"
             />
             <circle cx="10" cy="10" r="2" fill="#BB00FF" opacity="0.2" />
@@ -1236,10 +1224,9 @@ const features = [
             height="20"
             rx="2"
             fill="#D946EF"
-            opacity="0.15"
+            opacity="0.3"
             stroke="#A855F7"
             strokeWidth="0.6"
-            opacity="0.3"
           />
 
           {/* Premium crystalline lock shackle with multi-layer security */}
@@ -1277,10 +1264,9 @@ const features = [
             <polygon
               points="90,16 96,13 104,13 110,16 104,19 96,19"
               fill="#BB00FF"
-              opacity="0.15"
+              opacity="0.3"
               stroke="#BB00FF"
               strokeWidth="0.4"
-              opacity="0.3"
             />
           </g>
 
@@ -1306,7 +1292,6 @@ const features = [
             opacity="0.65"
             stroke="#BB00FF"
             strokeWidth="0.3"
-            opacity="0.4"
           />
           <polygon
             points="99,38 101,38 101.5,44 100.5,45 99.5,45 98.5,44"
@@ -1872,10 +1857,9 @@ export default function BrandManagement() {
                         <polygon
                           points="0,55 10,65 0,75 -10,65"
                           fill="#00D9FF"
-                          opacity="0.08"
+                          opacity="0.15"
                           stroke="#00D9FF"
                           strokeWidth="0.2"
-                          opacity="0.15"
                         />
                         <polygon
                           points="0,75 12,85 0,95 -12,85"

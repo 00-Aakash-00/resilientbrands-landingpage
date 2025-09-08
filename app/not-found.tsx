@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Home, ArrowLeft } from "lucide-react"
 import { motion } from "framer-motion"
 
-const SubtleBlob = ({ className, ...props }: { className?: string; [key: string]: any }) => (
+const SubtleBlob = ({ className, ...props }: { className?: string; [key: string]: unknown }) => (
   <motion.div
     className={`absolute rounded-full blur-3xl ${className}`}
     initial={{ scale: 0.8, opacity: 0 }}
@@ -87,7 +87,7 @@ export default function NotFound() {
           className="relative w-full max-w-md rounded-2xl bg-white/70 p-8 text-center shadow-xl shadow-slate-200/50 backdrop-blur-md"
         >
           <h1 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">Page Not Found</h1>
-          <p className="mt-3 text-slate-600">Sorry, we couldn't find the page you're looking for.</p>
+          <p className="mt-3 text-slate-600">Sorry, we couldn&apos;t find the page you&apos;re looking for.</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/">

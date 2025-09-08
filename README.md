@@ -21,6 +21,7 @@ Visit: [https://www.resilientbrands.ai](https://www.resilientbrands.ai)
 ## 🎨 Design System
 
 ### Colors
+
 - Primary: Teal (#2E8A84)
 - Background: Off-white (#F1F1F1)
 - Accent: Gray-blue (#5D8CAE)
@@ -30,6 +31,7 @@ Visit: [https://www.resilientbrands.ai](https://www.resilientbrands.ai)
 ## 🚦 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - pnpm (recommended) or npm
 
@@ -83,7 +85,7 @@ resilientbrands_landing_page/
 │   ├── layout.tsx         # Root layout with SEO
 │   ├── page.tsx           # Home page
 │   └── globals.css        # Global styles
-├── components/            
+├── components/
 │   ├── sections/          # Page sections
 │   │   ├── hero-section.tsx
 │   │   ├── features-section.tsx
@@ -102,12 +104,14 @@ resilientbrands_landing_page/
 ## 🔧 Key Features Implementation
 
 ### Contact Form
+
 - Validates user input with Zod
-- Sends emails via Resend API to chris@resilientbrands.ai and sami@resilientbrands.ai
+- Sends emails via Resend API to brandon@resilientbrands.ai and sami@resilientbrands.ai
 - Reply-to header set to user's email
 - Beautiful, minimalistic modal design
 
 ### SEO Optimization
+
 - Comprehensive meta tags
 - Open Graph and Twitter cards
 - Structured data (Schema.org)
@@ -115,6 +119,7 @@ resilientbrands_landing_page/
 - Sitemap ready
 
 ### Performance
+
 - Optimized images with Next.js Image
 - Lazy loading components
 - Minimal bundle size
@@ -123,6 +128,7 @@ resilientbrands_landing_page/
 ## 📱 Responsive Design
 
 The site is fully responsive with breakpoints:
+
 - Mobile: < 640px
 - Tablet: 640px - 1024px
 - Desktop: > 1024px
@@ -141,7 +147,7 @@ This project is proprietary and confidential. All rights reserved by Resilient B
 
 ## 📞 Contact
 
-- Email: chris@resilientbrands.ai
+- Email: brandon@resilientbrands.ai
 - Website: [https://www.resilientbrands.ai](https://www.resilientbrands.ai)
 
 ---

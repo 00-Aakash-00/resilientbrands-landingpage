@@ -1,6 +1,6 @@
 "use client"
 import type React from "react"
-import { useEffect, useRef, useState, useId } from "react"
+import { useEffect, useRef, useState, useId, useCallback } from "react"
 
 export interface GlassSurfaceProps {
   children?: React.ReactNode
@@ -109,7 +109,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     setIsBrowserSupported(checkSupport())
   }, [filterId])
 
-  const generateDisplacementMap = () => {
+  const generateDisplacementMap = useCallback(() => {
     const rect = containerRef.current?.getBoundingClientRect()
     const actualWidth = rect?.width || 400
     const actualHeight = rect?.height || 200
@@ -135,11 +135,11 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       </svg>
     `
     return `data:image/svg+xml,${encodeURIComponent(svgContent)}`
-  }
+  }, [borderRadius, borderWidth, brightness, opacity, blur, redGradId, blueGradId, mixBlendMode])
 
-  const updateDisplacementMap = () => {
+  const updateDisplacementMap = useCallback(() => {
     feImageRef.current?.setAttribute("href", generateDisplacementMap())
-  }
+  }, [generateDisplacementMap])
 
   useEffect(() => {
     updateDisplacementMap()
@@ -156,6 +156,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     })
     gaussianBlurRef.current?.setAttribute("stdDeviation", displace.toString())
   }, [
+    updateDisplacementMap,
     width,
     height,
     borderRadius,
@@ -182,11 +183,11 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     return () => {
       resizeObserver.disconnect()
     }
-  }, [])
+  }, [updateDisplacementMap])
 
   useEffect(() => {
     setTimeout(updateDisplacementMap, 0)
-  }, [width, height])
+  }, [updateDisplacementMap, width, height])
 
   const getContainerStyles = (): React.CSSProperties => {
     const baseStyles: React.CSSProperties = {

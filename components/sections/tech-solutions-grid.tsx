@@ -6,9 +6,6 @@ import {
   FileCheck,
   Cloud,
   Lock,
-  TrendingUp,
-  Zap,
-  Building2,
   BarChart3,
   Gauge,
 } from "lucide-react";
@@ -946,7 +943,7 @@ const bentoItems = [
 ];
 
 const AdvancedBentoGrid = () => {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [hoveredId] = useState<number | null>(null);
   const { isMobile, isSmallMobile } = useScreenSize();
 
   return (

@@ -8,7 +8,7 @@ import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
 
 export default function HeroSection() {
-  const { isMobile, isSmallMobile, width } = useScreenSize();
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
     <header className="relative bg-black">

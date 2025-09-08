@@ -61,7 +61,7 @@ export default function PricingSection() {
         <div className={cn("text-center", isMobile ? "mb-8" : "mb-12 md:mb-16")}>
           <h2 className={cn("font-bold tracking-tight", isSmallMobile ? "text-2xl" : isMobile ? "text-3xl" : "text-3xl md:text-5xl")}>Simple, Transparent Pricing</h2>
           <p className={cn("mt-4 text-muted-foreground max-w-2xl mx-auto", isMobile ? "text-base px-4" : "text-lg")}>
-            Choose the plan that's right for you. No subscriptions, no hidden fees.
+            Choose the plan that&apos;s right for you. No subscriptions, no hidden fees.
           </p>
         </div>
         <div className={cn("grid grid-cols-1 lg:grid-cols-3 items-stretch max-w-6xl mx-auto", isMobile ? "gap-4" : "gap-8")}>

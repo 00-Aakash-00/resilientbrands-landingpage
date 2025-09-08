@@ -1,6 +1,6 @@
 import type React from "react"
 
-export function OpenAIIcon(props: React.SVGProps<SVGSVGElement>) {
+export function OpenAIIcon(props: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <svg
