@@ -114,49 +114,50 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className={`${isMobile ? 'max-w-[95vw] w-[95vw]' : 'sm:max-w-[600px] w-[calc(100%-2rem)]'} max-h-[calc(100vh-2rem)] p-0 overflow-hidden bg-black border border-slate-800 shadow-2xl mx-auto`}>
+      <DialogContent className={`${isMobile ? 'max-w-[95vw] w-[95vw] max-h-[90vh]' : 'sm:max-w-[600px] w-[calc(100%-2rem)] max-h-[calc(100vh-2rem)]'} p-0 bg-black border border-slate-800 shadow-2xl mx-auto flex flex-col`}>
         <VisuallyHidden>
           <DialogTitle>Contact Resilient Brands</DialogTitle>
         </VisuallyHidden>
 
         {/* Decorative gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 z-10" />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="relative"
-        >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-0 right-0 w-64 h-64">
-              <svg viewBox="0 0 400 400" className="w-full h-full">
-                <pattern
-                  id="contact-grid"
-                  x="0"
-                  y="0"
-                  width="40"
-                  height="40"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <circle cx="2" cy="2" r="1" fill="white" />
-                </pattern>
-                <rect width="100%" height="100%" fill="url(#contact-grid)" />
-              </svg>
+        <div className={`overflow-y-auto overflow-x-hidden flex-1 ${isMobile ? 'max-h-[calc(90vh-2rem)]' : ''}`}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="relative"
+          >
+            {/* Background pattern */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none">
+              <div className="absolute top-0 right-0 w-64 h-64">
+                <svg viewBox="0 0 400 400" className="w-full h-full">
+                  <pattern
+                    id="contact-grid"
+                    x="0"
+                    y="0"
+                    width="40"
+                    height="40"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle cx="2" cy="2" r="1" fill="white" />
+                  </pattern>
+                  <rect width="100%" height="100%" fill="url(#contact-grid)" />
+                </svg>
+              </div>
             </div>
-          </div>
 
-          <div className={`relative ${isMobile ? 'p-5' : 'p-8 sm:p-10'}`}>
+            <div className={`relative ${isMobile ? 'p-4' : 'p-8 sm:p-10'}`}>
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className={`text-center ${isMobile ? 'mb-6' : 'mb-10'}`}
+              className={`text-center ${isMobile ? 'mb-4' : 'mb-10'}`}
             >
               <h2
-                className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl sm:text-5xl'} font-normal text-white ${isMobile ? 'mb-2' : 'mb-3'}`}
+                className={`${instrumentSerif.className} ${isSmallMobile ? 'text-xl' : isMobile ? 'text-2xl' : 'text-4xl sm:text-5xl'} font-normal text-white ${isMobile ? 'mb-1' : 'mb-3'}`}
               >
                 Start Your{" "}
                 <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
@@ -172,7 +173,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className={`${isMobile ? 'space-y-4' : 'space-y-6'}`}
+                className={`${isMobile ? 'space-y-3' : 'space-y-6'}`}
               >
                 {/* Personal Info Section */}
                 <div className={`${isMobile ? 'space-y-4' : 'space-y-6'}`}>
@@ -190,7 +191,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-600" />
                               <Input
                                 placeholder="John Doe"
-                                className={`${isMobile ? 'h-10' : 'h-12'} pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all ${isSmallMobile ? 'text-sm' : 'text-base'}`}
+                                className={`${isSmallMobile ? 'h-9' : isMobile ? 'h-10' : 'h-12'} pl-10 bg-slate-900/50 border-slate-800 text-white placeholder:text-neutral-600 focus:border-cyan-500/50 focus:bg-slate-900/80 transition-all ${isSmallMobile ? 'text-sm' : 'text-base'}`}
                                 {...field}
                               />
                             </div>
@@ -402,8 +403,9 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 </div>
               </form>
             </Form>
-          </div>
-        </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -112,10 +112,16 @@ const ChartTooltipContent = React.forwardRef<
       nameKey?: string
       labelKey?: string
       active?: boolean
-      payload?: any[]
-      label?: any
-      labelFormatter?: any
-      formatter?: any
+      payload?: Array<{
+        value?: number | string
+        name?: string
+        dataKey?: string
+        color?: string
+        payload?: Record<string, unknown>
+      }>
+      label?: string | number
+      labelFormatter?: (value: unknown, payload: unknown[]) => React.ReactNode
+      formatter?: (value: unknown, name: string, item: unknown, index: number, payload: unknown) => React.ReactNode
       color?: string
     }
 >(
@@ -191,7 +197,7 @@ const ChartTooltipContent = React.forwardRef<
       >
         {!nestLabel ? tooltipLabel : null}
         <div className="grid gap-1.5">
-          {payload.map((item: any, index: number) => {
+          {payload.map((item, index) => {
             const key = `${nameKey || item.name || item.dataKey || "value"}`
             const itemConfig = getPayloadConfigFromPayload(config, item, key)
             const indicatorColor = color || item.payload.fill || item.color
@@ -270,7 +276,13 @@ const ChartLegendContent = React.forwardRef<
     Pick<RechartsPrimitive.LegendProps, "verticalAlign"> & {
       hideIcon?: boolean
       nameKey?: string
-      payload?: any[]
+      payload?: Array<{
+        value?: string | number
+        dataKey?: string
+        type?: string
+        id?: string
+        color?: string
+      }>
     }
 >(
   (
@@ -292,7 +304,7 @@ const ChartLegendContent = React.forwardRef<
           className
         )}
       >
-        {payload.map((item: any) => {
+        {payload.map((item) => {
           const key = `${nameKey || item.dataKey || "value"}`
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
 

@@ -124,7 +124,7 @@ export default function PrivacyPolicyPage() {
                 <div className="text-slate-600 space-y-4">
                   <p>
                     Resilient Brands LLC, a Delaware limited liability company
-                    (hereinafter known as "Resilient Brands", "us", "we" or "our")
+                    (hereinafter known as &ldquo;Resilient Brands&rdquo;, &ldquo;us&rdquo;, &ldquo;we&rdquo; or &ldquo;our&rdquo;)
                     is the sole owner of the information collected on this site.
                     This Privacy Policy applies to all our interactions with
                     you, including when you visit our website at
@@ -423,7 +423,7 @@ export default function PrivacyPolicyPage() {
                   <p>
                     You may submit content including provider reviews, platform feedback,
                     success stories, and brand management insights
-                    (collectively, "User Submissions") through https://www.resilientbrands.com,
+                    (collectively, &ldquo;User Submissions&rdquo;) through https://www.resilientbrands.com,
                     our platform, or directly via email. By posting or sharing User
                     Submissions that you have tagged with @resilientbrands,
                     #resilientbrands or other Resilient Brands hashtags,

@@ -15,7 +15,7 @@ import { useScreenSize } from "@/hooks/use-mobile";
 type ServiceCategory = "Brand Performance" | "Security & IT" | "Compliance";
 
 type ServiceData = {
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   gradient: string;
   services: string[];

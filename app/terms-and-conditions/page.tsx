@@ -22,11 +22,11 @@ const sections = [
         <p>
           {" "}
           These are the Terms of Service for Resilient Brands LLC, a Delaware
-          limited liability company ("Resilient Brands", "we", "us", or "our"). These Terms apply when
-          you visit our website at resilientbrands.com (our "Website"), use our brand management platform,
+          limited liability company (&ldquo;Resilient Brands&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;). These Terms apply when
+          you visit our website at resilientbrands.com (our &ldquo;Website&rdquo;), use our brand management platform,
           access our AI-powered provider search tools, utilize our comparison services,
           participate in our educational programs, or otherwise interact with us (the
-          "Services").{" "}
+          &ldquo;Services&rdquo;).{" "}
         </p>{" "}
         <p>
           {" "}
