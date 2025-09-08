@@ -9,10 +9,10 @@ import { useContactModal } from "@/hooks/use-contact-modal";
 import { useScreenSize } from "@/hooks/use-mobile";
 
 const navLinks = [
-  { name: "Tech Solutions", href: "#tech-solutions" },
-  { name: "AI Services", href: "#ai-services" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Services", href: "#popular-services" },
+  { name: "Become a Solution", href: "#become-solution" },
+  { name: "Become a Provider", href: "#become-provider" },
+  { name: "Become a Solutions Partner", href: "#become-partner" },
+  { name: "Services Guide", href: "#services-guide" },
 ];
 
 export default function FloatingNav() {
@@ -51,12 +51,12 @@ export default function FloatingNav() {
             </div>
 
             {/* Center navigation */}
-            <div className={`hidden ${isMobile ? 'lg:flex' : 'lg:flex'} items-center justify-center ${isMobile ? 'gap-6' : 'gap-10'}`}>
+            <div className={`hidden xl:flex items-center justify-center gap-6`}>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-white/80 hover:text-white ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base'} font-medium transition-colors`}
+                  className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
                 >
                   {link.name}
                 </Link>
@@ -67,15 +67,15 @@ export default function FloatingNav() {
             <div className={`flex items-center justify-end ${isMobile ? 'gap-2' : 'gap-6'}`}>
               <Link
                 href="#signin"
-                className={`hidden ${isMobile ? 'lg:block' : 'md:block'} text-white/80 hover:text-white ${isSmallMobile ? 'text-sm' : 'text-base'} font-medium transition-colors`}
+                className={`hidden xl:block text-white/80 hover:text-white text-sm font-medium transition-colors`}
               >
                 Log in
               </Link>
               <Button
-                className={`hidden ${isMobile ? 'lg:inline-flex' : 'md:inline-flex'} bg-white text-black hover:bg-white/90 ${isSmallMobile ? 'text-sm' : 'text-base'} font-semibold ${isMobile ? 'px-4 py-2 h-9' : 'px-6 py-3 h-11'}`}
+                className={`hidden xl:inline-flex bg-white text-black hover:bg-white/90 text-sm font-semibold px-4 py-2 h-9`}
                 onClick={openContactModal}
               >
-                Get Started
+                Start Now!
               </Button>
 
               {/* Mobile menu button */}
@@ -83,7 +83,7 @@ export default function FloatingNav() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`lg:hidden text-white hover:bg-white/10 ${isMobile ? 'h-8 w-8' : ''}`}
+                className={`xl:hidden text-white hover:bg-white/10 ${isMobile ? 'h-8 w-8' : ''}`}
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -140,7 +140,7 @@ export default function FloatingNav() {
                       openContactModal();
                     }}
                   >
-                    Get Started
+                    Start Now!
                   </Button>
                 </div>
               </nav>

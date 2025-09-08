@@ -9,11 +9,11 @@ const steps = [
   {
     number: "01",
     title: "Connect",
-    description: "Seamlessly integrate your infrastructure in under 60 seconds",
+    description: "Instantly map your infrastructure in under 60 seconds",
     details:
-      "Our intelligent connectors work with 500+ platforms, automatically detecting your setup.",
+      "Our intelligent connectors work with 500+ platforms, automatically detecting your setup tuned by your insights.",
     icon: Zap,
-    metrics: ["< 60s setup", "500+ integrations", "Zero downtime"],
+    metrics: ["< 60s to insights", "500+ integrations", "Zero downtime"],
     gradient: "from-cyan-500 to-blue-500",
   },
   {

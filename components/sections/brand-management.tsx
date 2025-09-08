@@ -14,8 +14,8 @@ import { useScreenSize } from "@/hooks/use-mobile";
 
 const features = [
   {
-    title: "AI-powered analysis",
-    description: "Advanced algorithms analyzing brand performance in real-time",
+    title: "AI-Powered Analysis.",
+    description: "Real-time insights that turn brand posture into lasting advantage.",
     icon: BarChart3,
     color: "#00D9FF",
     accentColor: "#0095FF",
@@ -361,8 +361,8 @@ const features = [
     ),
   },
   {
-    title: "Real-time monitoring",
-    description: "24/7 brand sentiment and reputation tracking",
+    title: "Real-Time Monitoring.",
+    description: "Stop drowning in alerts, capture the moments that outclass competitors.",
     icon: TrendingUp,
     color: "#00FF88",
     accentColor: "#00CC6A",
@@ -732,8 +732,8 @@ const features = [
     ),
   },
   {
-    title: "Compliance tracking",
-    description: "Automated compliance monitoring across all platforms",
+    title: "Compliance Tracking.",
+    description: "Automated, auditable, and always under control.",
     icon: Shield,
     color: "#00B4FF",
     accentColor: "#0080FF",
@@ -1079,8 +1079,8 @@ const features = [
     ),
   },
   {
-    title: "Risk assessment",
-    description: "Proactive risk identification and mitigation strategies",
+    title: "Risk Assessments.",
+    description: "Decisions driven by proof, not assumptions.",
     icon: Lock,
     color: "#BB00FF",
     accentColor: "#9000FF",
@@ -1593,7 +1593,7 @@ export default function BrandManagement() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Control your
+              Mature Your
               <motion.span
                 className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-1"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -1601,7 +1601,7 @@ export default function BrandManagement() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                digital identity
+                Digital Identity.
               </motion.span>
             </motion.h2>
 
@@ -1612,8 +1612,8 @@ export default function BrandManagement() {
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              Transform how you manage your brand with intelligent automation
-              and real-time insights that drive measurable results.
+              Transform brand management with advanced solutions and aligned
+              expertise that deliver outcomes.
             </motion.p>
 
             <div className={`${isMobile ? 'space-y-3 mb-8' : 'space-y-4 mb-14'}`}>

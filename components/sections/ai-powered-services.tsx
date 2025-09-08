@@ -455,15 +455,14 @@ export default function AIPoweredServices() {
           <h2
             className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-normal tracking-tight text-white ${isMobile ? 'mb-3' : 'mb-4'} leading-[1.1]`}
           >
-            Bridge critical gaps in your
+            Turn Weakness Into Advantage
             <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent py-1">
-              organizational readiness
+              Before Competitors Do
             </span>
           </h2>
           <p className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'max-w-sm px-2' : 'max-w-3xl'} mx-auto font-normal leading-relaxed`}>
-            Many organizations have regulatory and readiness gaps that force
-            their brand to underperform. Our comprehensive approach identifies
-            and addresses these critical areas.
+            Most brands underperform by misaligning solutions, talent, and identity —
+            leaving their competitive edge behind.
           </p>
         </motion.div>
 
