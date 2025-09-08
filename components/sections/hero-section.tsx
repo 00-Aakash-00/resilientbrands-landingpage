@@ -47,13 +47,13 @@ export default function HeroSection() {
             {/* Centered Content - positioned higher */}
             <div className={`text-center ${isMobile ? "mt-40 px-2" : "mt-20"}`}>
               <h1
-                className={`${instrumentSerif.className} ${
+                className={`${
                   isSmallMobile
                     ? "text-3xl leading-tight"
                     : isMobile
                       ? "text-3xl leading-tight"
                       : "text-5xl md:text-7xl lg:text-8xl"
-                } font-normal tracking-tight leading-none ${isMobile ? "mb-3" : "mb-6"}`}
+                } font-semibold tracking-tighter leading-none ${isMobile ? "mb-3" : "mb-6"}`}
               >
                 <span
                   className="block mb-2"
