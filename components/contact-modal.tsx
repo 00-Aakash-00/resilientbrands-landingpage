@@ -55,7 +55,6 @@ interface ContactModalProps {
 
 export function ContactModal({ open, onOpenChange }: ContactModalProps) {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [, setCurrentStep] = React.useState(0);
   const { isMobile, isSmallMobile } = useScreenSize();
 
@@ -71,41 +70,19 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Form submission disabled for now
+    console.log("Form values:", values);
+    
+    toast({
+      title: "Coming Soon! 🚀",
+      description:
+        "Our contact form is being set up. Please email us directly at hello@resilientbrands.com",
+    });
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-
-      toast({
-        title: "Welcome aboard! 🚀",
-        description:
-          "Our team will craft your personalized AI report within 24 hours.",
-      });
-
-      form.reset();
-      setCurrentStep(0);
-      onOpenChange(false);
-    } catch {
-      toast({
-        title: "Something went wrong",
-        description:
-          "Please try again or contact us directly at hello@resilientbrands.ai",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    form.reset();
+    setCurrentStep(0);
+    onOpenChange(false);
   }
 
   const projectTypes = [
@@ -402,25 +379,10 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 <div className={`${isMobile ? 'space-y-3' : 'space-y-4'}`}>
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
                     className={`w-full ${isMobile ? 'h-12' : 'h-14'} bg-white hover:bg-white/90 text-black font-semibold ${isSmallMobile ? 'text-sm' : 'text-base'} group transition-all`}
                   >
-                    {isSubmitting ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 1,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                        className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} border-2 border-black/30 border-t-black rounded-full`}
-                      />
-                    ) : (
-                      <>
-                        Launch Your Journey
-                        <ArrowRight className={`ml-2 ${isMobile ? 'w-4 h-4' : 'w-5 h-5'} group-hover:translate-x-1 transition-transform`} />
-                      </>
-                    )}
+                    Launch Your Journey
+                    <ArrowRight className={`ml-2 ${isMobile ? 'w-4 h-4' : 'w-5 h-5'} group-hover:translate-x-1 transition-transform`} />
                   </Button>
 
                   <div className={`flex items-center justify-center ${isMobile ? 'gap-4' : 'gap-6'} ${isSmallMobile ? 'text-[10px]' : 'text-xs'} text-neutral-500`}>
