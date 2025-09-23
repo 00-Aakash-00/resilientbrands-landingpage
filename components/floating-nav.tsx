@@ -36,7 +36,7 @@ export default function FloatingNav() {
             {/* Logo on the left */}
             <div className={`flex items-center ${isMobile ? 'flex-1' : ''}`}>
               <Link
-                href="#"
+                href="/"
                 aria-label="Homepage"
                 className="flex items-center gap-3"
               >
