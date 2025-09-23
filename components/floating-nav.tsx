@@ -9,9 +9,9 @@ import { useContactModal } from "@/hooks/use-contact-modal";
 import { useScreenSize } from "@/hooks/use-mobile";
 
 const navLinks = [
-  { name: "Become a Solution", href: "#become-solution" },
-  { name: "Become a Provider", href: "#become-provider" },
-  { name: "Become a Solutions Partner", href: "#become-partner" },
+  { name: "Become a Solution", href: "/become-solution" },
+  { name: "Become a Provider", href: "/become-provider" },
+  { name: "Become a Solutions Owner", href: "/become-solutions-owner" },
   { name: "Services Guide", href: "#services-guide" },
 ];
 

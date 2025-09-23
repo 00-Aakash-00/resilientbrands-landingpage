@@ -4,7 +4,6 @@ import AIPrompt from "@/components/ai-prompt";
 import DecryptedText from "@/components/ui/decrypted-text";
 import Aurora from "@/components/Aurora";
 import { WordRotate } from "@/components/magicui/word-rotate";
-import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
 
 export default function HeroSection() {

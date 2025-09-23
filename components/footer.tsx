@@ -78,7 +78,7 @@ export default function Footer() {
               </motion.div>
             </Link>
             <p className="text-neutral-400 max-w-xs mb-8 leading-relaxed">
-              AI-powered research to validate your idea so you can build with confidence.
+              Where technology and services align.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social, index) => (
