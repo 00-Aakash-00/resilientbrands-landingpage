@@ -23,9 +23,10 @@ export const metadata: Metadata = {
     google: 'gNdJAuVqO7u_cUYY0g9qHNU_AOEM8U9PKOdo8rRbuCc',
   },
   other: {
-    'msvalidate.01': 'YOUR_BING_VERIFICATION_CODE',
-    'yandex-verification': 'YOUR_YANDEX_VERIFICATION_CODE',
-    'p:domain_verify': 'YOUR_PINTEREST_VERIFICATION_CODE',
+    // Add actual verification codes when available
+    // 'msvalidate.01': 'YOUR_BING_VERIFICATION_CODE',
+    // 'yandex-verification': 'YOUR_YANDEX_VERIFICATION_CODE',
+    // 'p:domain_verify': 'YOUR_PINTEREST_VERIFICATION_CODE',
   },
   robots: {
     index: true,
