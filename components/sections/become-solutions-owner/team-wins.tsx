@@ -8,20 +8,20 @@ import { useScreenSize } from "@/hooks/use-mobile"
 const winScenarios = [
   {
     icon: Users,
-    title: "Providers are solutions Enabled not just another expense",
-    description: "adoption skyrockets because our incentives are finally aligned.",
+    title: "Providers Are Solution Enablers, Not Just an Expense",
+    description: "Adoption soars when incentives align and providers are empowered to deliver value, not treated as a cost center.",
     color: "amber"
   },
   {
     icon: TrendingUp,
-    title: "Business maturity is based on you not the algorithms",
-    description: "no one team can do it all, now everyone owns a piece of the solutions they believe in built for them and not a statistic.",
+    title: "Business Maturity Is Driven by People, Not Algorithms",
+    description: "Ownership is distributed across teams—each team owns the solutions they trust, fostering accountability and better outcomes.",
     color: "yellow"
   },
   {
     icon: Target,
-    title: "The ecosystem corrects itself",
-    description: "every client, MSP and VAR that becomes an owner is ensuring the best solution for the job wins and not the solution with a rubber stamp.",
+    title: "The Ecosystem Optimizes for the Best Solution",
+    description: "When clients, MSPs and VARs become owners, the best-fit solution wins based on merit, not bureaucracy.",
     color: "cyan"
   }
 ]

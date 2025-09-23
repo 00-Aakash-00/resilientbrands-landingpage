@@ -308,7 +308,7 @@ const sections = [
       <p>
         {" "}
         Our website may provide links or other access to other third party sites
-        and resources on the Internet. Founder Tool has no control over such
+        and resources on the Internet. Resilient Brands has no control over such
         sites and resources and Resilient Brands is not responsible for and does
         not endorse such sites and resources.{" "}
       </p>
@@ -692,9 +692,8 @@ export default function TermsAndConditionsPage() {
     });
 
     return () => {
-      sections.forEach((section) => {
-        observer.current?.unobserve(section);
-      });
+      observer.current?.disconnect();
+      observer.current = null;
     };
   }, []);
 

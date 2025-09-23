@@ -9,15 +9,15 @@ import { useScreenSize } from "@/hooks/use-mobile"
 const changes = [
   {
     title: "You're not resellers",
-    description: "we're equity partners."
+    description: "We're equity partners."
   },
   {
     title: "You don't just make margin",
-    description: "we share in the growth."
+    description: "We share in the growth."
   },
   {
     title: "You're not just another contract",
-    description: "you're solution builders building a better market through the solutions you believe in."
+    description: "You're solution builders building a better market through the solutions you believe in."
   }
 ]
 
@@ -121,7 +121,7 @@ export default function OwnershipChanges() {
             >
               <motion.path
                 d="M12 2L2 7V12C2 16.5 4.23 20.68 12 22C19.77 20.68 22 16.5 22 12V7L12 2Z"
-                stroke="url(#gradient)"
+                stroke="url(#ownership-changes-gradient)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -131,7 +131,7 @@ export default function OwnershipChanges() {
                 viewport={{ once: true }}
               />
               <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="ownership-changes-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#FCD34D" />
                   <stop offset="100%" stopColor="#F59E0B" />
                 </linearGradient>

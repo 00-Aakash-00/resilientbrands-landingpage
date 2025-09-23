@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useMemo } from 'react';
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 
@@ -66,7 +68,7 @@ void main() {
   vec2 uv = gl_FragCoord.xy / uResolution;
 
   vec3 rampColor;
-  float factor = uv.x;
+  float factor = clamp(uv.x, 0.0, 1.0);
 
   if (factor <= 0.5) {
     rampColor = mix(uColorStops[0], uColorStops[1], factor * 2.0);
