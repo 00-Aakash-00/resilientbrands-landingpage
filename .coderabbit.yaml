@@ -1,0 +1,33 @@
+# CodeRabbit Configuration
+# This file configures how CodeRabbit reviews this repository
+
+reviews:
+  # Enable auto review
+  auto_review:
+    enabled: true
+
+  # File patterns to include/exclude (exclude with ! prefix)
+  path_filters:
+    - "**/*.ts"
+    - "**/*.tsx"
+    - "**/*.js"
+    - "**/*.jsx"
+    - "**/*.css"
+    - "**/*.json"
+    - "!node_modules/**"
+    - "!.next/**"
+    - "!*.min.js"
+    - "!*.min.css"
+
+  # Enable various analysis tools
+  tools:
+    eslint:
+      enabled: true
+    dependency-scan:
+      enabled: true
+    secret-scan:
+      enabled: true
+    bundle-check:
+      enabled: true
+    image-optimization:
+      enabled: true
