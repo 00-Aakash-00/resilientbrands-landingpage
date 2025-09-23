@@ -74,6 +74,7 @@ export default function Footer() {
                   width={80}
                   height={80}
                   className="brightness-0 invert group-hover:brightness-200 transition-all duration-300"
+                  style={{ width: 80, height: "auto" }}
                 />
               </motion.div>
             </Link>

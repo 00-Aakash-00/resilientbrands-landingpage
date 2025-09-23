@@ -140,32 +140,6 @@ export default function ProviderInvitation() {
               </div>
             </motion.div>
 
-            {/* Bottom section */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-              className={`${isMobile ? "mt-16" : "mt-20"} ${isMobile ? "pt-8" : "pt-12"} border-t border-white/10`}
-            >
-              <div className="flex flex-col items-center gap-4">
-                <h3 className={`${
-                  isSmallMobile ? "text-2xl" : isMobile ? "text-3xl" : "text-4xl"
-                } font-bold text-white`}>
-                  Become a Provider
-                </h3>
-                <Button
-                  variant="outline"
-                  size={isMobile ? "default" : "lg"}
-                  className={`border-purple-500/30 text-white hover:bg-purple-500/10 backdrop-blur-sm ${
-                    isMobile ? "text-sm" : "text-base"
-                  }`}
-                  onClick={openContactModal}
-                >
-                  Contact Form
-                </Button>
-              </div>
-            </motion.div>
           </div>
         </div>
       </motion.div>

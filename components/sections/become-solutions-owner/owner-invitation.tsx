@@ -1,15 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, TrendingUp, Sparkles } from "lucide-react"
-import { useContactModal } from "@/hooks/use-contact-modal"
+import { TrendingUp, Sparkles } from "lucide-react"
 import { GrainGradient } from "@paper-design/shaders-react"
 import { instrumentSerif } from "@/lib/fonts"
 import { useScreenSize } from "@/hooks/use-mobile"
 
 export default function OwnerInvitation() {
-  const { open: openContactModal } = useContactModal()
   const { isMobile, isSmallMobile } = useScreenSize()
 
   return (
@@ -72,41 +69,6 @@ export default function OwnerInvitation() {
           </motion.div>
 
           <div className="text-center">
-            {/* CTA Arrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className={`${isMobile ? "mb-8" : "mb-10"}`}
-            >
-              <ArrowRight className={`${isMobile ? "w-8 h-8" : "w-12 h-12"} text-amber-400 mx-auto mb-4`} />
-              <p className={`${
-                isSmallMobile ? "text-xl" : isMobile ? "text-2xl" : "text-3xl"
-              } text-white font-bold`}>
-                Help shape the future today.
-              </p>
-            </motion.div>
-
-            {/* Main CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <Button
-                size={isMobile ? "default" : "lg"}
-                className={`bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-bold ${
-                  isMobile ? "text-base px-8 py-3" : "text-lg px-12 py-4"
-                } h-auto transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-amber-500/25`}
-                onClick={openContactModal}
-              >
-                Contact Form CTA
-              </Button>
-            </motion.div>
-
             {/* Don't miss out section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
