@@ -1,34 +1,35 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Star } from "lucide-react"
-import { useContactModal } from "@/hooks/use-contact-modal"
-import { GrainGradient } from "@paper-design/shaders-react"
-import { instrumentSerif } from "@/lib/fonts"
-import { useScreenSize } from "@/hooks/use-mobile"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Star } from "lucide-react";
+import { useContactModal } from "@/hooks/use-contact-modal";
+import GrainGradientLite from "@/components/GrainGradientLite";
+import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 export default function ProviderInvitation() {
-  const { open: openContactModal } = useContactModal()
-  const { isMobile, isSmallMobile } = useScreenSize()
+  const { open: openContactModal } = useContactModal();
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <section className={`relative ${isMobile ? "py-20" : "py-32"} overflow-hidden`}>
+    <section
+      className={`relative ${isMobile ? "py-20" : "py-32"} overflow-hidden`}
+    >
       {/* Background with gradient */}
       <div className="absolute inset-0">
-        <GrainGradient
+        <GrainGradientLite
           style={{ height: "100%", width: "100%" }}
           colorBack="hsl(0, 0%, 0%)"
           softness={0.85}
           intensity={0.75}
-          noise={0.45}
-          shape="corners"
-          offsetX={0}
-          offsetY={0}
-          scale={1.2}
-          rotation={0}
-          speed={0.5}
-          colors={["hsl(270, 100%, 45%)", "hsl(185, 90%, 50%)", "hsl(280, 95%, 55%)"]}
+          noise={0.25}
+          angle={0}
+          colors={[
+            "hsl(270, 100%, 45%)",
+            "hsl(185, 90%, 50%)",
+            "hsl(280, 95%, 55%)",
+          ]}
         />
       </div>
 
@@ -79,7 +80,11 @@ export default function ProviderInvitation() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className={`${instrumentSerif.className} ${
-                isSmallMobile ? "text-3xl" : isMobile ? "text-4xl" : "text-5xl md:text-6xl lg:text-7xl"
+                isSmallMobile
+                  ? "text-3xl"
+                  : isMobile
+                  ? "text-4xl"
+                  : "text-5xl md:text-6xl lg:text-7xl"
               } font-normal tracking-tight text-white mb-8 leading-[1.1]`}
             >
               The Invitation
@@ -95,7 +100,9 @@ export default function ProviderInvitation() {
                 isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"
               } text-neutral-200 mb-6 max-w-3xl mx-auto leading-relaxed`}
             >
-              Your clients depend on you to guide their growth and protect their future. Don&apos;t let them get lost in vendor noise or settle for the wrong tools.
+              Your clients depend on you to guide their growth and protect their
+              future. Don&apos;t let them get lost in vendor noise or settle for
+              the wrong tools.
             </motion.p>
 
             <motion.p
@@ -111,7 +118,8 @@ export default function ProviderInvitation() {
               <span className="text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text font-semibold">
                 Resilient Brands
               </span>
-              , you can be the first to deliver the solutions that matter — and continue to be the partner they&apos;ll never second-guess.
+              , you can be the first to deliver the solutions that matter — and
+              continue to be the partner they&apos;ll never second-guess.
             </motion.p>
 
             {/* CTA Button */}
@@ -130,7 +138,9 @@ export default function ProviderInvitation() {
                 onClick={openContactModal}
               >
                 Become a Provider Today
-                <ArrowRight className={`${isMobile ? "ml-2 h-5 w-5" : "ml-3 h-6 w-6"}`} />
+                <ArrowRight
+                  className={`${isMobile ? "ml-2 h-5 w-5" : "ml-3 h-6 w-6"}`}
+                />
               </Button>
 
               <div className="flex items-center justify-center gap-2">
@@ -139,10 +149,9 @@ export default function ProviderInvitation() {
                 <div className="h-px w-12 bg-gradient-to-l from-transparent to-cyan-500/50" />
               </div>
             </motion.div>
-
           </div>
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

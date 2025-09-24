@@ -1,50 +1,56 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { GrainGradient } from "@paper-design/shaders-react"
-import { CheckCircle2 } from "lucide-react"
-import { instrumentSerif } from "@/lib/fonts"
-import { useScreenSize } from "@/hooks/use-mobile"
+import { motion } from "framer-motion";
+import GrainGradientLite from "@/components/GrainGradientLite";
+import { CheckCircle2 } from "lucide-react";
+import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 const changes = [
   {
     title: "You're not resellers",
-    description: "we're equity partners."
+    description: "we're equity partners.",
   },
   {
     title: "You don't just make margin",
-    description: "we share in the growth."
+    description: "we share in the growth.",
   },
   {
     title: "You're not just another contract",
-    description: "you're solution builders building a better market through the solutions you believe in."
-  }
-]
+    description:
+      "you're solution builders building a better market through the solutions you believe in.",
+  },
+];
 
 export default function OwnershipChanges() {
-  const { isMobile, isSmallMobile } = useScreenSize()
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <section className={`relative ${isMobile ? "py-16" : "py-24"} overflow-hidden`}>
+    <section
+      className={`relative ${isMobile ? "py-16" : "py-24"} overflow-hidden`}
+    >
       {/* Background gradient */}
       <div className="absolute inset-0">
-        <GrainGradient
+        <GrainGradientLite
           style={{ height: "100%", width: "100%" }}
           colorBack="hsl(240, 10%, 3%)"
           softness={0.9}
           intensity={0.6}
-          noise={0.3}
-          shape="corners"
-          offsetX={0}
-          offsetY={0}
-          scale={1}
-          rotation={90}
-          speed={0.3}
-          colors={["hsl(45, 100%, 40%)", "hsl(35, 100%, 45%)", "hsl(185, 90%, 40%)"]}
+          noise={0.2}
+          angle={90}
+          colors={[
+            "hsl(45, 100%, 40%)",
+            "hsl(35, 100%, 45%)",
+            "hsl(185, 90%, 40%)",
+          ]}
         />
       </div>
 
-      <div className={`relative z-10 max-w-7xl mx-auto ${isMobile ? "px-4" : "px-4 sm:px-6 lg:px-8"}`}>
+      <div
+        className={`relative z-10 max-w-7xl mx-auto ${
+          isMobile ? "px-4" : "px-4 sm:px-6 lg:px-8"
+        }`}
+      >
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,18 +59,34 @@ export default function OwnershipChanges() {
           viewport={{ once: true }}
           className={`${isMobile ? "mb-12" : "mb-16"}`}
         >
-          <h2 className={`${instrumentSerif.className} ${
-            isSmallMobile ? "text-3xl" : isMobile ? "text-4xl" : "text-5xl md:text-6xl"
-          } font-normal tracking-tight text-white mb-6 leading-[1.1] text-center`}>
+          <h2
+            className={`${instrumentSerif.className} ${
+              isSmallMobile
+                ? "text-3xl"
+                : isMobile
+                ? "text-4xl"
+                : "text-5xl md:text-6xl"
+            } font-normal tracking-tight text-white mb-6 leading-[1.1] text-center`}
+          >
             Solutions Ownership{" "}
             <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">
               changes everything
             </span>
           </h2>
-          <p className={`${isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"} text-neutral-300 text-center max-w-4xl mx-auto leading-relaxed mb-4`}>
-            Resilient Brands know as well as anyone the best solutions don&apos;t always win, often limited by the owners that believe in solutions and limited exposure in the algorithm led market.
+          <p
+            className={`${
+              isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"
+            } text-neutral-300 text-center max-w-4xl mx-auto leading-relaxed mb-4`}
+          >
+            Resilient Brands know as well as anyone the best solutions
+            don&apos;t always win, often limited by the owners that believe in
+            solutions and limited exposure in the algorithm led market.
           </p>
-          <p className={`${isSmallMobile ? "text-lg" : isMobile ? "text-xl" : "text-2xl"} text-white font-medium text-center`}>
+          <p
+            className={`${
+              isSmallMobile ? "text-lg" : isMobile ? "text-xl" : "text-2xl"
+            } text-white font-medium text-center`}
+          >
             That means:
           </p>
         </motion.div>
@@ -89,11 +111,28 @@ export default function OwnershipChanges() {
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="w-8 h-8 text-amber-400 flex-shrink-0 mt-1" />
                     <div>
-                      <span className={`${isSmallMobile ? "text-lg" : isMobile ? "text-xl" : "text-2xl"} text-white font-semibold`}>
+                      <span
+                        className={`${
+                          isSmallMobile
+                            ? "text-lg"
+                            : isMobile
+                            ? "text-xl"
+                            : "text-2xl"
+                        } text-white font-semibold`}
+                      >
                         {change.title}
                       </span>
-                      <span className={`${isSmallMobile ? "text-lg" : isMobile ? "text-xl" : "text-2xl"} text-transparent bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text font-bold`}>
-                        {" — "}{change.description}
+                      <span
+                        className={`${
+                          isSmallMobile
+                            ? "text-lg"
+                            : isMobile
+                            ? "text-xl"
+                            : "text-2xl"
+                        } text-transparent bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text font-bold`}
+                      >
+                        {" — "}
+                        {change.description}
                       </span>
                     </div>
                   </div>
@@ -131,7 +170,13 @@ export default function OwnershipChanges() {
                 viewport={{ once: true }}
               />
               <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient
+                  id="gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
                   <stop offset="0%" stopColor="#FCD34D" />
                   <stop offset="100%" stopColor="#F59E0B" />
                 </linearGradient>
@@ -141,5 +186,5 @@ export default function OwnershipChanges() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

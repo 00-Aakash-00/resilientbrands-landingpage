@@ -1,5 +1,5 @@
-import { useEffect, useRef, useMemo } from 'react';
-import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
+import { useEffect, useRef, useMemo } from "react";
+import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -110,7 +110,11 @@ const hexToRgb = (hex: string): number[] => {
 };
 
 export default function Aurora(props: AuroraProps) {
-  const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5 } = props;
+  const {
+    colorStops = ["#5227FF", "#7cff67", "#5227FF"],
+    amplitude = 1.0,
+    blend = 0.5,
+  } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
 
@@ -124,28 +128,43 @@ export default function Aurora(props: AuroraProps) {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
+    const initialProps = propsRef.current;
+    const initialColorStops = (
+      initialProps.colorStops ?? ["#5227FF", "#7cff67", "#5227FF"]
+    ).map(hexToRgb);
+    const initialAmplitude = initialProps.amplitude ?? 1.0;
+    const initialBlend = initialProps.blend ?? 0.5;
+
     const renderer = new Renderer({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      powerPreference: 'high-performance'
+      powerPreference: "high-performance",
     });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    gl.canvas.style.backgroundColor = 'transparent';
+    gl.canvas.style.backgroundColor = "transparent";
+
+    // Cap device pixel ratio to reduce fragment shader workload
+    const maxDpr = 1.5;
+    renderer.dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
+
+    const width0 = ctn.offsetWidth;
+    const height0 = ctn.offsetHeight;
 
     const program: Program | undefined = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
         uTime: { value: 0 },
-        uAmplitude: { value: amplitude },
-        uColorStops: { value: colorStopsArray },
-        uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
-        uBlend: { value: blend }
-      }
+        uAmplitude: { value: initialAmplitude },
+        uColorStops: { value: initialColorStops },
+        // Use physical pixel resolution to stay consistent with DPR scaling
+        uResolution: { value: [width0 * renderer.dpr, height0 * renderer.dpr] },
+        uBlend: { value: initialBlend },
+      },
     });
     let resizeTimer: NodeJS.Timeout;
 
@@ -155,14 +174,26 @@ export default function Aurora(props: AuroraProps) {
       resizeTimer = setTimeout(() => {
         const width = ctn.offsetWidth;
         const height = ctn.offsetHeight;
+        // Re-apply DPR cap on resize/zoom changes
+        renderer.dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
         renderer.setSize(width, height);
         if (program) {
-          program.uniforms.uResolution.value = [width, height];
+          program.uniforms.uResolution.value = [
+            width * renderer.dpr,
+            height * renderer.dpr,
+          ];
         }
       }, 100);
     }
 
-    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener("resize", resize, { passive: true });
+
+    // Observe container size changes (not only window resizes)
+    let ro: ResizeObserver | null = null;
+    if ("ResizeObserver" in window) {
+      ro = new ResizeObserver(() => resize());
+      ro.observe(ctn);
+    }
 
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
@@ -173,11 +204,36 @@ export default function Aurora(props: AuroraProps) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
-    let lastColorStops = colorStops;
-    let cachedColorArray = colorStopsArray;
+    let isRunning = false;
+    let isVisible = document.visibilityState === "visible";
+    let isInViewport = true;
+
+    // Throttle FPS (lower if user prefers reduced motion)
+    const prefersReducedMotion =
+      typeof window !== "undefined" && "matchMedia" in window
+        ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        : false;
+    const targetFps = prefersReducedMotion ? 15 : 30;
+    const frameInterval = 1000 / targetFps;
+    let lastFrameTime = 0;
+
+    let lastColorStops = initialProps.colorStops ?? [
+      "#5227FF",
+      "#7cff67",
+      "#5227FF",
+    ];
+    let cachedColorArray = lastColorStops.map(hexToRgb);
 
     const update = (t: number) => {
-      animateId = requestAnimationFrame(update);
+      if (!isRunning) return;
+
+      const now = performance.now();
+      if (now - lastFrameTime < frameInterval) {
+        animateId = requestAnimationFrame(update);
+        return;
+      }
+      lastFrameTime = now;
+
       const currentProps = propsRef.current;
       const { time = t * 0.01, speed = 1.0 } = currentProps;
 
@@ -189,12 +245,12 @@ export default function Aurora(props: AuroraProps) {
           program.uniforms.uAmplitude.value = currentAmplitude;
         }
 
-        const currentBlend = currentProps.blend ?? blend;
+        const currentBlend = currentProps.blend ?? 0.5;
         if (program.uniforms.uBlend.value !== currentBlend) {
           program.uniforms.uBlend.value = currentBlend;
         }
 
-        const currentStops = currentProps.colorStops ?? colorStops;
+        const currentStops = currentProps.colorStops ?? lastColorStops;
         if (currentStops !== lastColorStops) {
           lastColorStops = currentStops;
           cachedColorArray = currentStops.map(hexToRgb);
@@ -203,21 +259,70 @@ export default function Aurora(props: AuroraProps) {
 
         renderer.render({ scene: mesh });
       }
+
+      animateId = requestAnimationFrame(update);
     };
-    animateId = requestAnimationFrame(update);
+
+    function start() {
+      if (isRunning) return;
+      isRunning = true;
+      animateId = requestAnimationFrame(update);
+    }
+
+    function stop() {
+      if (!isRunning) return;
+      isRunning = false;
+      cancelAnimationFrame(animateId);
+    }
+
+    function reevaluateRun() {
+      if (isVisible && isInViewport) start();
+      else stop();
+    }
+
+    const onVisibilityChange = () => {
+      isVisible = document.visibilityState === "visible";
+      reevaluateRun();
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange, {
+      passive: true,
+    } as EventListenerOptions);
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        isInViewport = !!entry?.isIntersecting;
+        reevaluateRun();
+      },
+      { root: null, threshold: 0.01 }
+    );
+    io.observe(ctn);
 
     resize();
+    // Start if visible; observers will stop it if offscreen
+    start();
 
     return () => {
-      cancelAnimationFrame(animateId);
+      stop();
       clearTimeout(resizeTimer);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibilityChange as any
+      );
+      io.disconnect();
+      ro?.disconnect();
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
       }
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [colorStopsArray, amplitude, blend, colorStops]);
+  }, []);
 
-  return <div ref={ctnDom} className="w-full h-full" style={{ willChange: 'transform' }} />;
+  return (
+    <div
+      ref={ctnDom}
+      className="w-full h-full"
+      style={{ willChange: "transform" }}
+    />
+  );
 }

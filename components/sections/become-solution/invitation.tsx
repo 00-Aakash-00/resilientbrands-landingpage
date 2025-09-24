@@ -1,34 +1,35 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
-import { useContactModal } from "@/hooks/use-contact-modal"
-import { GrainGradient } from "@paper-design/shaders-react"
-import { instrumentSerif } from "@/lib/fonts"
-import { useScreenSize } from "@/hooks/use-mobile"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { useContactModal } from "@/hooks/use-contact-modal";
+import GrainGradientLite from "@/components/GrainGradientLite";
+import { instrumentSerif } from "@/lib/fonts";
+import { useScreenSize } from "@/hooks/use-mobile";
 
 export default function TheInvitation() {
-  const { open: openContactModal } = useContactModal()
-  const { isMobile, isSmallMobile } = useScreenSize()
+  const { open: openContactModal } = useContactModal();
+  const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <section className={`relative ${isMobile ? "py-20" : "py-32"} overflow-hidden`}>
+    <section
+      className={`relative ${isMobile ? "py-20" : "py-32"} overflow-hidden`}
+    >
       {/* Background with gradient */}
       <div className="absolute inset-0">
-        <GrainGradient
+        <GrainGradientLite
           style={{ height: "100%", width: "100%" }}
           colorBack="hsl(0, 0%, 0%)"
           softness={0.85}
           intensity={0.75}
-          noise={0.45}
-          shape="corners"
-          offsetX={0}
-          offsetY={0}
-          scale={1.2}
-          rotation={0}
-          speed={0.5}
-          colors={["hsl(185, 100%, 45%)", "hsl(150, 90%, 50%)", "hsl(170, 95%, 55%)"]}
+          noise={0.25}
+          angle={0}
+          colors={[
+            "hsl(185, 100%, 45%)",
+            "hsl(150, 90%, 50%)",
+            "hsl(170, 95%, 55%)",
+          ]}
         />
       </div>
 
@@ -79,7 +80,11 @@ export default function TheInvitation() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
               className={`${instrumentSerif.className} ${
-                isSmallMobile ? "text-3xl" : isMobile ? "text-4xl" : "text-5xl md:text-6xl lg:text-7xl"
+                isSmallMobile
+                  ? "text-3xl"
+                  : isMobile
+                  ? "text-4xl"
+                  : "text-5xl md:text-6xl lg:text-7xl"
               } font-normal tracking-tight text-white mb-6 leading-[1.1]`}
             >
               The Invitation
@@ -95,7 +100,8 @@ export default function TheInvitation() {
                 isSmallMobile ? "text-lg" : isMobile ? "text-xl" : "text-2xl"
               } text-neutral-200 mb-10 max-w-3xl mx-auto font-normal leading-relaxed`}
             >
-              If your solution deserves better partners, it&apos;s time to join the{" "}
+              If your solution deserves better partners, it&apos;s time to join
+              the{" "}
               <span className="text-transparent bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text font-semibold">
                 Resilient Brands
               </span>{" "}
@@ -118,7 +124,9 @@ export default function TheInvitation() {
                 onClick={openContactModal}
               >
                 Join Resilient Brands Today
-                <ArrowRight className={`${isMobile ? "ml-2 h-5 w-5" : "ml-3 h-6 w-6"}`} />
+                <ArrowRight
+                  className={`${isMobile ? "ml-2 h-5 w-5" : "ml-3 h-6 w-6"}`}
+                />
               </Button>
 
               <div className="flex items-center justify-center gap-2">
@@ -127,10 +135,9 @@ export default function TheInvitation() {
                 <div className="h-px w-12 bg-gradient-to-l from-transparent to-emerald-500/50" />
               </div>
             </motion.div>
-
           </div>
         </div>
       </motion.div>
     </section>
-  )
+  );
 }

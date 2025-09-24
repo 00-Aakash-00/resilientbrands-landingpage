@@ -12,13 +12,19 @@ export default function HeroSection() {
   return (
     <header className="relative bg-black">
       <section
-        className={`relative ${isMobile ? "min-h-[65vh] mt-2" : "h-screen min-h-[700px]"} w-full text-white overflow-hidden bg-black`}
+        className={`relative ${
+          isMobile ? "min-h-[65vh] mt-2" : "h-screen min-h-[700px]"
+        } w-full text-white overflow-hidden bg-black`}
         aria-label="Hero"
       >
         {/* Container for the centered background effect - like Cursor */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            className={`relative ${isMobile ? "w-[95%] h-[90%] mt-12" : "w-[95%] h-[87%] mt-20"} max-w-full ${isMobile ? "rounded-xl" : "rounded-3xl"} overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900`}
+            className={`relative ${
+              isMobile ? "w-[95%] h-[90%] mt-12" : "w-[95%] h-[87%] mt-20"
+            } max-w-full ${
+              isMobile ? "rounded-xl" : "rounded-3xl"
+            } overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900`}
           >
             {/* Aurora background */}
             <div className="absolute inset-0 z-0">
@@ -28,9 +34,9 @@ export default function HeroSection() {
                   "#06B6D4", // Cyan (middle)
                   "#34D399", // Light emerald (end)
                 ]}
-                amplitude={1.8}
-                blend={0.7}
-                speed={1.2}
+                blend={0.5}
+                amplitude={1.0}
+                speed={0.5}
               />
             </div>
 
@@ -40,7 +46,9 @@ export default function HeroSection() {
         </div>
 
         <div
-          className={`relative z-20 max-w-7xl mx-auto ${isMobile ? "px-4" : "px-4 sm:px-6"} h-full pointer-events-none`}
+          className={`relative z-20 max-w-7xl mx-auto ${
+            isMobile ? "px-4" : "px-4 sm:px-6"
+          } h-full pointer-events-none`}
         >
           <div className="flex flex-col items-center justify-center h-full sm:pt-32">
             {/* Centered Content - positioned higher */}
@@ -50,9 +58,11 @@ export default function HeroSection() {
                   isSmallMobile
                     ? "text-3xl leading-tight"
                     : isMobile
-                      ? "text-3xl leading-tight"
-                      : "text-5xl md:text-7xl lg:text-8xl"
-                } font-semibold tracking-tighter leading-none ${isMobile ? "mb-3" : "mb-6"}`}
+                    ? "text-3xl leading-tight"
+                    : "text-5xl md:text-7xl lg:text-8xl"
+                } font-semibold tracking-tighter leading-none ${
+                  isMobile ? "mb-3" : "mb-6"
+                }`}
               >
                 <span
                   className="block mb-2"
@@ -61,14 +71,7 @@ export default function HeroSection() {
                       "0 0 20px rgba(0, 230, 251, 0.4), 0 0 40px rgba(0, 230, 251, 0.2)",
                   }}
                 >
-                  <DecryptedText
-                    text="Manage Your Brand"
-                    animateOn="view"
-                    speed={60}
-                    sequential={true}
-                    className="text-white"
-                    encryptedClassName="text-cyan/50"
-                  />
+                  Manage Your Brand
                 </span>
                 <span
                   className="block"
@@ -89,7 +92,9 @@ export default function HeroSection() {
                 </span>
               </h1>
               <div
-                className={`${isMobile ? "mt-3 max-w-[90%] px-2" : "mt-4 max-w-2xl"} mx-auto ${isMobile ? "min-h-[3.5rem]" : "min-h-[4rem]"}`}
+                className={`${
+                  isMobile ? "mt-3 max-w-[90%] px-2" : "mt-4 max-w-2xl"
+                } mx-auto ${isMobile ? "min-h-[3.5rem]" : "min-h-[4rem]"}`}
               >
                 <WordRotate
                   words={[
@@ -108,8 +113,8 @@ export default function HeroSection() {
                     isSmallMobile
                       ? "text-sm"
                       : isMobile
-                        ? "text-base"
-                        : "text-base md:text-lg"
+                      ? "text-base"
+                      : "text-base md:text-lg"
                   } font-normal text-white/80 text-center`}
                   motionProps={{
                     initial: { opacity: 0, y: 10 },
@@ -121,7 +126,9 @@ export default function HeroSection() {
               </div>
 
               <div
-                className={`w-full ${isMobile ? "max-w-[90%] px-2" : "max-w-3xl"} mx-auto ${isMobile ? "mt-4" : "mt-6"} pointer-events-auto`}
+                className={`w-full ${
+                  isMobile ? "max-w-[90%] px-2" : "max-w-3xl"
+                } mx-auto ${isMobile ? "mt-4" : "mt-6"} pointer-events-auto`}
               >
                 <AIPrompt />
               </div>
