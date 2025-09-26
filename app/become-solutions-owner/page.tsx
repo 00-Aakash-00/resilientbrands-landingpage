@@ -11,7 +11,7 @@ export default function BecomeSolutionsOwnerPage() {
   return (
     <div className="bg-background text-foreground font-sans">
       <FloatingNav />
-      <main id="main-content" role="main">
+      <main id="main-content">
         <SolutionsOwnerHero />
         <DeserveBetter />
         <OwnershipChanges />

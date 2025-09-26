@@ -13,7 +13,7 @@ export default function ResilientBrandsLandingPage() {
   return (
     <div className="bg-background text-foreground font-sans">
       <FloatingNav />
-      <main id="main-content" role="main">
+      <main id="main-content">
         <HeroSection />
         <TechSolutionsGrid />
         <BrandManagement />

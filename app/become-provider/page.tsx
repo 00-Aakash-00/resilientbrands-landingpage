@@ -10,7 +10,7 @@ export default function BecomeProviderPage() {
   return (
     <div className="bg-background text-foreground font-sans">
       <FloatingNav />
-      <main id="main-content" role="main">
+      <main id="main-content">
         <BecomeProviderHero />
         <RightSizeMaturity />
         <ThoseWhoServe />
