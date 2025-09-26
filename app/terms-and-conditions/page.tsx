@@ -698,7 +698,7 @@ export default function TermsAndConditionsPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main id="main-content" role="main" className="min-h-screen bg-slate-50">
       <div className="container mx-auto py-8 px-4 md:py-12 md:px-6">
         <div className="mb-10">
           <Link href="/">

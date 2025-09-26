@@ -6,13 +6,49 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .animation-delay-2000 {
     animation-delay: 2000ms;
   }
-  
+
   .animation-delay-4000 {
     animation-delay: 4000ms;
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Show when focused */
+  .not-sr-only:focus,
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Better focus styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-cyan-500;
+  }
+
+  /* Remove focus for mouse users */
+  *:focus:not(:focus-visible) {
+    @apply outline-none;
   }
 }
 

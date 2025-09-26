@@ -30,7 +30,7 @@ export default function FloatingNav() {
 
   return (
     <>
-      <nav className={`fixed ${isMobile ? 'top-2' : 'top-4'} left-1/2 -translate-x-1/2 z-50 ${isMobile ? 'w-[calc(100%-1rem)]' : 'w-[calc(100%-2rem)]'} ${isMobile ? 'max-w-[calc(100%-1rem)]' : 'max-w-[95%]'}`}>
+      <nav className={`fixed ${isMobile ? 'top-2' : 'top-4'} left-1/2 -translate-x-1/2 z-50 ${isMobile ? 'w-[calc(100%-1rem)]' : 'w-[calc(100%-2rem)]'} ${isMobile ? 'max-w-[calc(100%-1rem)]' : 'max-w-[95%]'}`} role="navigation" aria-label="Main navigation">
         <div className={`bg-black/80 backdrop-blur-xl ${isMobile ? 'rounded-lg px-3' : 'rounded-2xl px-8 lg:px-10'}`}>
           <div className={`${isMobile ? 'flex items-center justify-between' : 'grid grid-cols-3 items-center'} ${isMobile ? 'h-12' : 'h-20'}`}>
             {/* Logo on the left */}
@@ -51,13 +51,15 @@ export default function FloatingNav() {
             </div>
 
             {/* Center navigation */}
-            <div className={`hidden xl:flex items-center justify-center gap-6`}>
+            <div className={`hidden xl:flex items-center justify-center gap-6`} role="menubar">
               {navLinks.map((link) => (
                 link.name === "Services Guide" ? (
                   <button
                     key={link.name}
                     onClick={openContactModal}
                     className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
+                    role="menuitem"
+                    aria-label="Open Services Guide contact form"
                   >
                     {link.name}
                   </button>
@@ -66,6 +68,7 @@ export default function FloatingNav() {
                     key={link.name}
                     href={link.href}
                     className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
+                    role="menuitem"
                   >
                     {link.name}
                   </Link>
@@ -78,12 +81,14 @@ export default function FloatingNav() {
               <Link
                 href="#signin"
                 className={`hidden xl:block text-white/80 hover:text-white text-sm font-medium transition-colors`}
+                aria-label="Log in to your account"
               >
                 Log in
               </Link>
               <Button
                 className={`hidden xl:inline-flex bg-white text-black hover:bg-white/90 text-sm font-semibold px-4 py-2 h-9`}
                 onClick={openContactModal}
+                aria-label="Start now - Open contact form"
               >
                 Start Now!
               </Button>

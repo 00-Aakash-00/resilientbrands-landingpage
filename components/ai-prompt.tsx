@@ -67,6 +67,7 @@ export default function AIPrompt() {
             <Textarea
               id="ai-input-15"
               value={value}
+              aria-label="AI prompt input - describe your business needs"
               placeholder={isMobile ? "Describe your business needs..." : "Describe your needs and business - Be as detailed as you'd like."}
               className={cn(
                 `w-full ${isMobile ? 'rounded-md' : 'rounded-xl'} rounded-b-none ${isMobile ? 'px-3 py-2' : 'px-4 py-3'} bg-white border-none text-black placeholder:text-neutral-500 resize-none focus-visible:ring-0 focus-visible:ring-offset-0 ${isSmallMobile ? 'text-sm' : 'text-base'}`,
