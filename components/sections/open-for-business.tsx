@@ -23,15 +23,15 @@ export default function OpenForBusiness() {
         <GrainGradient
           style={{ height: "100%", width: "100%" }}
           colorBack="hsl(0, 0%, 0%)"
-          softness={0.85}
-          intensity={0.75}
-          noise={0.45}
+          softness={0.76}
+          intensity={0.45}
+          noise={0}
           shape="corners"
           offsetX={0}
           offsetY={0}
-          scale={1.2}
+          scale={1}
           rotation={0}
-          speed={0.5}
+          speed={1}
           colors={[
             "hsl(185, 80%, 50%)",
             "hsl(190, 70%, 45%)",
