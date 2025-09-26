@@ -6,16 +6,14 @@ import Image from "next/image"
 import { Twitter, Linkedin, Github, ArrowUp } from "lucide-react"
 
 const footerLinks = {
-  product: [
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "How it Works", href: "#how-it-works" },
-    { name: "Get Started", href: "#cta" },
+  ourNetwork: [
+    { name: "Solutions", href: "#services" },
+    { name: "How it Works", href: "#connect-analyze-optimize" },
+    { name: "Get Started", href: "#map-my-brand" },
   ],
   company: [
-    { name: "About Us", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Solutions", href: "https://www.resilientbrands.ai/become-solution" },
+    { name: "Providers", href: "https://www.resilientbrands.ai/become-provider" },
   ],
   legal: [
     { name: "Terms of Service", href: "/terms-and-conditions" },
@@ -115,8 +113,8 @@ export default function Footer() {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="font-medium text-white mb-4 capitalize">
-                  {category}
+                <h3 className="font-medium text-white mb-4">
+                  {category === 'ourNetwork' ? 'Our Network' : category.charAt(0).toUpperCase() + category.slice(1)}
                 </h3>
                 <ul className="space-y-3">
                   {links.map((link, linkIndex) => (
