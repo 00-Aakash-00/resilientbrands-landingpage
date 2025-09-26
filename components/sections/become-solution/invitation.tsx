@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useContactModal } from "@/hooks/use-contact-modal";
 import GrainGradientLite from "@/components/GrainGradientLite";
 import { instrumentSerif } from "@/lib/fonts";
@@ -48,35 +48,6 @@ export default function TheInvitation() {
         className="relative z-10 max-w-5xl mx-auto"
       >
         <div className={`relative ${isMobile ? "p-8" : "p-16 lg:p-24"}`}>
-          {/* Decorative elements */}
-          <motion.div
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-            className="absolute top-8 right-8"
-          >
-            <Sparkles className="w-8 h-8 text-cyan-400/30" />
-          </motion.div>
-          <motion.div
-            animate={{
-              rotate: [360, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-            className="absolute bottom-8 left-8"
-          >
-            <Sparkles className="w-6 h-6 text-emerald-400/30" />
-          </motion.div>
 
           <div className="text-center">
             {/* Heading */}

@@ -9,17 +9,20 @@ const edges = [
   {
     icon: Zap,
     title: "Faster adoption through trusted relationships",
-    gradient: "from-yellow-500 to-orange-500"
+    gradient: "from-yellow-500 to-orange-500",
+    borderColor: "border-orange-500"
   },
   {
     icon: TrendingUp,
     title: "Lower churn because clients stick with provider-led outcomes",
-    gradient: "from-cyan-500 to-blue-500"
+    gradient: "from-cyan-500 to-blue-500",
+    borderColor: "border-cyan-500"
   },
   {
     icon: RefreshCw,
     title: "A growth flywheel powered by aligned incentives, not just ad spend",
-    gradient: "from-emerald-500 to-green-500"
+    gradient: "from-emerald-500 to-green-500",
+    borderColor: "border-emerald-500"
   }
 ]
 
@@ -70,22 +73,11 @@ export default function CompetitiveEdge() {
                 <div className="relative bg-slate-900/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 hover:bg-slate-900/90 transition-colors duration-300">
                   <div className="flex items-center gap-6">
                     {/* Icon */}
-                    <motion.div
-                      animate={{
-                        rotate: [0, 360],
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        ease: "linear",
-                      }}
-                      className="flex-shrink-0"
-                    >
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${edge.gradient} p-3`}>
-                        <edge.icon className="w-full h-full text-white" />
+                    <div className="flex-shrink-0">
+                      <div className={`w-16 h-16 rounded-xl border-2 ${edge.borderColor} bg-transparent p-3`}>
+                        <edge.icon className={`w-full h-full bg-gradient-to-br ${edge.gradient} text-transparent bg-clip-text`} />
                       </div>
-                    </motion.div>
+                    </div>
 
                     {/* Text */}
                     <p className={`${isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"} text-white font-medium leading-relaxed`}>

@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Sparkles } from "lucide-react";
-import GrainGradientLite from "@/components/GrainGradientLite";
 import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
 import { GrainGradient } from "@paper-design/shaders-react";
@@ -45,35 +43,6 @@ export default function OwnerInvitation() {
         className="relative z-10 max-w-5xl mx-auto"
       >
         <div className={`relative ${isMobile ? "p-8" : "p-16 lg:p-24"}`}>
-          {/* Decorative elements */}
-          <motion.div
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-            className="absolute top-8 right-8"
-          >
-            <TrendingUp className="w-8 h-8 text-amber-400/30" />
-          </motion.div>
-          <motion.div
-            animate={{
-              rotate: [360, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-            }}
-            className="absolute bottom-8 left-8"
-          >
-            <Sparkles className="w-6 h-6 text-yellow-400/30" />
-          </motion.div>
 
           <div className="text-center">
             {/* Don't miss out section */}
