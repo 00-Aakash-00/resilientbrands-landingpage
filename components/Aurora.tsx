@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 
 const VERT = `#version 300 es
@@ -112,19 +112,10 @@ const hexToRgb = (hex: string): number[] => {
 };
 
 export default function Aurora(props: AuroraProps) {
-  const {
-    colorStops = ["#5227FF", "#7cff67", "#5227FF"],
-    amplitude = 1.0,
-    blend = 0.5,
-  } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
 
   const ctnDom = useRef<HTMLDivElement>(null);
-
-  const colorStopsArray = useMemo(() => {
-    return colorStops.map(hexToRgb);
-  }, [colorStops]);
 
   useEffect(() => {
     const ctn = ctnDom.current;
@@ -309,7 +300,7 @@ export default function Aurora(props: AuroraProps) {
       window.removeEventListener("resize", resize);
       document.removeEventListener(
         "visibilitychange",
-        onVisibilityChange as any
+        onVisibilityChange as EventListener
       );
       io.disconnect();
       ro?.disconnect();

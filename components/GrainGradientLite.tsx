@@ -37,14 +37,10 @@ export default function GrainGradientLite(props: GrainGradientLiteProps) {
   const softnessStop = Math.round(60 + (1 - clamp(softness, 0, 1)) * 25); // 60%..85%
   const noiseOpacity = clamp(noise, 0, 1) * 0.18; // subtle grain
 
-  const vars: React.CSSProperties = {
-    // @ts-ignore - CSS variables are allowed
+  const vars: React.CSSProperties & Record<string, string> = {
     "--c1": color1,
-    // @ts-ignore
     "--c2": color2,
-    // @ts-ignore
     "--c3": color3,
-    // @ts-ignore
     "--angle": `${angle}deg`,
   };
 

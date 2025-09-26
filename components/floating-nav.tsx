@@ -53,13 +53,23 @@ export default function FloatingNav() {
             {/* Center navigation */}
             <div className={`hidden xl:flex items-center justify-center gap-6`}>
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
-                >
-                  {link.name}
-                </Link>
+                link.name === "Services Guide" ? (
+                  <button
+                    key={link.name}
+                    onClick={openContactModal}
+                    className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-white/80 hover:text-white text-sm font-medium transition-colors whitespace-nowrap`}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
 
@@ -115,14 +125,27 @@ export default function FloatingNav() {
             >
               <nav className={`flex flex-col items-center ${isMobile ? 'gap-4' : 'gap-6'} ${isSmallMobile ? 'text-base' : 'text-lg'} font-medium text-white`}>
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="hover:text-primary-foreground/80 transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
+                  link.name === "Services Guide" ? (
+                    <button
+                      key={link.name}
+                      className="hover:text-primary-foreground/80 transition-colors"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        openContactModal();
+                      }}
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="hover:text-primary-foreground/80 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )
                 ))}
                 <div className={`flex flex-col ${isMobile ? 'gap-3' : 'gap-4'} w-full ${isMobile ? 'mt-4' : 'mt-6'}`}>
                   <Link
