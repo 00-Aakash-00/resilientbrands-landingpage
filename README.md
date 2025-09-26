@@ -151,5 +151,3 @@ This project is proprietary and confidential. All rights reserved by Resilient B
 - Website: [https://www.resilientbrands.ai](https://www.resilientbrands.ai)
 
 ---
-
-Built with ❤️ for startup founders
