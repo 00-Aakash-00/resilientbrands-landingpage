@@ -24,20 +24,21 @@ export default function SolutionsOwnerHero() {
                 "#F59E0B", // Golden
               ]}
               amplitude={1.8}
-              blend={0.7}
+              blend={0.3}
               speed={1}
             />
           </div>
 
           {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 pointer-events-none z-10" />
         </div>
       </div>
 
       <div
-        className={`relative z-20 max-w-7xl mx-auto ${isMobile ? "px-4" : "px-4 sm:px-6"} h-full flex flex-col justify-center`}
+        className={`relative z-20 max-w-7xl mx-auto ${isMobile ? "px-4" : "px-4 sm:px-6"} h-full pointer-events-none`}
       >
-        <div className={`${isMobile ? "mt-24 px-2" : "mt-32"}`}>
+        <div className="flex flex-col items-center justify-center h-full">
+          <div className={`text-center ${isMobile ? "mt-32 px-2" : "mt-72"} pointer-events-auto`}>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +75,7 @@ export default function SolutionsOwnerHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className={`${isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"} text-neutral-300 ${isMobile ? "mb-6 max-w-full" : "mb-8 max-w-3xl"} leading-relaxed`}
+            className={`${isSmallMobile ? "text-base" : isMobile ? "text-lg" : "text-xl"} text-neutral-300 ${isMobile ? "mb-6 max-w-full" : "mb-8 max-w-3xl mx-auto"} leading-relaxed`}
           >
             As a Managed Service Provider, you bring trust, relationships, and expertise to every client conversation providing the outcomes the solutions promise. But here&apos;s the truth: you rarely if ever own the tools you bring to market. You do the heavy lifting, build the client trust, but the real value flows back to the vendors as they rely on you for their growth.
           </motion.p>
@@ -87,6 +88,7 @@ export default function SolutionsOwnerHero() {
           >
             That&apos;s the broken model Resilient Brands is changing.
           </motion.p>
+          </div>
         </div>
       </div>
     </section>

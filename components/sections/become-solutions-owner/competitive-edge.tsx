@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import GrainGradientLite from "@/components/GrainGradientLite";
 import { Zap, Handshake } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
@@ -13,22 +12,8 @@ export default function CompetitiveEdge() {
     <section
       className={`relative ${isMobile ? "py-16" : "py-24"} overflow-hidden`}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0">
-        <GrainGradientLite
-          style={{ height: "100%", width: "100%" }}
-          colorBack="hsl(240, 10%, 3%)"
-          softness={0.85}
-          intensity={0.7}
-          noise={0.2}
-          angle={180}
-          colors={[
-            "hsl(45, 100%, 45%)",
-            "hsl(185, 90%, 45%)",
-            "hsl(35, 90%, 50%)",
-          ]}
-        />
-      </div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-black" />
 
       <div
         className={`relative z-10 max-w-7xl mx-auto ${

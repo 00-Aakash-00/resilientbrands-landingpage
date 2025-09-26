@@ -20,7 +20,7 @@ export default function OpenForBusiness() {
     >
       {/* GrainGradient Background */}
       <div className="absolute inset-0">
-        <GrainGradient
+        {/* <GrainGradient
           style={{ height: "100%", width: "100%" }}
           colorBack="hsl(0, 0%, 0%)"
           softness={0.76}
@@ -37,7 +37,7 @@ export default function OpenForBusiness() {
             "hsl(190, 70%, 45%)",
             "hsl(195, 90%, 55%)",
           ]}
-        />
+        /> */}
       </div>
 
       <motion.div

@@ -1575,9 +1575,9 @@ export default function BrandManagement() {
   const { isMobile, isSmallMobile } = useScreenSize();
 
   return (
-    <section className={`relative ${isMobile ? 'pt-16' : 'pt-40'} ${isMobile ? 'px-3' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
+    <section className={`relative ${isMobile ? 'py-16' : 'pt-40'} ${isMobile ? 'px-6' : 'px-4 sm:px-6 lg:px-8'} bg-black overflow-hidden`}>
       <div className="relative max-w-7xl mx-auto">
-        <div className={`${isMobile ? 'flex flex-col gap-10' : 'grid lg:grid-cols-2 gap-20 items-center'}`}>
+        <div className={`${isMobile ? 'flex flex-col gap-8' : 'grid lg:grid-cols-2 gap-20 items-center'}`}>
           {/* Enhanced left content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -1587,7 +1587,7 @@ export default function BrandManagement() {
             className="relative"
           >
             <motion.h2
-              className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-bold tracking-tight text-white ${isMobile ? 'mb-3' : 'mb-4'} leading-[1.1]`}
+              className={`${instrumentSerif.className} ${isSmallMobile ? 'text-2xl' : isMobile ? 'text-3xl' : 'text-4xl md:text-5xl lg:text-6xl'} font-bold tracking-tight text-white ${isMobile ? 'mb-4 text-center' : 'mb-4'} leading-[1.1]`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -1606,7 +1606,7 @@ export default function BrandManagement() {
             </motion.h2>
 
             <motion.p
-              className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'mb-8' : 'mb-14'} leading-relaxed ${isMobile ? 'max-w-sm' : 'max-w-xl'} font-normal`}
+              className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base md:text-lg'} text-neutral-500 ${isMobile ? 'mb-8 text-center mx-auto' : 'mb-14'} leading-relaxed ${isMobile ? 'max-w-sm' : 'max-w-xl'} font-normal`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -1674,13 +1674,15 @@ export default function BrandManagement() {
               })}
             </div>
 
-            <Button
-              size={isMobile ? 'default' : 'lg'}
-              className={`bg-white hover:bg-white/90 text-black font-semibold ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} ${isMobile ? 'px-6 py-3' : 'px-10 py-6'} h-auto transform hover:scale-105 transition-all duration-300 ${isMobile ? 'w-full' : ''}`}
-            >
-              Get Started
-              <ArrowRight className={`ml-3 ${isMobile ? 'h-4 w-4' : 'h-6 w-6'}`} />
-            </Button>
+            <div className={`${isMobile ? 'flex justify-center' : ''}`}>
+              <Button
+                size={isMobile ? 'default' : 'lg'}
+                className={`bg-white hover:bg-white/90 text-black font-semibold ${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-lg'} ${isMobile ? 'px-6 py-3' : 'px-10 py-6'} h-auto transform hover:scale-105 transition-all duration-300 ${isMobile ? 'w-full max-w-xs' : ''}`}
+              >
+                Get Started
+                <ArrowRight className={`ml-3 ${isMobile ? 'h-4 w-4' : 'h-6 w-6'}`} />
+              </Button>
+            </div>
           </motion.div>
 
           {/* Enhanced right visual with 3D perspective */}

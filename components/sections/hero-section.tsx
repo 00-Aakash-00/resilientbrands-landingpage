@@ -17,7 +17,6 @@ export default function HeroSection() {
         } w-full text-white overflow-hidden bg-black`}
         aria-label="Hero"
       >
-        {/* Container for the centered background effect - like Cursor */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div
             className={`relative ${

@@ -30,7 +30,7 @@ export default function FloatingNav() {
 
   return (
     <>
-      <nav className={`fixed ${isMobile ? 'top-2' : 'top-4'} left-1/2 -translate-x-1/2 z-50 ${isMobile ? 'w-[calc(100%-1rem)]' : 'w-[calc(100%-2rem)]'} ${isMobile ? 'max-w-[calc(100%-1rem)]' : 'max-w-[95%]'}`} role="navigation" aria-label="Main navigation">
+      <nav className={`fixed ${isMobile ? 'top-2' : 'top-4'} left-1/2 -translate-x-1/2 z-[9999] ${isMobile ? 'w-[calc(100%-1rem)]' : 'w-[calc(100%-2rem)]'} ${isMobile ? 'max-w-[calc(100%-1rem)]' : 'max-w-[95%]'}`} role="navigation" aria-label="Main navigation">
         <div className={`bg-black/80 backdrop-blur-xl ${isMobile ? 'rounded-lg px-3' : 'rounded-2xl px-8 lg:px-10'}`}>
           <div className={`${isMobile ? 'flex items-center justify-between' : 'grid grid-cols-3 items-center'} ${isMobile ? 'h-12' : 'h-20'}`}>
             {/* Logo on the left */}
