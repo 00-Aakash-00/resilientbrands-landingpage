@@ -203,7 +203,7 @@ export default function PopularServices() {
 
                 <div className={`relative ${isMobile ? 'flex flex-col gap-4' : 'flex items-center justify-between'}`}>
                   <div className={`flex items-center ${isMobile ? 'gap-3' : 'gap-6'}`}>
-                    <div className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} ${isMobile ? 'rounded-lg' : 'rounded-xl'} bg-transparent border border-white/50 flex items-center justify-center`}>
+                    <div className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} ${isMobile ? 'rounded-lg' : 'rounded-xl'} bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm flex items-center justify-center`}>
                       {(() => {
                         const Icon = servicesData[activeTab].icon;
                         return <Icon className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} text-white`} />;
@@ -253,7 +253,7 @@ export default function PopularServices() {
 
                     <div className={`flex items-start ${isMobile ? 'gap-3' : 'gap-4'}`}>
                       {/* Icon container */}
-                      <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-lg bg-transparent border border-white/50 flex-shrink-0 flex items-center justify-center`}>
+                      <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} rounded-lg bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm flex-shrink-0 flex items-center justify-center`}>
                         <ChevronRight className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-white`} />
                       </div>
 

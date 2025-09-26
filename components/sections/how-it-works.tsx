@@ -136,7 +136,7 @@ export default function HowItWorks() {
                         <span className={`${isSmallMobile ? 'text-3xl' : isMobile ? 'text-4xl' : 'text-5xl'} font-bold text-slate-700`}>
                           {step.number}
                         </span>
-                        <div className={`${isMobile ? 'w-10 h-10' : 'w-12 h-12'} rounded-lg bg-transparent border border-white/50 flex items-center justify-center`}>
+                        <div className={`${isMobile ? 'w-10 h-10' : 'w-12 h-12'} rounded-lg bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm flex items-center justify-center`}>
                           <Icon className={`${isMobile ? 'w-5 h-5' : 'w-6 h-6'} text-white`} />
                         </div>
                       </div>

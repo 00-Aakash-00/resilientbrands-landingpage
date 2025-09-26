@@ -1035,8 +1035,8 @@ const AdvancedBentoGrid = () => {
               <div className={`relative h-full ${isMobile ? 'p-4' : 'p-6'} flex flex-col`}>
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-md bg-transparent border border-white/50">
-                      <Icon className="w-4 h-4 text-white" />
+                    <div className="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm">
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
                       <h3 className={`${isSmallMobile ? 'text-sm' : isMobile ? 'text-base' : 'text-base'} font-semibold text-white tracking-tight leading-tight mb-1`}>

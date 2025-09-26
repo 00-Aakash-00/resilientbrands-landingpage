@@ -1633,7 +1633,7 @@ export default function BrandManagement() {
                       className={`relative flex items-start ${isMobile ? 'gap-3' : 'gap-4'}`}
                     >
                       {/* Icon container */}
-                      <div className="p-2 rounded-md bg-transparent border border-white/50 flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                      <div className="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm flex-shrink-0 transition-transform duration-300 hover:scale-110">
                         <feature.icon className="w-4 h-4 text-white transition-all duration-300" />
                       </div>
 

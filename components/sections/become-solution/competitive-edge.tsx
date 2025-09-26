@@ -74,8 +74,8 @@ export default function CompetitiveEdge() {
                   <div className="flex items-center gap-6">
                     {/* Icon */}
                     <div className="flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-xl border-2 ${edge.borderColor} bg-transparent p-3`}>
-                        <edge.icon className={`w-full h-full bg-gradient-to-br ${edge.gradient} text-transparent bg-clip-text`} />
+                      <div className={`w-16 h-16 rounded-xl border-2 ${edge.borderColor} bg-slate-800/30 backdrop-blur-sm p-3`}>
+                        <edge.icon className={`w-full h-full text-white`} />
                       </div>
                     </div>
 

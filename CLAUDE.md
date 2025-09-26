@@ -63,3 +63,40 @@ The project uses a `.env` file with the following variables:
           </h2> 
 
 here you add mt-1, and I replaced it with py-1 which is better since the text doesn't get cutoff that way
+
+## Icon Styling Guidelines
+
+All icons throughout the application should follow this consistent style:
+
+### Standard Icon Container Style
+```jsx
+<div className="p-3 rounded-lg bg-slate-800/30 border border-slate-700/50 backdrop-blur-sm">
+  <Icon className="w-5 h-5 text-white" />
+</div>
+```
+
+### Key Properties:
+- **Background**: `bg-slate-800/30` - Semi-transparent dark background
+- **Border**: `border border-slate-700/50` - Subtle border for definition
+- **Backdrop**: `backdrop-blur-sm` - Subtle blur effect for depth
+- **Rounded**: `rounded-lg` - Consistent rounded corners
+- **Padding**: `p-3` - Standard padding for icon containers
+- **Icon Color**: `text-white` - White icons for visibility
+
+### Size Variations:
+- **Small**: `w-8 h-8` container, `w-4 h-4` icon
+- **Medium**: `w-10 h-10` container, `w-5 h-5` icon
+- **Large**: `w-12 h-12` container, `w-6 h-6` icon
+- **Extra Large**: `w-16 h-16` container, `w-8 h-8` icon
+
+### DO NOT:
+- Use solid background colors
+- Use spinning animations on icons
+- Use `text-transparent` with `bg-clip-text` (makes icons invisible)
+- Use decorative star elements
+
+### ALWAYS:
+- Use bordered style with transparent/semi-transparent background
+- Keep icons static (no animations)
+- Use white text color for visibility
+- Apply consistent rounded corners and padding

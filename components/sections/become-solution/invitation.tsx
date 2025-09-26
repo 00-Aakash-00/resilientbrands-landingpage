@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useContactModal } from "@/hooks/use-contact-modal";
-import GrainGradientLite from "@/components/GrainGradientLite";
 import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
 import { GrainGradient } from "@paper-design/shaders-react";

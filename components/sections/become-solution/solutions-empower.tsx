@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import GrainGradientLite from "@/components/GrainGradientLite";
 import { CheckCircle2 } from "lucide-react";
 import { instrumentSerif } from "@/lib/fonts";
 import { useScreenSize } from "@/hooks/use-mobile";
@@ -29,22 +28,8 @@ export default function SolutionsEmpower() {
     <section
       className={`relative ${isMobile ? "py-16" : "py-24"} overflow-hidden`}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0">
-        <GrainGradientLite
-          style={{ height: "100%", width: "100%" }}
-          colorBack="hsl(240, 10%, 3%)"
-          softness={0.9}
-          intensity={0.6}
-          noise={0.2}
-          angle={45}
-          colors={[
-            "hsl(185, 100%, 30%)",
-            "hsl(150, 80%, 35%)",
-            "hsl(170, 90%, 40%)",
-          ]}
-        />
-      </div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-black" />
 
       <div
         className={`relative z-10 max-w-7xl mx-auto ${
